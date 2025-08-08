@@ -43,7 +43,9 @@
 
 | 분야 | 기술 |
 |------|------|
-| 프론트엔드 | <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">, CSS, JavaScript |
+| 프론트엔드 | <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+              <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+              <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">|
 | 백엔드 | Java, JSP/Servlet |
 | 서버 | Apache Tomcat, Flask |
 | 데이터베이스 | Oracle |
