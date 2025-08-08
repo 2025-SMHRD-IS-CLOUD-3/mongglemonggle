@@ -43,7 +43,7 @@
 
 | 분야 | 기술 |
 |------|------|
-| 프론트엔드 | HTML, CSS, JavaScript |
+| 프론트엔드 | <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">, CSS, JavaScript |
 | 백엔드 | Java, JSP/Servlet |
 | 서버 | Apache Tomcat, Flask |
 | 데이터베이스 | Oracle |
