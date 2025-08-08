@@ -1,100 +1,87 @@
-# 몽글몽글 프로젝트 README
-
-# 🛍️ AIMAE: 물건을 대신 추천해주는 AI 쇼핑 어시스턴트
-
-> 멀티모달 입력(텍스트 + 이미지)을 활용한 개인 맞춤형 제품 추천 및 비교 서비스
+# 🛍️ AIMAE (팀명: 몽글몽글)
+> 당신의 고민을 대신 추천해주는 AI 쇼핑 어시스턴트
 
 ---
 
-## 📌 프로젝트 소개
-
-**AIMAE**는 사용자의 텍스트 질문이나 제품 사진을 바탕으로, 상황에 맞는 제품을 추천하고 비교 분석해주는 AI 쇼핑 어시스턴트입니다.
-
-> "복잡한 쇼핑 고민, 한 줄 질문이나 사진 한 장으로 해결하세요!"
-
----
-
-## 🧠 핵심 기능
-
-### 🔍 입력 처리
-- 자연어 텍스트 입력 (예: "잇몸에 좋은 치약 추천해줘")
-- 이미지 입력 (예: 제품 사진 업로드)
-- 텍스트 + 이미지 동시 입력
-
-### 🧠 AI 분석
-- NLP 기반 조건 추출 (KoNLPy + GPT)
-- 이미지 분류 및 제품 식별 (Teachable Machine / Roboflow)
-- 조건 기반 매칭 및 유사 제품 검색
-
-### 🛒 추천 및 비교
-- 제품 추천 리스트 생성
-- 가격/기능/리뷰 등 조건별 비교표 제공
-- 요약 및 의사결정 가이드 제시
-
-### 🌐 웹 서비스
-- JAVA 기반 직관적인 UI
-- 장바구니 기능 (추가, 삭제, 수량 변경 등)
-- 회원가입, 로그인, 마이페이지 기능
-- 결제 기능 연동 (아임포트 API)
+## 👀 서비스 소개
+* **서비스명**: AIMAE (아이메이)
+* **서비스 설명**: 
+  자연어 질문 또는 제품 이미지를 분석하여 사용자의 상황에 맞는 제품을 추천하고, 조건 비교 및 핵심 요약을 통해 최종 선택을 도와주는 AI 기반의 쇼핑 의사결정 지원 서비스입니다.
 
 ---
 
-## ⚙️ 기술 스택
-
-| 분야 | 기술 |
-|------|------|
-| 프론트엔드 | <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"> |
-              <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-              <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-| 백엔드 | Java, JSP/Servlet |
-| 서버 | Apache Tomcat, Flask |
-| 데이터베이스 | Oracle |
-| AI | OpenAI GPT API, KoNLPy, Teachable Machine |
-| 결제 | 아임포트 API |
-| 협업 | Git, GitHub |
+## 📅 프로젝트 기간
+2025.07.21 ~ 2025.08.28 (총 6주)
 
 ---
 
-## 🗂️ 프로젝트 구조
-
-```
-/frontend/         # 웹 프론트엔드
-/backend/          # Java 기반 서버 로직
-/api/              # Flask 기반 AI 연동 서버
-/models/           # 이미지 분류 모델
-/data/             # 크롤링 및 학습 데이터
-/documents/        # 기획서, 와이어프레임, 설계 문서
-```
+## ⭐ 주요 기능
+- 자연어 입력 기반 제품 조건 분석
+- 이미지 분류를 통한 제품 자동 식별
+- 조건 기반 적합도 계산 및 추천
+- 가격/기능/리뷰 기준 제품 비교표 제공
+- 핵심 장단점 요약 및 선택 가이드 제공
+- 장바구니 기능 및 결제 연동 (아임포트)
 
 ---
 
-## 💡 기대효과 및 활용 방안
+## ⛏ 기술스택
 
-- 소비자의 제품 선택 피로도 감소
-- 쇼핑몰의 체류 시간 및 구매 전환율 상승
-- 이커머스, 건강기능식품, 뷰티 등 다양한 분야로 확장 가능
-- B2B 기업 대상 추천 솔루션으로 활용 가능
+### ✅ 기본 사용언어
+<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>
+
+### 🎨 프론트엔드
+<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"/>
+
+### 🧰 백엔드 & 서버
+<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
+<img src="https://img.shields.io/badge/Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black"/>
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/>
+
+### 🧠 AI 모델
+<img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
+<img src="https://img.shields.io/badge/TeachableMachine-43853d?style=for-the-badge&logo=google&logoColor=white"/>
+<img src="https://img.shields.io/badge/Roboflow-009EF6?style=for-the-badge&logo=roboflow&logoColor=white"/>
+
+### 🗄 데이터베이스
+<img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"/>
+
+### 💳 결제 연동
+<img src="https://img.shields.io/badge/Iamport-009DDC?style=for-the-badge&logo=iamport&logoColor=white"/>
+
+### 🤝 협업도구
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
 
 ---
 
-## 👥 팀 소개 (몽글몽글)
+## 👨‍👩‍👧‍👦 팀원 역할
 
 | 이름 | 역할 및 담당 |
 |------|---------------|
-| 한찬희 (팀장) | 총괄, PM, 기획/DB/설계/문서, UI/UX, FRONT-END, BACK-END, PPT/발표 |
-| 임진서 | 기획/설계/문서, BACK-END, AI 모델 파인튜닝/학습, API 연동 (OpenAI, Iamport), 학습용 데이터 수집, PPT |
-| 오정관 | DB 설계/구축, BACK-END, 장바구니 기능 구현 (구매, 등록, 수정), 자료 수집 |
-| 양용석 | BACK-END, 회원 기능 구현 (회원 가입, 정보 변경, 삭제·수정), 자료 수집 |
+| **한찬희 (팀장)** | 총괄, PM, 기획/DB/설계/문서, UI/UX, FRONT-END, BACK-END, PPT/발표 |
+| **임진서** | 기획/설계/문서, BACK-END, AI 모델 파인튜닝/학습, API 연동 (OpenAI, Iamport), 학습용 데이터 수집, PPT |
+| **오정관** | DB 설계/구축, BACK-END, 장바구니 기능 구현 (구매, 등록, 수정), 자료 수집 |
+| **양용석** | BACK-END, 회원 기능 구현 (회원 가입, 정보 변경, 삭제/수정), 자료 수집 |
 
 ---
 
-## 📆 개발 일정
+## 🤾‍♂️ 트러블슈팅
 
-| 기간 | 주요 내용 |
-|------|----------|
-| 7/21~8/13 | 기획, 설계, 와이어프레임, 데이터 설계 |
-| 8/13~8/27 | AI 연동, 웹 구현, 통합 테스트 |
-| 8/28 | 최종 발표 및 시연 |
+### 문제1: 이미지 분류 정확도 부족
+- **원인**: 오픈 데이터셋 기반 학습만으로 국내 제품 인식 정확도 낮음
+- **해결**: 파인튜닝을 통해 국내 쇼핑몰 이미지로 추가 학습
+
+### 문제2: 자연어 조건 추출 누락
+- **원인**: 복합 조건 질의(NLP)에서 주요 키워드 누락 발생
+- **해결**: GPT 기반 프롬프트 엔지니어링으로 다중 키워드 추출 강화
+
+### 문제3: 장바구니 UI 혼란
+- **원인**: 장바구니 제품 수정/삭제 동선 불명확
+- **해결**: UI 개선 및 버튼 이벤트 단순화
 
 ---
 
