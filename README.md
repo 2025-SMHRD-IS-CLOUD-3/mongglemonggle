@@ -1,4 +1,4 @@
-# mongglemonggle
+# 몽글몽글 프로젝트 README
 
 # 🛍️ Aimae: 당신의 고민을 대신 결정해주는 AI 쇼핑 어시스턴트
 
