@@ -8,7 +8,7 @@ public class OracleTest {
 	
     public static void main(String[] args) {
         
-        String url = "jdbc:oracle:thin:@campus_24IS_CLOUD3_p2_5:1524:xe"; 
+        String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe"; 
         String username = "campus_24IS_CLOUD3_p2_5"; 
         String password = "smhrd5"; 
 
