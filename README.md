@@ -1,6 +1,4 @@
-# 몽글몽글 프로젝트 README
-
-# 🛍️ AIMAE: 물건을 대신 추천해주는 AI 쇼핑 어시스턴트
+# 🛍️ AIMAE: 고민 많은 당신을 위한 AI 쇼핑 메이트
 
 > 멀티모달 입력(텍스트 + 이미지)을 활용한 개인 맞춤형 제품 추천 및 비교 서비스
 
@@ -32,7 +30,7 @@
 - 요약 및 의사결정 가이드 제시
 
 ### 🌐 웹 서비스
-- JAVA 기반 직관적인 UI
+- React 기반 직관적인 UI
 - 장바구니 기능 (추가, 삭제, 수량 변경 등)
 - 회원가입, 로그인, 마이페이지 기능
 - 결제 기능 연동 (아임포트 API)
@@ -43,26 +41,15 @@
 
 | 분야 | 기술 |
 |------|------|
-| 프론트엔드 | HTML, CSS, JavaScript |
-| 백엔드 | Java, JSP/Servlet |
-| 서버 | Apache Tomcat, Flask |
-| 데이터베이스 | Oracle |
+| 프론트엔드 | <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> |
+| 디자인 | <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/> |
+| 백엔드 / 언어 | <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>  JSP/Servlet |
+| 서버 | <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white"> <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"> |
+| 데이터베이스 | <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/> |
 | AI | OpenAI GPT API, KoNLPy, Teachable Machine |
 | 결제 | 아임포트 API |
-| 협업 | Git, GitHub |
-
----
-
-## 🗂️ 프로젝트 구조
-
-```
-/frontend/         # 웹 프론트엔드
-/backend/          # Java 기반 서버 로직
-/api/              # Flask 기반 AI 연동 서버
-/models/           # 이미지 분류 모델
-/data/             # 크롤링 및 학습 데이터
-/documents/        # 기획서, 와이어프레임, 설계 문서
-```
+| 협업 | <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/> |
+| 개발도구 | <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/> <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/> |
 
 ---
 
@@ -75,6 +62,7 @@
 
 ---
 
+
 ## 👥 팀 소개 (몽글몽글)
 
 | 이름 | 역할 및 담당 |
@@ -84,7 +72,6 @@
 | 오정관 | DB 설계/구축, BACK-END, 장바구니 기능 구현 (구매, 등록, 수정), 자료 수집 |
 | 양용석 | BACK-END, 회원 기능 구현 (회원 가입, 정보 변경, 삭제·수정), 자료 수집 |
 
----
 
 ## 📆 개발 일정
 
@@ -95,4 +82,3 @@
 | 8/28 | 최종 발표 및 시연 |
 
 ---
-
