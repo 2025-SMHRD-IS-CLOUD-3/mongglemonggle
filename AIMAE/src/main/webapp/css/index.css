@@ -1,0 +1,368 @@
+body {
+    font-family: 'Pretendard-Regular', sans-serif;
+}
+
+.logo2 {
+    text-decoration: none;
+    color: #8c52ff;
+    text-shadow: 0 0 10px rgba(124, 58, 237, 0.3), 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+.content {
+    display: flex;
+    min-height: calc(100vh - 190px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(45deg, #ffffff, #ffffff, #fdf0ff, #fae3ff, #ffffff, #ffffff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+/* 그라디언트 색깔을 변화시키는 애니메이션 */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.content-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;  /* 10px -> rem으로 변경 */
+    margin-bottom: 2.5rem;
+    color: #555;
+}
+
+.content-product {
+    height: 500px;
+}
+
+.cotent-header {
+    margin-left: 40px;
+}
+
+.content-product-list {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.product-list-box {
+    width: 246px;
+    height: 284px;
+    background-color: #e6e6e6;
+    gap: 50px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;  /* form 기본 여백 제거 */
+    padding: 0; /* form 기본 패딩 제거 */
+}
+
+.search-btn {
+    margin-top: 3.125rem;  /* 50px -> rem으로 변경 */
+    width: 50rem;  /* 800px -> rem으로 변경 */
+    padding: 0.625rem 0.9375rem;  /* 10px 15px -> rem으로 변경 */
+    background-color: #e6e6e6;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 0.3125rem;  /* 5px -> rem으로 변경 */
+    font-size: 1rem;  /* 16px -> rem으로 변경 */
+    cursor: pointer;
+}
+
+/* 기본 레이아웃 설정 */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.search input::placeholder {
+    color: #886666;
+}
+
+.search input:focus {
+    border: 2px solid #007bff;
+}
+
+/* 검색 아이콘을 왼쪽에 배치 */
+.search a.search-icon {
+    padding: 10px;
+    margin-right: 10px; /* 오른쪽 여백 */
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+/* 이미지 아이콘을 오른쪽에 배치 */
+.search a.image-icon {
+    padding: 10px;
+    margin-left: 15px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.search a:hover {
+    color: #007bff;
+    transform: scale(1.1);
+}
+
+/* 아이콘을 원형 배경에 넣기 */
+.search a i {
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.search a:hover i {
+    background-color: #007bff;
+    color: white;
+}
+
+.animated-text {
+    font-size: 50px;
+    font-family: 'Pretendard-Regular', sans-serif;
+    white-space: nowrap;  /* 텍스트가 한 줄로 나타나도록 */
+    overflow: hidden;  /* 글자가 넘치지 않도록 */
+    border-right: 3px solid black; /* 타이핑 커서처럼 보이게 */
+    width: 0;
+    animation: typing 2.5s steps(40) 1s forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    to {
+        width: 100%; /* 텍스트가 모두 보여지도록 width 조정 */
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent; /* 커서 깜빡임 효과 */
+    }
+}
+
+.content-product-header {
+    margin-left: 16rem;
+    margin-top: 3rem;
+}
+
+.content-header {
+  margin-left: 40px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+.content-product-list-wrapper {
+  overflow: hidden;
+  width: 800px; /* 3개 카드 너비 + gap 포함 */
+}
+
+.content-product-list {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slider-btn {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.slider-btn:hover {
+  background-color: #333;
+}
+
+#product-list {
+    justify-content: center;
+    display: flex;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* 기본 은은한 그림자 */
+    transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+#product-list:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 마우스 올렸을 때 진한 그림자 */
+}
+
+.product-list-box {
+  width: 246px;
+  height: 284px;
+  background-color: #f1f1f1;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#product-slider2 {
+    display: flex;
+}
+
+/* 슬라이더 전체 영역 가운데 정렬 */
+.product-slider {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* slick 기본 화살표 커스터마이징 */
+.slick-prev,
+.slick-next {
+    background-color: transparent;
+    border: none;
+    font-size: 32px;
+    color: #333;
+    z-index: 10;
+}
+
+/* 화살표 위치 조정 */
+.slick-prev {
+    display: flex;
+    width: 70px;
+    left: -40px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* 기본 은은한 그림자 */
+    transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 8rem;
+}
+
+.slick-prev:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 마우스 올렸을 때 진한 그림자 */
+}
+
+.slick-next {
+    display: flex;
+    width: 70px;
+    right: -40px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* 기본 은은한 그림자 */
+    transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 8rem;
+}
+
+.slick-next:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 마우스 올렸을 때 진한 그림자 */
+}
+
+.slick-prev::before {
+    font-size: 30px;
+    color: #333;
+}
+.slick-next::before {
+    font-size: 30px;
+    color: #333;
+}
+
+.list-pbox {
+    text-decoration: none;
+    color: black;
+}
+
+.content-box-img {
+    display: flex;
+    justify-content: space-around;
+}
+
+.content-img {
+    width: 48%;
+    height: auto;
+    max-width: 100%;
+    margin-left: 5px;
+    margin-bottom: 2rem;
+}
+
+/* 드롭다운 컨테이너 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* 드롭다운 메뉴 숨기기 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 4px;
+  padding: 8px 0;
+}
+
+/* 드롭다운 메뉴 항목 스타일 */
+.dropdown-content a {
+  color: #333;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+/* 마우스 오버 시 배경색 */
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* 드롭다운 열림 표시 (active 클래스) */
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+/* 마우스 오버 시 드롭다운 메뉴 보이기 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
