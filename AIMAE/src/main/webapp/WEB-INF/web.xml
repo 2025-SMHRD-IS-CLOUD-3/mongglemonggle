@@ -19,5 +19,24 @@
     <servlet-name>MainController</servlet-name>
     <url-pattern>/main</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>AimaeJoinService</display-name>
+    <servlet-name>AimaeJoinService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeJoinService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeJoinService</servlet-name>
+    <url-pattern>/AimaeJoinService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeLoginService</display-name>
+    <servlet-name>AimaeLoginService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeLoginService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeLoginService</servlet-name>
+    <url-pattern>/LoginService</url-pattern>
+  </servlet-mapping>
 </web-app>
