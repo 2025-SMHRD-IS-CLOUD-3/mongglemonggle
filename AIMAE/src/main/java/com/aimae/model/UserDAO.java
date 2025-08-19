@@ -1,5 +1,7 @@
 package com.aimae.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -41,6 +43,33 @@ public class UserDAO {
 		sqlsession.close();
 		
 		return sUser;
+		
+	}
+	
+	public int update(UserInfo updateUser) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		int cnt = sqlsession.update("update", updateUser);
+		
+		sqlsession.close();
+		
+		return cnt;
+		
+	}
+	
+	public List<UserInfo> select() {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		List<UserInfo> result = sqlsession.selectList("select");
+		
+		sqlsession.close();
+		
+		return result;
+		
 		
 	}
 	

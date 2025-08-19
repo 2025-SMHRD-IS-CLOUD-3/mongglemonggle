@@ -35,6 +35,16 @@ public class UserInfo {
 		this.userPw = userPw;
 	}
 
+
+	public UserInfo(String userPw, String email, String userName, String tell, String userAddress) {
+		super();
+		this.userPw = userPw;
+		this.email = email;
+		this.userName = userName;
+		this.tell = tell;
+		this.userAddress = userAddress;
+	}
+
 	
 	
 	

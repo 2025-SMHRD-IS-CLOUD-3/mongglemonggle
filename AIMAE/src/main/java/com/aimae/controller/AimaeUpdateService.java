@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.aimae.model.UserDAO;
 import com.aimae.model.UserInfo;
 
 
@@ -25,7 +27,20 @@ public class AimaeUpdateService extends HttpServlet {
 		String tell = request.getParameter("tell");
 		String address = request.getParameter("userAddress");
 		
-		UserInfo UpdateUser = new UserInfo(userName,email,userPw,tell,address);
+		UserInfo updateUser = new UserInfo(userName,email,userPw,tell,address);
+		
+		UserDAO dao = new UserDAO();
+		
+		int cnt = dao.update(updateUser);
+		
+		if (cnt > 0) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("upUser", updateUser);
+			response.sendRedirect("/AIMAE/html/myPage.html");
+			System.out.println("성공");
+			
+		}
 		
 		
 	
