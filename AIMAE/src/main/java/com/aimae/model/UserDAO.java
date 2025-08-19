@@ -36,11 +36,11 @@ public class UserDAO {
 		SqlSession sqlsession
 		= sqlSessionFactory.openSession(true);
 		
-		UserInfo sMember = sqlsession.selectOne("login", loginUser);
+		UserInfo sUser = sqlsession.selectOne("login", loginUser);
 		
 		sqlsession.close();
 		
-		return sMember;
+		return sUser;
 		
 	}
 	

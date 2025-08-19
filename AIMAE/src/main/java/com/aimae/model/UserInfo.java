@@ -1,8 +1,10 @@
 package com.aimae.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class UserInfo {
 	
 	private String userId;
@@ -16,7 +18,7 @@ public class UserInfo {
 	
 	public UserInfo(String userId, String userPw, String email, String userName, String tell,
 			String userAddress, String birthday) {
-		super();
+		
 		this.userId = userId;
 		this.userPw = userPw;
 		this.email = email;
@@ -28,10 +30,12 @@ public class UserInfo {
 
 
 	public UserInfo(String userId, String userPw) {
-		super();
+		
 		this.userId = userId;
 		this.userPw = userPw;
 	}
+
+	
 	
 	
 	

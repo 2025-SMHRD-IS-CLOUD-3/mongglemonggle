@@ -39,4 +39,24 @@
     <servlet-name>AimaeLoginService</servlet-name>
     <url-pattern>/LoginService</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeLogoutService</display-name>
+    <servlet-name>AimaeLogoutService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeLogoutService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeLogoutService</servlet-name>
+    <url-pattern>/AimaeLogoutService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeUpdateService</display-name>
+    <servlet-name>AimaeUpdateService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeUpdateService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeUpdateService</servlet-name>
+    <url-pattern>/AimaeUpdateService</url-pattern>
+  </servlet-mapping>
 </web-app>

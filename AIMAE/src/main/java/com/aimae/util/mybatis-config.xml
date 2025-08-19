@@ -15,6 +15,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="com/aimae/mapper/MemberMapper.xml"/>
+    <mapper resource="com/aimae/util/UserMapper.xml"/>
   </mappers>
 </configuration>
