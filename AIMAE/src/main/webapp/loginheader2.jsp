@@ -7,26 +7,26 @@
     <div class="nav">
         <ul class="nav-ul">
             <!-- 관리자일 때, 관리자 페이지로 이동하는 링크 표시 -->
-            <c:if test="${sessionScope.sUser.rule == 1}">
+            <c:if test="${sessionScope.sUser.RULE == 1}">
                 <li><a href="admin.jsp" class="link">관리자페이지</a></li>
             </c:if>
             
             <!-- 공통 메뉴: 로그아웃, 고객센터 -->
-            <li><a href="logout.jsp" class="link">로그아웃</a></li>
-            <li><a href="support.jsp" class="link">고객센터</a></li>
+            <li><a href="#" class="link">로그아웃</a></li>
+            <li><a href="#" class="link">고객센터</a></li>
             
             <!-- 일반 사용자일 때: 장바구니 표시 -->
-            <c:if test="${sessionScope.sUser.rule != 1}">
+            <c:if test="${sessionScope.sUser.RULE != 1}">
                 <li><a href="cart.jsp" class="link">장바구니</a></li>
             </c:if>
         </ul>
         
         <!-- 사용자 이름 출력 -->
-        <span class="user-greeting">${sessionScope.sUser.userName}님</span>
+        <span class="user-greeting" style="color: #3500ff; font-weight: bold;">${sessionScope.sUser.USER_NAME}님</span>
         
         <!-- 일반 사용자일 때만 마이페이지 버튼 표시 -->
-        <c:if test="${sessionScope.sUser.rule != 1}">
-            <button class="my-page-btn" onclick="location.href='myPage.jsp'">마이페이지</button>
+        <c:if test="${sessionScope.sUser.RULE != 1}">
+            <button class="login-btn" onclick="location.href='mypage.jsp'">마이페이지</button>
         </c:if>
     </div>
 </c:if>
