@@ -47,7 +47,7 @@
     </div>
 
     <!-- 로그인 / 로그아웃 헤더 변경 -->
-	<%@ include file="../loginheader.jsp" %>
+	<%@ include file="../loginheader2.jsp" %>
 
   </div>
 

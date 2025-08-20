@@ -35,9 +35,9 @@
                 </button>
 
                 <div class="dropdown-content">
-                    <a href="fruitProducts.html">과일</a>
-                    <a href="vegetableProducts.html">채소</a>
-                    <a href="electronicProducts.html">전자제품</a>
+                    <a href="fruitProducts.jsp">과일</a>
+                    <a href="vegetableProducts.jsp">채소</a>
+                    <a href="electronicProducts.jsp">전자제품</a>
                 </div>
 
             </div>
@@ -49,7 +49,7 @@
     </div>
 
         <!-- 로그인 / 로그아웃 헤더 변경 -->
-		<%@ include file="../loginheader.jsp" %>
+		<%@ include file="../loginheader2.jsp" %>
 
     </div>
 
@@ -90,40 +90,41 @@
         <!-- 기존 슬라이더 -->
         <div class="product-slider" id="product-slider2" style="justify-content: center !important;">
         <!-- 상품 1 -->
-        <div class="product-list-box">
-            <a href="#" class="list-pbox">
-                <img src="../images/favicon.ico" alt="상품 이미지" class="product-img">
-                <div class="product-info">
-                    <h3 class="product-name">화이트닝 치약</h3>
-                    <p class="product-price">₩5,000</p>
-                    <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-                </div>
-            </a>
-        </div>
+		<div class="product-list-box">
+		    <a href="productDetail.jsp" class="list-pbox">
+		        <img src="../images/favicon.ico" alt="상품 이미지" class="product-img">
+		        <div class="product-info">
+		            <h3 class="product-name">화이트닝 치약</h3>
+		            <p class="product-price">₩5,000</p>
+		            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
+		        </div>
+		    </a>
+		</div>
+		
+		<!-- 상품 2 -->
+		<div class="product-list-box">
+		    <a href="productDetail.jsp" class="list-pbox">
+		        <img src="../images/favicon.ico" alt="상품 이미지" class="product-img">
+		        <div class="product-info">
+		            <h3 class="product-name">민트 향 치약</h3>
+		            <p class="product-price">₩6,500</p>
+		            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
+		        </div>
+		    </a>
+		</div>
+		
+		<!-- 상품 3 -->
+		<div class="product-list-box">
+		    <a href="productDetail.jsp" class="list-pbox">
+		        <img src="../images/favicon.ico" alt="상품 이미지" class="product-img">
+		        <div class="product-info">
+		            <h3 class="product-name">잇몸 케어 치약</h3>
+		            <p class="product-price">₩7,200</p>
+		            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
+		        </div>
+		    </a>
+		</div>
 
-        <!-- 상품 2 -->
-        <div class="product-list-box">
-            <a href="#" class="list-pbox">
-                <img src="../images/favicon.ico" alt="상품 이미지" class="product-img">
-                <div class="product-info">
-                    <h3 class="product-name">민트 향 치약</h3>
-                    <p class="product-price">₩6,500</p>
-                    <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-                </div>
-            </a>
-        </div>
-
-        <!-- 상품 3 -->
-        <div class="product-list-box">
-            <a href="#" class="list-pbox">
-                <img src="../images/favicon.ico" alt="상품 이미지" class="product-img">
-                <div class="product-info">
-                    <h3 class="product-name">잇몸 케어 치약</h3>
-                    <p class="product-price">₩7,200</p>
-                    <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-                </div>
-            </a>
-        </div>
     </div>
         
         <!-- 표 형식 결과 -->
