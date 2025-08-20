@@ -59,7 +59,7 @@
                     <li><a href="#">찜한 상품</a></li>
                     <li><a href="#">배송지 관리</a></li>
                     <li><a href="#" id="showEdit">정보 수정</a></li>
-                    <li><a href="#">로그아웃</a></li>
+                    <li><a href="/AIMAE/LogoutService">로그아웃</a></li>
                     <li><a href="#">회원탈퇴</a></li>
                 </ul>
             </div>
@@ -81,19 +81,19 @@
                             </div>
                             <div class="info-item">
                                 <div class="email-icon"><i class="fa-solid fa-envelope"></i></div>
-                                <div><strong>이메일</strong><p>support@aimae.com</p></div>
+                                <div><strong>이메일</strong><p>${sUser.EMAIL }</p></div>
                             </div>
                             <div class="info-item">
                                 <div class="phone-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                                <div><strong>휴대폰</strong><p>010-1234-5678</p></div>
+                                <div><strong>휴대폰</strong><p>${sUser.PHONE }</p></div>
                             </div>
                             <div class="info-item">
                                 <div class="address-icon"><i class="fa-solid fa-house"></i></div>
-                                <div><strong>주소</strong><p>서울 강남구 테헤란로 107</p></div>
+                                <div><strong>주소</strong><p>${sUser.USER_ADRRESS }</p></div>
                             </div>
                             <div class="info-item">
                                 <div class="calendar-icon"><i class="fa-solid fa-calendar-day"></i></div>
-                                <div><strong>가입일</strong><p>2025-08-15</p></div>
+                                <div><strong>가입일</strong><p>${sUser.BIRTH_DATE }</p></div>
                             </div>
                         </div>
 
@@ -101,8 +101,8 @@
                             <div class="profile-photo">
                                 <i class="fa-solid fa-user"></i>
                                 <div>
-                                    <h2>환영합니다, <a style="color: #8c52ff;">한찬희</a> 님 !</h2>
-                                    <h3 style="color: #a7a7a7;">support@aimae.com</h3>
+                                    <h2>환영합니다, <a style="color: #8c52ff;">${sUser.USER_NAME }</a> 님 !</h2>
+                                    <h3 style="color: #a7a7a7;">${sUser.EMAIL }</h3>
                                 </div>
                             </div>
 
@@ -120,7 +120,7 @@
                                 <div class="point-card">
                                     <i class="fa-solid fa-crown"></i>
                                     <p><strong>회원등급</strong></p>
-                                    <span>VVIP</span>
+                                    <span>${sUser.GRADE }</span>
                                 </div>
                             </div>
 
