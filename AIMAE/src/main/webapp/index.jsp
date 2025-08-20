@@ -208,6 +208,7 @@
     <div class="content-box-img">
         <img class="content-img" src="images/freedelivery.png">
         <img class="content-img" src="images/freedelivery2.png">
+        <img class="content-img" src="images/freedelivery3.png">
     </div>
 
     <!-- Footer -->

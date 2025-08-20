@@ -42,7 +42,7 @@
 
             </div>
 
-            <a href="index.html" class="logo">
+            <a href="../index.jsp" class="logo">
                 <span style="margin-left: 10px;">AIMAE</span>
             </a>
             

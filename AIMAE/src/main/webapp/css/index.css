@@ -316,7 +316,7 @@ body {
   display: flex;
   justify-content: center; /* 이미지들 가운데 정렬 */
   gap: 2rem;                /* 이미지 사이 간격 */
-  flex-wrap: wrap;          /* 화면 작아질 때 줄바꿈 */
+  /* flex-wrap: wrap; */          /* 화면 작아질 때 줄바꿈 */
   max-width: 85rem;        /* 전체 폭 제한 */
   margin: 3rem auto;        /* 상하 여백 + 중앙 정렬 */
   padding: 0 1rem;          /* 좌우 여백 */
@@ -404,7 +404,7 @@ body {
 
 .product-price {
   font-size: 1rem;
-  color: #8c52ff;
+  color: black;
   margin-bottom: 12px;
 }
 
@@ -514,12 +514,6 @@ body {
   font-weight: 600;
   margin-bottom: 6px;
   color: #333;
-}
-
-.product-price {
-  font-size: 1rem;
-  color: #8c52ff;
-  margin-bottom: 12px;
 }
 
 .add-cart-btn {
