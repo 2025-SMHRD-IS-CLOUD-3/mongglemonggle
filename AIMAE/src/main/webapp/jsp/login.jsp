@@ -39,6 +39,7 @@
                     <input style="width: 22.9rem !important;" type="password" name="PASSWORD" placeholder="비밀번호를 입력해주세요.">
                     <button type="submit">로그인</button>
                 </div>
+            </form>
 
                 <div class="login-span">
                     <span><a href="findID.jsp">아이디 찾기</a></span> <a style="color: #939393;">|</a>
@@ -46,7 +47,6 @@
                     <span><a href="join.jsp">회원가입</a></span>
                 </div>
 
-            </form>
         </div>
 
     </div>
