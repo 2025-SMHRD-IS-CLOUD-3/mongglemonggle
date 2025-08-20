@@ -27,7 +27,12 @@ public class AimaeUpdateService extends HttpServlet {
 		String tell = request.getParameter("tell");
 		String address = request.getParameter("userAddress");
 		
-		UserInfo updateUser = new UserInfo(userName,email,userPw,tell,address);
+		UserInfo updateUser = new UserInfo();
+		updateUser.setUserId(userName);
+		updateUser.setUserPw(email);
+		updateUser.setUserPw(userPw);
+		updateUser.setUserPw(tell);
+		updateUser.setUserPw(address);
 		
 		UserDAO dao = new UserDAO();
 		
@@ -37,7 +42,7 @@ public class AimaeUpdateService extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("upUser", updateUser);
-			response.sendRedirect("/AIMAE/html/myPage.html");
+			response.sendRedirect("/AIMAE/html/myPage.jsp");
 			System.out.println("성공");
 			
 		}
