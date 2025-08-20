@@ -23,15 +23,15 @@ public class AimaeLoginService extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
-		String userId = request.getParameter("userId");
-		String userPw = request.getParameter("userPw");
+		String userId = request.getParameter("USER_ID");
+		String userPw = request.getParameter("PASSWORD");
 		
 		System.out.println("넘어온 userId: " + userId);
 	    System.out.println("넘어온 userPw: " + userPw);
 		
 	    UserInfo LoginUser = new UserInfo();
-	    LoginUser.setUserId(userId);
-	    LoginUser.setUserPw(userPw);
+	    LoginUser.setUSER_ID(userId);
+	    LoginUser.setPASSWORD(userPw);
 		
 		System.out.println("LoginUser 객체: " + LoginUser.toString());
 		

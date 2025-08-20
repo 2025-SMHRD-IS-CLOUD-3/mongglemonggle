@@ -170,19 +170,19 @@
   
   <form class="edit-form">
     <label><i class="fa-solid fa-user"></i> <a style="margin-left: 0.5rem;"> 이름 </a></label>
-    <input type="text" name="userName" value="한찬희" />
+    <input type="text" name="USER_NAME" value="한찬희" />
     
     <label><i class="fa-solid fa-envelope"></i> <a style="margin-left: 0.5rem;"> 이메일 </a></label>
-    <input type="email" name="email" value="support@aimae.com" />
+    <input type="email" name="EMAIL" value="support@aimae.com" />
 
     <label><i class="fa-solid fa-key"></i> <a style="margin-left: 0.5rem;"> 비밀번호 </a></label>
-    <input type="pw" name="userPw" value="12345" />
+    <input type="pw" name="PASSWORD" value="12345" />
     
     <label><i class="fa-solid fa-phone"></i> <a style="margin-left: 0.5rem;"> 휴대폰 </a></label>
-    <input type="tel" name="tell" value="010-1234-5678" />
+    <input type="tel" name="PHONE" value="010-1234-5678" />
     
     <label><i class="fa-solid fa-location-dot"></i> <a style="margin-left: 0.5rem;"> 주소 </a></label>
-    <input type="text" name="userAddress" value="서울 강남구 테헤란로 107" />
+    <input type="text" name="USER_ADRRESS" value="서울 강남구 테헤란로 107" />
     
     <div class="form-buttons">
       <button type="submit" class="save-btn"><i class="fa-solid fa-floppy-disk"></i> 저장</button>
