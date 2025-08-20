@@ -78,6 +78,8 @@ public class AimaeJoinService extends HttpServlet {
 //					request.setAttribute("email", email);
 					//forward방식으로 이동
 					
+					request.setAttribute("joinSuccess", "true");
+					
 					RequestDispatcher rd =
 							request.getRequestDispatcher("/index.jsp");
 					rd.forward(request, response);

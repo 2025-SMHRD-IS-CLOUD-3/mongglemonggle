@@ -297,6 +297,13 @@
             });
         });
     </script>
+    
+    
+<c:if test="${not empty joinSuccess}">
+        <script>
+            alert('회원가입 성공했습니다!');
+        </script>
+    </c:if>
 
 </body>
 </html>

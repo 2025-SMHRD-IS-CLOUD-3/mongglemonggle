@@ -218,5 +218,88 @@
         });
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form"); // 폼 요소
+
+        form.addEventListener("submit", function(event) {
+            let isValid = true;
+            let firstErrorField = null; // 첫 번째 오류 필드를 추적
+
+            // 입력값 가져오기
+            const userId = document.getElementById('userId').value.trim();
+            const userPw = document.getElementById('userPw').value.trim();
+            const userPw2 = document.getElementById('userPw2').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const phone1 = document.getElementById('tel1').value.trim();
+            const phone2 = document.getElementById('tel2').value.trim();
+            const phone3 = document.getElementById('tel3').value.trim();
+            const phone = phone1 + phone2 + phone3;
+            const address = document.getElementById('address').value.trim();
+
+            // 유효성 체크: 필수 입력 필드가 비어 있으면
+            if (!userId) {
+                if (!firstErrorField) firstErrorField = document.getElementById('userId');
+            }
+            if (!userPw) {
+                if (!firstErrorField) firstErrorField = document.getElementById('userPw');
+            }
+            if (!userPw2) {
+                if (!firstErrorField) firstErrorField = document.getElementById('userPw2');
+            }
+            if (userPw !== userPw2) {
+                if (!firstErrorField) firstErrorField = document.getElementById('userPw2');
+            }
+            if (!email) {
+                if (!firstErrorField) firstErrorField = document.getElementById('email');
+            }
+            if (!username) {
+                if (!firstErrorField) firstErrorField = document.getElementById('username');
+            }
+            if (!phone1 || !phone2 || !phone3) {
+                if (!firstErrorField) firstErrorField = document.getElementById('tel1');
+            }
+            if (!address) {
+                if (!firstErrorField) firstErrorField = document.getElementById('address');
+            }
+
+            // 유효성 검사 실패 시 경고 메시지 띄우기
+            if (!firstErrorField) {
+                return; // 모든 입력이 올바르면, 폼 제출을 계속 진행
+            }
+
+            // 첫 번째 오류가 있는 필드로 포커스 이동
+            firstErrorField.focus();
+
+            // 해당 필드에 경고 메시지 띄우기
+            let errorMessage = '';
+
+            if (firstErrorField === document.getElementById('userId')) {
+                errorMessage = '아이디를 입력해주세요.';
+            } else if (firstErrorField === document.getElementById('userPw')) {
+                errorMessage = '비밀번호를 입력해주세요.';
+            } else if (firstErrorField === document.getElementById('userPw2')) {
+                errorMessage = '비밀번호를 재입력해주세요.';
+            } else if (firstErrorField === document.getElementById('email')) {
+                errorMessage = '이메일을 입력해주세요.';
+            } else if (firstErrorField === document.getElementById('username')) {
+                errorMessage = '이름을 입력해주세요.';
+            } else if (firstErrorField === document.getElementById('tel1')) {
+                errorMessage = '전화번호를 입력해주세요.';
+            } else if (firstErrorField === document.getElementById('address')) {
+                errorMessage = '주소를 입력해주세요.';
+            }
+
+            // 경고 메시지 표시
+            alert(errorMessage);
+
+            // 폼 제출 막기
+            event.preventDefault();
+        });
+    });
+</script>
+
+
 </body>
 </html>
