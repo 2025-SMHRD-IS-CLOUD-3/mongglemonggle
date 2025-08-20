@@ -41,10 +41,10 @@ public class AimaeJoinService extends HttpServlet {
 				
 				
 				// 4. 받아온 데이터를 DB에 저장하는 작업
-				//  - 4개의 데이터를 하나로 묶어주기(MavenMember)
+				
 				UserInfo joinUser = new UserInfo(userId,userPw,email,username,tell,address,birthday);
-				// 5. DB연결할 수 있도록 MemberDAO의 join메서드 호출
-				// 		-> join메서드를 사용하기 위해서 MemberDAO 객체 생성
+				// 5. DB연결할 수 있도록 UserDAO의 join메서드 호출
+				// 		-> join메서드를 사용하기 위해서 UserDAO 객체 생성
 				UserDAO dao= new UserDAO();
 				int cnt = dao.join(joinUser);
 				// 6. 결과 값 처리

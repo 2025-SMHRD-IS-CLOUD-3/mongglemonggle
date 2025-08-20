@@ -59,4 +59,14 @@
     <servlet-name>AimaeUpdateService</servlet-name>
     <url-pattern>/AimaeUpdateService</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeSelectAllService</display-name>
+    <servlet-name>AimaeSelectAllService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeSelectAllService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeSelectAllService</servlet-name>
+    <url-pattern>/AimaeSelectAllService</url-pattern>
+  </servlet-mapping>
 </web-app>

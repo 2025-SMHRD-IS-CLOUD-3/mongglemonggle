@@ -31,10 +31,10 @@
 
             <h1 class="login-logo"><a href="../index.jsp" class="logo">AIMAE</a></h1>
 
-            <form action="/AimaeLoginService" method="post">
+            <form action="/AIMAE/AimaeLoginService" method="post">
                 <div class="login-form">
                     <input style="width: 22.9rem !important;" type="text" name="userId" placeholder="아이디를 입력해주세요.">
-                    <input style="width: 22.9rem !important;" type="password" name="UserPw" placeholder="비밀번호를 입력해주세요.">
+                    <input style="width: 22.9rem !important;" type="password" name="userPw" placeholder="비밀번호를 입력해주세요.">
                     <button type="submit">로그인</button>
                 </div>
 

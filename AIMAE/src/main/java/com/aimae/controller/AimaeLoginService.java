@@ -29,7 +29,9 @@ public class AimaeLoginService extends HttpServlet {
 		System.out.println("넘어온 userId: " + userId);
 	    System.out.println("넘어온 userPw: " + userPw);
 		
-		UserInfo LoginUser = new UserInfo(userId, userPw);
+	    UserInfo LoginUser = new UserInfo();
+	    LoginUser.setUserId(userId);
+	    LoginUser.setUserPw(userPw);
 		
 		System.out.println("LoginUser 객체: " + LoginUser.toString());
 		
@@ -42,16 +44,18 @@ public class AimaeLoginService extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("sUser", sUser);
 			System.out.println("성공");
+			System.out.println(sUser);
 			
 			RequestDispatcher rd =
-					request.getRequestDispatcher("/index.html");
+					request.getRequestDispatcher("/index.jsp");
 			rd.forward(request, response);
 			
 			
 		}else {
 			//sMember== null-> 실패 -> redirect방식으로 main이동
-			response.sendRedirect(request.getContextPath() + "/index.html");
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
 //			return "redirect:/main.jsp";
+			System.out.println("실패");
 		}
 		
 	

@@ -1,10 +1,13 @@
 package com.aimae.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+
 public class UserInfo {
 	
 	private String userId;
@@ -16,34 +19,10 @@ public class UserInfo {
 	private String birthday;
 	
 	
-	public UserInfo(String userId, String userPw, String email, String userName, String tell,
-			String userAddress, String birthday) {
-		
-		this.userId = userId;
-		this.userPw = userPw;
-		this.email = email;
-		this.userName = userName;
-		this.tell = tell;
-		this.userAddress = userAddress;
-		this.birthday = birthday;
-	}
 
 
-	public UserInfo(String userId, String userPw) {
-		
-		this.userId = userId;
-		this.userPw = userPw;
-	}
 
-
-	public UserInfo(String userPw, String email, String userName, String tell, String userAddress) {
-		super();
-		this.userPw = userPw;
-		this.email = email;
-		this.userName = userName;
-		this.tell = tell;
-		this.userAddress = userAddress;
-	}
+	
 
 	
 	
