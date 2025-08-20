@@ -10,16 +10,16 @@ import lombok.NoArgsConstructor;
 
 public class UserInfo {
 	
-	private String userNum;
-	private String userId;
-	private String userPw;
-	private String email;
-	private String userName;
-	private String phone;
-	private String userAddress;
-	private String birthday;
-	private String rule;
-	private String grade;
+	private String USER_NUM;
+	private String USER_ID;
+	private String PASSWORD;
+	private String EMAIL;
+	private String USER_NAME;
+	private String PHONE;
+	private String USER_ADRRESS;
+	private String BIRTH_DATE;
+	private String RULE;
+	private String GRADE;
 	
 	
 	
