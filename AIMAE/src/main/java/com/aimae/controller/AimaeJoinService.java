@@ -27,16 +27,16 @@ public class AimaeJoinService extends HttpServlet {
 				//		-> 데이터 받을 때마다 인코딩 필수
 				request.setCharacterEncoding("UTF-8");
 				
-				String userId = request.getParameter("UserId");
-				String userPw = request.getParameter("UserPw");
-				String email = request.getParameter("Email");
-				String username = request.getParameter("UserName");
+				String userId = request.getParameter("userId");
+				String userPw = request.getParameter("userPw");
+				String email = request.getParameter("email");
+				String username = request.getParameter("userName");
 				String tel1 = request.getParameter("tel1");
 				String tel2 = request.getParameter("tel2");
 				String tel3 = request.getParameter("tel3");
 				String tell = tel1 + tel2 + tel3;
-				String birthday = request.getParameter("Birthday");
-				String address = request.getParameter("UserAddress");
+				String birthday = request.getParameter("birthday");
+				String address = request.getParameter("userAddress");
 				
 				
 				
@@ -56,14 +56,14 @@ public class AimaeJoinService extends HttpServlet {
 					//forward방식으로 이동
 					
 					RequestDispatcher rd =
-							request.getRequestDispatcher("/index.html");
+							request.getRequestDispatcher("/index.jsp");
 					rd.forward(request, response);
 //					return "index.html";
 					// response.sendRedirect("join_success.jsp");
 					
 				}else {
 					// 영향 받은 행의 개수 = 0, <0
-					response.sendRedirect(request.getContextPath() + "/index.html");
+					response.sendRedirect(request.getContextPath() + "/index.jsp");
 //					return "redirect:/index.html";
 					
 				}
