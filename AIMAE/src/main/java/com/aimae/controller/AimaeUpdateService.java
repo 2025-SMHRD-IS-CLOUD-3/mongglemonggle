@@ -21,18 +21,18 @@ public class AimaeUpdateService extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
-		String userName = request.getParameter("userName");
-		String email = request.getParameter("email");
-		String userPw = request.getParameter("userPw");
-		String tell = request.getParameter("tell");
-		String address = request.getParameter("userAddress");
+		String userName = request.getParameter("USER_NAME");
+		String email = request.getParameter("EMAIL");
+		String userPw = request.getParameter("PASSWORD");
+		String phone = request.getParameter("PHONE");
+		String address = request.getParameter("USER_ADRRESS");
 		
 		UserInfo updateUser = new UserInfo();
-		updateUser.setUserId(userName);
-		updateUser.setUserPw(email);
-		updateUser.setUserPw(userPw);
-		updateUser.setUserPw(tell);
-		updateUser.setUserPw(address);
+		updateUser.setUSER_NAME(userName);
+		updateUser.setEMAIL(email);
+		updateUser.setPASSWORD(userPw);
+		updateUser.setPHONE(phone);
+		updateUser.setUSER_ADRRESS(address);
 		
 		UserDAO dao = new UserDAO();
 		
