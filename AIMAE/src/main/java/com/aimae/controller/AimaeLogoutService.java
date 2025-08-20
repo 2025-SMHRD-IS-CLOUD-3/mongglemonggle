@@ -22,7 +22,7 @@ public class AimaeLogoutService extends HttpServlet {
 				// 2. session 처리하기
 				session.invalidate();
 				// 3. redirect방식으로  이동
-				response.sendRedirect(request.getContextPath() + "/index.jsp");
+				response.sendRedirect(request.getContextPath() + "/index.jsp?logout=success");
 				System.out.println("성공");
 	
 	}

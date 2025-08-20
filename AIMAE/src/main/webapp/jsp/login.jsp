@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/myPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
@@ -40,7 +41,18 @@
                     <button type="submit">로그인</button>
                 </div>
             </form>
-
+				<div class="social-login2">
+	                <button class="social-btn kakao" aria-label="카카오 로그인" onclick="oauthLogin('kakao')">
+	                    <img src="../images/kakao.png" alt="카카오 로그인" />
+	                </button>
+	                <button class="social-btn google" aria-label="구글 로그인" onclick="oauthLogin('google')">
+	                    <img src="https://www.svgrepo.com/show/355037/google.svg" alt="구글 로그인" />
+	                </button>
+	                <button class="social-btn naver" aria-label="네이버 로그인" onclick="oauthLogin('naver')">
+	                    <img src="https://blog.kakaocdn.net/dna/bU1uVm/btqGsLHK8Ha/AAAAAAAAAAAAAAAAAAAAAGoZUlR2gBNJysd7x3kViluaRJ-de7a9HNJ7XOCX4W-Z/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1756652399&amp;allow_ip=&amp;allow_referer=&amp;signature=q0DeRdE%2BKPMovqMItwp%2Fuk5%2BoHY%3D" alt="네이버 로그인" />
+	                </button>
+            	</div>
+            	
                 <div class="login-span">
                     <span><a href="findID.jsp">아이디 찾기</a></span> <a style="color: #939393;">|</a>
                     <span><a href="findPw.jsp">비밀번호 찾기</a></span> <a style="color: #939393;">|</a>
@@ -117,6 +129,19 @@
                 }
             });
         });
+    </script>
+    
+    <!-- 로그인 -->
+    <script>
+        function oauthLogin(provider) {
+            const routes = {
+                kakao:  "/oauth2/authorization/kakao",
+                google: "/oauth2/authorization/google",
+                naver:  "/oauth2/authorization/naver"
+            };
+            const url = routes[provider] || "#";
+            window.location.href = url;
+        }
     </script>
 
 </body>

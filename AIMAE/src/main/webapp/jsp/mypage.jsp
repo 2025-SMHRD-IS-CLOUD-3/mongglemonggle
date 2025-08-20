@@ -289,6 +289,18 @@
             }
         });
     </script>
+    
+    <!-- 로그아웃 메시지 -->
+    <script>
+
+		document.addEventListener('DOMContentLoaded', () => {
+		    const params = new URLSearchParams(window.location.search);
+		    if (params.get('logout') === 'success') {
+		        alert('로그아웃 되었습니다.');
+		    }
+		});
+
+	</script>
 
 </body>
 </html>

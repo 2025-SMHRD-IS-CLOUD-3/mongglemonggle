@@ -291,6 +291,16 @@ p {
     margin-top: 8px;
 }
 
+.social-login2 {
+    margin-bottom: 2rem;
+    margin-top: 1rem !important;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
 .social-btn {
     width: 52px;
     height: 52px;
