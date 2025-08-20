@@ -64,9 +64,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>#001</td>
-                                <td>한찬희</td>
+                            <tr th:each="user : ${userList}" >
+                                <td th:each="user : ${USER NUM}" >#001</td>
+                                <td th:each="user : ${USER NAME}" >한찬희</td>
                                 <td>support@aimae.com</td>
                                 <td>2025-08-15</td>
                                 <td>VVIP</td>

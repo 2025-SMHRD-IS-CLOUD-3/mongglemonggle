@@ -1,6 +1,8 @@
 package com.aimae.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +26,14 @@ public class AimaeLoginService extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
 		
-		UserInfo LoginUser = new UserInfo(userId,userPw);
+		System.out.println("넘어온 userId: " + userId);
+	    System.out.println("넘어온 userPw: " + userPw);
+		
+	    UserInfo LoginUser = new UserInfo();
+	    LoginUser.setUserId(userId);
+	    LoginUser.setUserPw(userPw);
+		
+		System.out.println("LoginUser 객체: " + LoginUser.toString());
 		
 		UserDAO dao = new UserDAO();
 		
@@ -34,12 +43,20 @@ public class AimaeLoginService extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("sUser", sUser);
+			System.out.println("성공");
+			System.out.println(sUser);
 			
-		}
+			RequestDispatcher rd =
+					request.getRequestDispatcher("/index.jsp");
+			rd.forward(request, response);
+			
+			
+		}else {
 			//sMember== null-> 실패 -> redirect방식으로 main이동
-		response.sendRedirect("index.html");
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
 //			return "redirect:/main.jsp";
-		
+			System.out.println("실패");
+		}
 		
 	
 	}

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:if test="${not empty sessionScope.user}">
+<c:if test="${not empty sessionScope.UserInfo}">
     <!-- 로그인된 경우 -->
     <div class="nav">
         <ul class="nav-ul">
