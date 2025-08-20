@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,13 +40,9 @@
             </a>
         </div>
 
-        <div class="nav">
-            <ul class="nav-ul">
-                <li><a href="login.jsp" class="link">로그인</a></li>
-                <li><a href="join.jsp" class="link">회원가입</a></li>
-                <li><a href="#" class="link">고객센터</a></li>
-            </ul>
-        </div>
+        <!-- 로그인 / 로그아웃 헤더 변경 -->
+		<%@ include file="../loginheader.jsp" %>
+		
     </div>
 
     <!-- Content -->

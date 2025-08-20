@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,17 +45,9 @@
             </a>
             
     </div>
-
-        <div class="nav">
-            <ul class="nav-ul">
-                <li><a href="jsp/login.jsp" class="link">로그인</a></li>
-                <li><a href="jsp/join.jsp" class="link">회원가입</a></li>
-                <li><a href="jsp/cart.jsp" class="link">장바구니</a></li>
-                <li><a href="#" class="link">고객센터</a></li>
-            </ul>
-            
-            <button class="login-btn" onclick="location.href='jsp/myPage.jsp'">마이페이지</button>
-        </div>
+		
+		<!-- 로그인 / 로그아웃 헤더 변경 -->
+		<%@ include file="loginheader.jsp" %>
 
     </div>
 
