@@ -42,7 +42,7 @@
                         <label for="userId">아이디</label>
                         <div class="form-input-join">
                             <input id="userId" type="text" name="USER_ID" value="" placeholder="아이디를 입력해주세요." style="width: 17.04rem;">
-                            <button type="button" onclick="" class="btn-2" >중복 확인</button>
+                            <button type="button" onclick="checkUserId()" class="btn-2">중복 확인</button>
                         </div>
 
                         <label for="userPw">비밀번호</label> <a style="color: #8c52ff; margin-left: 1rem;">12자리 까지 입력가능합니다.</a>
@@ -151,6 +151,39 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="../js/index.js"></script>
+    <!-- ID중복확인JS -->
+    <script type="text/javascript">
+    	function checkUserId(){
+    		
+    		const userId = document.getElementById('userId').value;
+    		
+    		if (userId.trim() === '') {
+    	        alert('아이디를 입력해주세요.');
+    	        return;
+    	    }
+    		
+    		// 3. 서버에 AJAX 요청 보내기
+    		fetch('/AIMAE/IdCheckService?userId=' + userId, {
+    	        method: 'get'
+    	    })
+    	    .then(response => response.text()) // 1. 응답을 텍스트로 받기
+    	    .then(text => {
+    	        // 2. 받은 텍스트에 따라 분기 처리
+    	        if (text === 'duplicate') {
+    	            alert('이미 사용 중인 아이디입니다.');
+    	        } else if (text === 'available') {
+    	            alert('사용 가능한 아이디입니다.');
+    	        } else {
+    	            alert('알 수 없는 오류가 발생했습니다.');
+    	        }
+    	    })
+    	    .catch(error => {
+    	        console.error('오류:', error);
+    	        alert('서버 통신에 실패했습니다. 다시 시도해주세요.');
+    	    });
+    	}
+    
+    </script>
 
     <!-- 패스워드 확인 -->
     <script>

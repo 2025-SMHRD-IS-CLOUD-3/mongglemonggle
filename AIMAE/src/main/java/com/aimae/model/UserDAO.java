@@ -33,12 +33,12 @@ public class UserDAO {
 			return cnt;
 		}
 	
-	public boolean UserIdComplet(String USER_ID) {
+	public boolean UserIdComplet(String userId) {
 		
 		SqlSession sqlsession
 		= sqlSessionFactory.openSession(true); 
 		
-		String result = sqlsession.selectOne("checkUserId", USER_ID);
+		String result = sqlsession.selectOne("checkUserId", userId);
 	    sqlsession.close();
 	    return result != null;
 	}
