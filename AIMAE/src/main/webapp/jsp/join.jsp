@@ -42,7 +42,7 @@
                         <label for="userId">아이디</label>
                         <div class="form-input-join">
                             <input id="userId" type="text" name="USER_ID" value="" placeholder="아이디를 입력해주세요." style="width: 17.04rem;">
-                            <button type="button" onclick="" class="btn-2">중복 확인</button>
+                            <button type="button" onclick="" class="btn-2" >중복 확인</button>
                         </div>
 
                         <label for="userPw">비밀번호</label> <a style="color: #8c52ff; margin-left: 1rem;">12자리 까지 입력가능합니다.</a>
@@ -52,7 +52,7 @@
 
                         <label for="userPw2">비밀번호 재확인</label> <a style="margin-left: 1rem;" id="checkPw"></a>
                         <div class="form-input-join">
-                            <input id="userPw2" type="password" name="" value="" placeholder="한번더 입력 해주세요." style="width: 23.3rem;" maxlength="12">
+                            <input id="userPw2" type="password" name="PASSWORD2" value="" placeholder="한번더 입력 해주세요." style="width: 23.3rem;" maxlength="12">
                         </div>
 
                         <label for="email">이메일</label>

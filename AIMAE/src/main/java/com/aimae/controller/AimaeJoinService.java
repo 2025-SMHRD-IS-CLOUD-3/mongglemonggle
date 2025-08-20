@@ -29,6 +29,7 @@ public class AimaeJoinService extends HttpServlet {
 				
 				String userId = request.getParameter("USER_ID");
 				String userPw = request.getParameter("PASSWORD");
+				String userPw2 = request.getParameter("PASSWORD2");
 				String email = request.getParameter("EMAIL");
 				String username = request.getParameter("USER_NAME");
 				String phone1 = request.getParameter("PHONE1");
@@ -38,6 +39,23 @@ public class AimaeJoinService extends HttpServlet {
 				String birthday = request.getParameter("BIRTH_DATE");
 				String address = request.getParameter("USER_ADRRESS");
 				
+				UserDAO dao= new UserDAO();
+				boolean isIdExists = dao.UserIdComplet(userId);
+				
+				if(isIdExists) {
+					System.out.println("중복입니다");
+					response.sendRedirect(request.getContextPath() + "/jsp/join.jsp?error=id_duplicate");
+					return;
+				}
+				
+				
+				if (!userPw.equals(userPw2) ) {
+					
+					System.out.println("가입실패");
+					response.sendRedirect(request.getContextPath() + "/jsp/join.jsp?error=pw_mismatch");
+					
+					return;
+				}
 				
 				
 				// 4. 받아온 데이터를 DB에 저장하는 작업
@@ -52,10 +70,13 @@ public class AimaeJoinService extends HttpServlet {
 				joinUser.setUSER_ADRRESS(address);
 				joinUser.setPASSWORD(userPw);
 				
+				
 				// 5. DB연결할 수 있도록 UserDAO의 join메서드 호출
 				// 		-> join메서드를 사용하기 위해서 UserDAO 객체 생성
-				UserDAO dao= new UserDAO();
+				
 				int cnt = dao.join(joinUser);
+				
+				
 				// 6. 결과 값 처리
 				if (cnt>0) {
 					// insert구문 실행시, 영향 받은 행의 개수>0
@@ -72,7 +93,7 @@ public class AimaeJoinService extends HttpServlet {
 					
 				}else {
 					// 영향 받은 행의 개수 = 0, <0
-					response.sendRedirect(request.getContextPath() + "/index.jsp");
+					response.sendRedirect(request.getContextPath() + "/jsp/join.jsp");
 //					return "redirect:/index.html";
 					
 				}

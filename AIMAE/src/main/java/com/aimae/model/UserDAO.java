@@ -33,6 +33,17 @@ public class UserDAO {
 			return cnt;
 		}
 	
+	public boolean UserIdComplet(String USER_ID) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true); 
+		
+		String result = sqlsession.selectOne("checkUserId", USER_ID);
+	    sqlsession.close();
+	    return result != null;
+	}
+	
+	
 	public UserInfo login(UserInfo loginUser) {
 		
 		SqlSession sqlsession

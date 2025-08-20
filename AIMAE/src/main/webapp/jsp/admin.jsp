@@ -1,3 +1,7 @@
+<%@page import="com.aimae.model.UserInfo"%>
+<%@page import="java.util.List"%>
+<%@page import="com.aimae.model.UserDAO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -65,13 +69,20 @@
                                 <th>관리</th>
                             </tr>
                         </thead>
+                        <%
+                        	UserDAO dao = new UserDAO();
+                        	List<UserInfo> result = dao.select();
+                        	System.out.print(result.size());
+                        	for(int i= 0; i <result.size(); i++){
+                        %>
                         <tbody>
                             <tr>
-                                <td>#001</td>
-                                <td>한찬희</td>
-                                <td>support@aimae.com</td>
-                                <td>2025-08-15</td>
-                                <td>VVIP</td>
+                                <td><%=result.get(i).getUSER_NUM() %></td>
+                                <td><%=result.get(i).getUSER_NAME() %></td>
+                                <td><%=result.get(i).getEMAIL() %></td>
+                                <td><%=result.get(i).getBIRTH_DATE() %></td>
+                                <td><%=result.get(i).getGRADE() %></td>
+                        <%} %>
                                 <td>
                                     <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
                                     <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>

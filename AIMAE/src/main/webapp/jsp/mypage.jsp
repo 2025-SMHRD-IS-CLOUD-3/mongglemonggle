@@ -76,7 +76,7 @@
                         <div class="user-info">
                             <div class="info-item">
                                 <div class="profile-icon"><i class="fa-solid fa-user"></i></div>
-                                <div><strong>이름</strong><p>한찬희</p></div>
+                                <div><strong>이름</strong><p>${sUser.USER_NAME }</p></div>
                             </div>
                             <div class="info-item">
                                 <div class="email-icon"><i class="fa-solid fa-envelope"></i></div>
