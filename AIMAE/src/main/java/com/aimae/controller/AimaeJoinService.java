@@ -40,13 +40,6 @@ public class AimaeJoinService extends HttpServlet {
 				String address = request.getParameter("USER_ADRRESS");
 				
 				UserDAO dao= new UserDAO();
-				boolean isIdExists = dao.UserIdComplet(userId);
-				
-				if(isIdExists) {
-					System.out.println("중복입니다");
-					response.sendRedirect(request.getContextPath() + "/jsp/join.jsp?error=id_duplicate");
-					return;
-				}
 				
 				
 				if (!userPw.equals(userPw2) ) {

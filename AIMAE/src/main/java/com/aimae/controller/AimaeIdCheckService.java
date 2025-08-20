@@ -22,6 +22,8 @@ public class AimaeIdCheckService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String userId = request.getParameter("userId");
+		
+		System.out.println("넘어온 userId: " + userId);
 
         UserDAO dao = new UserDAO();
         boolean isDuplicate = dao.UserIdComplet(userId);
@@ -36,7 +38,7 @@ public class AimaeIdCheckService extends HttpServlet {
         } else {
             out.write("available"); // 사용 가능일 경우 'available' 문자열 전송
         }
-        out.flush();
+        
     }
 		
 		

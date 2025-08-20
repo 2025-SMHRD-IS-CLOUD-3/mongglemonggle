@@ -6,9 +6,9 @@
 		INSERT INTO USERS(USER_NUM,EMAIL,USER_ID,PASSWORD,USER_NAME,PHONE,BIRTH_DATE,USER_ADRRESS) VALUES('us_00' || users_seq.nextval,#{EMAIL},#{USER_ID},#{PASSWORD},#{USER_NAME},#{PHONE},#{BIRTH_DATE},#{USER_ADRRESS})
 	</insert>
 	
-	<insert id="checkUserId" parameterType="com.aimae.model.UserInfo"> 
-		SELECT * FROM USERS WHERE USER_ID = #{USER_ID}
-	</insert>
+	<select id="checkUserId"  parameterType="com.aimae.model.UserInfo" resultType="string"> 
+		SELECT * FROM USERS WHERE USER_ID = #{userId}
+	</select>
 	
 	<select id="login" resultType="com.aimae.model.UserInfo" parameterType="com.aimae.model.UserInfo">
 		SELECT * FROM USERS WHERE USER_ID = #{USER_ID} AND PASSWORD = #{PASSWORD}

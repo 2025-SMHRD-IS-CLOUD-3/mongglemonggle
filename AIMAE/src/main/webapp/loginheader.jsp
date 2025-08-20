@@ -45,3 +45,14 @@
         <button class="login-btn" onclick="location.href='jsp/login.jsp'">로그인</button>
     </div>
 </c:if>
+
+<script>
+
+	document.addEventListener('DOMContentLoaded', () => {
+	    const params = new URLSearchParams(window.location.search);
+	    if (params.get('logout') === 'success') {
+	        alert('로그아웃 되었습니다.');
+	    }
+	});
+
+</script>
