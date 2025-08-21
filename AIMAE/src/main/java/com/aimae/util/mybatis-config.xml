@@ -16,5 +16,7 @@
   </environments>
   <mappers>
     <mapper resource="com/aimae/mapper/UserMapper.xml"/>
+    <mapper resource="com/aimae/mapper/ProductMapper.xml"/>
+    <mapper resource="com/aimae/mapper/PhotoMapper.xml"/>
   </mappers>
 </configuration>

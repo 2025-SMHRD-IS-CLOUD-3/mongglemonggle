@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aimae.mapper.productMapper">
+
+    <!-- 전체 조회 -->
+    <select id="selectAllProduct" resultType="com.aimae.model.Product">
+         <![CDATA[
+    SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+    FROM (
+      SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+      FROM PRODUCT
+      ORDER BY PRODUCT_ID DESC
+    )
+    WHERE ROWNUM <= 5
+  ]]>
+    </select>
+
+    <!-- 전체 상품 조회 (제한 없음) -->
+    <select id="selectAllProducts" resultType="com.aimae.model.Product">
+        SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+        FROM PRODUCT
+        ORDER BY PRODUCT_ID DESC
+    </select>
+
+    <!-- 재고 낮은순 조회 -->
+    <select id="selectStockProducts" resultType="com.aimae.model.Product">
+    	<![CDATA[
+    SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+    FROM (
+        SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+        FROM PRODUCT
+        ORDER BY STOCK ASC
+    )
+    WHERE ROWNUM <= 5
+    ]]>
+	</select>
+	
+	<!-- 상품 ID로 조회 -->
+	<select id="selectProductById" parameterType="string" resultType="com.aimae.model.Product">
+	    SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+	    FROM PRODUCT
+	    WHERE PRODUCT_ID = #{productId}
+	</select>
+	
+	<!-- product_detail 테이블에서 상품 상세 정보 조회 -->
+	<select id="selectProductDetail" parameterType="string" resultType="com.aimae.model.Product_Detail">
+	    SELECT PRODUCT_ID, CATEGORY, PRODUCT_NAME, DELY_OPT, DELY_AREA, RECEIPT, AFTER_SERVICE
+	    FROM PRODUCT_DETAIL
+	    WHERE PRODUCT_ID = #{productId}
+	</select>
+	
+
+	
+	<!-- 야채 카테고리 상품 조회 -->
+	<select id="selectVegetableProducts" resultType="com.aimae.model.Product">
+	    SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+	    FROM PRODUCT
+	    WHERE CATEGORY = '야채'
+	    ORDER BY PRODUCT_ID DESC
+	</select>
+	
+	<!-- 가전제품 카테고리 상품 조회 -->
+	<select id="selectElectronicProducts" resultType="com.aimae.model.Product">
+	    SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+	    FROM PRODUCT
+	    WHERE CATEGORY = '가전제품'
+	    ORDER BY PRODUCT_ID DESC
+	</select>
+	
+	<!-- 과일 카테고리 상품 조회 -->
+	<select id="selectFruitProducts" resultType="com.aimae.model.Product">
+	    SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL
+	    FROM PRODUCT
+	    WHERE CATEGORY = '과일'
+	    ORDER BY PRODUCT_ID DESC
+	</select>
+	
+	<!-- 상품 수정 -->
+	<update id="updateProduct" parameterType="com.aimae.model.Product">
+	    UPDATE PRODUCT 
+	    SET PRODUCT_NAME = #{PRODUCT_NAME},
+	        CATEGORY = #{CATEGORY},
+	        STOCK = #{STOCK},
+	        PRICE = #{PRICE}
+	    WHERE PRODUCT_ID = #{PRODUCT_ID}
+	</update>
+	
+	<!-- 상품 등록 - 수정됨 -->
+	<insert id="insertProduct" parameterType="com.aimae.model.Product">
+	    INSERT INTO PRODUCT (PRODUCT_ID, PRODUCT_NAME, PRICE, CATEGORY, PRD_INFO, STOCK, PRD_DETAIL)
+	    VALUES ('PD_' || LPAD(PRODUCT_ID_SEQ.NEXTVAL, 5, '0'), #{PRODUCT_NAME}, #{PRICE}, #{CATEGORY}, #{PRD_INFO}, #{STOCK}, #{PRD_DETAIL})
+	</insert>
+	
+	<!-- 상품 삭제 -->
+	<delete id="deleteProduct" parameterType="string">
+	    DELETE FROM PRODUCT WHERE PRODUCT_ID = #{productId}
+	</delete>
+
+</mapper>

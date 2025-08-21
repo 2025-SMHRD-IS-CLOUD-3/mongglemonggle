@@ -42,7 +42,7 @@
 
             </div>
 
-            <a href="../index.jsp" class="logo">
+            <a href="${pageContext.request.contextPath}/index.jsp" class="logo">
                 <span style="margin-left: 10px;">AIMAE</span>
             </a>
             
@@ -61,7 +61,7 @@
             <h1>구매해 주셔서 감사합니다 !</h1>
             <p class="pay-message">고객님의 주문이 정상적으로 처리되었습니다.<br>
             빠르게 배송해드릴 수 있도록 최선을 다하겠습니다.</p>
-            <a href="../index.jsp" class="home-button">홈으로 돌아가기</a>
+            <a href="${pageContext.request.contextPath}/ProductList" class="home-button">홈으로 돌아가기</a>
         </div>
 
     </div>
