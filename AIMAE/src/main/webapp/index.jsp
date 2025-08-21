@@ -208,6 +208,7 @@
     <div class="content-box-img">
         <img class="content-img" src="images/freedelivery.png">
         <img class="content-img" src="images/freedelivery2.png">
+        <img class="content-img" src="images/freedelivery3.png">
     </div>
 
     <!-- Footer -->
@@ -297,6 +298,13 @@
             });
         });
     </script>
+    
+    
+<c:if test="${not empty joinSuccess}">
+        <script>
+            alert('회원가입 성공했습니다!');
+        </script>
+    </c:if>
 
 </body>
 </html>
