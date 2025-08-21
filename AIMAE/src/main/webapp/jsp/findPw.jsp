@@ -40,20 +40,20 @@
                 <div class="login-form">
 
                     <div>
-                        <input style="width: 22.9rem !important;" type="text" name="" value="" placeholder="아이디를 입력해주세요.">
+                        <input style="width: 22.9rem !important;" type="text" name="" id="userId" value="" placeholder="아이디를 입력해주세요.">
                     </div>
 
                     <div class="form-input">
-                        <input id="email" type="text" name="" placeholder="이메일 입력해주세요.">
-                        <button type="button" onclick="" class="btn-2">인증번호 전송</button>
+                        <input id="email" type="text" name="EMAIL" placeholder="이메일 입력해주세요.">
+                        <button type="button" onclick="sendAuthCode()" class="btn-2">인증번호 전송</button>
                     </div>
 
                     <div class="form-input">
-                        <input type="text" name="auth_code" value="" placeholder="인증번호를 입력해주세요.">
-                        <button type="button" onclick="" class="btn-2">인증번호 확인</button>
+                        <input type="text" name="auth_code" id="authCode" value="" placeholder="인증번호를 입력해주세요.">
+                        <button type="button" onclick="completCode()" class="btn-2">인증번호 확인</button>
                     </div>
 
-                    <button type="button" onclick="">비밀번호 찾기</button>
+                    <button type="button" onclick="findPw()">비밀번호 찾기</button>
 
                 </div>
 
@@ -135,6 +135,107 @@
             });
         });
     </script>
+    
+    <!-- 인증번호 발송 -->
+    <script>
+		function sendAuthCode() {
+		    const email = document.getElementById('email').value;
+		
+		    if (email.trim() === '') {
+		        alert('이메일을 입력해주세요.');
+		        return;
+		    }
+		
+		    fetch('/AIMAE/AuthCodeService?email=' + email, {
+		        method: 'GET'
+		    })
+		    .then(response => response.text())
+		    .then(text => {
+		        if (text === 'success') {
+		            alert('인증번호가 발송되었습니다.');
+		        } else {
+		            alert('이메일 발송에 실패했습니다.');
+		        }
+		    })
+		    .catch(error => {
+		        console.error('오류:', error);
+		        alert('서버 통신 중 오류가 발생했습니다.');
+		    });
+		}
+	</script>
+	
+	<!-- 인증번호 확인 -->
+	<script>
+		let isVerified = false;
+		
+		function completCode() {
+			const authCode = document.getElementById('authCode').value;
+			
+			if (authCode.trim() ===''){
+				alert('인증번호를 입력해주세요.');
+				return;
+			}
+			
+			const encodedAuthCode = encodeURIComponent(authCode);
+			
+			fetch('/AIMAE/CompletCodeService?authCode=' + encodedAuthCode, {
+		        method: 'GET'
+		    })
+		    .then(response => response.text()) // 서버 응답을 텍스트로 받기
+		    .then(text => {
+		        // 4. 서버로부터 받은 응답 처리
+		        if (text.trim() === 'verified') {
+		            alert('인증이 완료되었습니다.');
+		            isVerified = true;
+		             
+		        } else if (text.trim() === 'mismatch') {
+		            alert('인증번호가 일치하지 않습니다.');
+		            isVerified = false;
+		        } else if (text.trim() === 'expired') {
+		            alert('인증 시간이 만료되었습니다. 다시 요청해주세요.');
+		            isVerified = false;
+		        } else {
+		            alert('알 수 없는 오류가 발생했습니다.');
+		            isVerified = false;
+		        }
+		    })
+		    .catch(error => {
+		        console.error('오류:', error);
+		        alert('서버 통신 중 오류가 발생했습니다.');
+		    });
+			
+		}
+	
+		function findPw() {
+			const userId = document.getElementById('userId').value;
+			
+			if (!isVerified) {
+		        alert('먼저 인증번호 확인을 완료해주세요.');
+		        return;
+		    }
+			
+			if (email.trim() === '') {
+		        alert('이메일을 입력해주세요.');
+		        return;
+		    }
+			
+			fetch('/AIMAE/FindPwService?userId=' + encodeURIComponent(userId))
+		    .then(response => response.text())
+		    .then(text => {
+		        if (text.trim() === 'error:not_found') {
+		            alert('일치하는 회원 정보가 없습니다.');
+		        } else {
+		            alert('Email을 확인해주세요.');
+		        }
+		    })
+		    .catch(error => {
+		        console.error('오류:', error);
+		        alert('서버 통신 중 오류가 발생했습니다.');
+		    });
+			
+			
+		}
+	</script>
 
 </body>
 </html>

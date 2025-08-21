@@ -78,6 +78,18 @@ public class UserDAO {
 		return findId;
 	}
 	
+public String findPw(String userPw) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		String findPw = sqlsession.selectOne("findPw", userPw);
+		
+		sqlsession.close();
+		
+		return findPw;
+	}
+	
 	public int update(UserInfo updateUser) {
 		
 		SqlSession sqlsession

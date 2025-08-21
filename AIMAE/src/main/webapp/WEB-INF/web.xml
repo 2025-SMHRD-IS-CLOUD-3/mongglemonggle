@@ -109,4 +109,14 @@
     <servlet-name>AimaeFindIdService</servlet-name>
     <url-pattern>/AimaeFindIdService</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeFindPwService</display-name>
+    <servlet-name>AimaeFindPwService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeFindPwService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeFindPwService</servlet-name>
+    <url-pattern>/AimaeFindPwService</url-pattern>
+  </servlet-mapping>
 </web-app>

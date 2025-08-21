@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="join-button">
-                            <button type="submit" onclick="">회원가입</button>
+                            <button type="submit" onclick="joincomplet()">회원가입</button>
                             <button type="reset" onclick="" class="join-btn-c">취소</button>
                         </div>
 
