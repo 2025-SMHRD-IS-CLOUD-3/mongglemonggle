@@ -43,8 +43,8 @@
 
                 <div class="dropdown-content">
                     <a href="${pageContext.request.contextPath}/FruitProductList">과일</a>
-                    <a href="jsp/vegetableProducts.jsp">채소</a>
-                    <a href="jsp/electronicProducts.jsp">전자제품</a>
+                    <a href="${pageContext.request.contextPath}/VegetableProductList">야채</a>
+                    <a href="${pageContext.request.contextPath}/ElectronicProductList">가전제품</a>
                 </div>
 
             </div>
