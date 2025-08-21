@@ -51,7 +51,7 @@
                     <li><a href="#" id="manageUsers">회원 관리</a></li>
                     <li><a href="#" id="manageOrders">주문 관리</a></li>
                     <li><a href="#" id="manageProducts">상품 관리</a></li>
-                    <li><a href="#">로그아웃</a></li>
+                    <li><a href="/AIMAE/LogoutService">로그아웃</a></li>
                 </ul>
             </div>
 

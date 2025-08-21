@@ -41,46 +41,46 @@
                     <form action="/AIMAE/JoinService" method="post">
                         <label for="userId">아이디</label>
                         <div class="form-input-join">
-                            <input id="userId" type="text" name="USER_ID" value="" placeholder="아이디를 입력해주세요." style="width: 17.04rem;">
+                            <input id="userId" type="text" name="USER_ID" value="" placeholder="아이디를 입력해주세요." style="width: 17.04rem;" required>
                             <button type="button" onclick="checkUserId()" class="btn-2">중복 확인</button>
                         </div>
 
                         <label for="userPw">비밀번호</label> <a style="color: #8c52ff; margin-left: 1rem;">12자리 까지 입력가능합니다.</a>
                         <div class="form-input-join">
-                            <input id="userPw" type="password" name="PASSWORD" value="" placeholder="비밀번호를 입력해주세요." style="width: 23.3rem;" maxlength="12">
+                            <input id="userPw" type="password" name="PASSWORD" value="" placeholder="비밀번호를 입력해주세요." style="width: 23.3rem;" maxlength="12" required>
                         </div>
 
                         <label for="userPw2">비밀번호 재확인</label> <a style="margin-left: 1rem;" id="checkPw"></a>
                         <div class="form-input-join">
-                            <input id="userPw2" type="password" name="PASSWORD2" value="" placeholder="한번더 입력 해주세요." style="width: 23.3rem;" maxlength="12">
+                            <input id="userPw2" type="password" name="PASSWORD2" value="" placeholder="한번더 입력 해주세요." style="width: 23.3rem;" maxlength="12" required>
                         </div>
 
                         <label for="email">이메일</label>
                         <div class="form-input-join" style="display: flex;">
-                            <input id="email" type="text" name="EMAIL" value="" placeholder="이메일을 입력해주세요." style="width: 15.2rem;">
-                            <button type="button" onclick="" class="btn-2">인증번호 전송</button>
+                            <input id="email" type="text" name="EMAIL" value="" placeholder="이메일을 입력해주세요." style="width: 15.2rem;" required>
+                            <button type="button" onclick="sendAuthCode()" class="btn-2">인증번호 전송</button>
                         </div>
                         
                         <div class="form-input-join">
-                            <input type="text" name="auth_code" placeholder="인증번호를 입력해주세요." style="width: 15.2rem;">
-                            <button type="button" onclick="" class="btn-2">인증번호 확인</button>
+                            <input type="text" name="auth_code" id="authCode" placeholder="인증번호를 입력해주세요." style="width: 15.2rem;" required>
+                            <button type="button" id="verifyCodeBtn" onclick="completCode()" class="btn-2">인증번호 확인</button>
                         </div>
 
                         <label for="username">이름</label>
                         <div class="form-input-join">
-                            <input id="username" type="text" name="USER_NAME" value="" placeholder="이름을 입력해주세요." style="width: 23.3rem;">
+                            <input id="username" type="text" name="USER_NAME" value="" placeholder="이름을 입력해주세요." style="width: 23.3rem;" required>
                         </div>
 
                         <label for="tell">전화번호</label>
                         <div class="form-input-join" style="align-items: center;">
-                            <input id="tel1" type="text" name="PHONE1" value="" maxlength="3"> <a>-</a>
-                            <input id="tel2" type="text" name="PHONE2" value="" maxlength="4"> <a>-</a>
-                            <input id="tel3" type="text" name="PHONE3" value="" maxlength="4">
+                            <input id="tel1" type="text" name="PHONE1" value="" maxlength="3" required> <a>-</a>
+                            <input id="tel2" type="text" name="PHONE2" value="" maxlength="4" required> <a>-</a>
+                            <input id="tel3" type="text" name="PHONE3" value="" maxlength="4" required>
                         </div>
                         
                         <label for="address">주소</label>
                         <div class="form-input-join">
-                            <input id="address" type="text" name="USER_ADRRESS" value="" placeholder="주소를 입력해주세요." style="width: 23.3rem;">
+                            <input id="address" type="text" name="USER_ADRRESS" value="" placeholder="주소를 입력해주세요." style="width: 23.3rem;" required>
                         </div>
 
                         <label for="birthday">생년월일</label>
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="join-button">
-                            <button type="submit" onclick="">회원가입</button>
+                            <button type="submit">회원가입</button>
                             <button type="reset" onclick="" class="join-btn-c">취소</button>
                         </div>
 
@@ -184,6 +184,86 @@
     	}
     
     </script>
+    <!-- 인증번호 보내기 -->
+    <script>
+		function sendAuthCode() {
+		    const email = document.getElementById('email').value;
+		
+		    if (email.trim() === '') {
+		        alert('이메일을 입력해주세요.');
+		        return;
+		    }
+		
+		    fetch('/AIMAE/AuthCodeService?email=' + email, {
+		        method: 'GET'
+		    })
+		    .then(response => response.text())
+		    .then(text => {
+		        if (text === 'success') {
+		            alert('인증번호가 발송되었습니다.');
+		        } else {
+		            alert('이메일 발송에 실패했습니다.');
+		        }
+		    })
+		    .catch(error => {
+		        console.error('오류:', error);
+		        alert('서버 통신 중 오류가 발생했습니다.');
+		    });
+		}
+	</script>
+	<!-- 인증번호 확인 -->
+	<script>
+	let isVerified = false;
+		function completCode() {
+			const authCode = document.getElementById('authCode').value;
+			
+			if (authCode.trim() ===''){
+				alert('인증번호를 입력해주세요.');
+				return;
+			}
+			
+			const encodedAuthCode = encodeURIComponent(authCode);
+			
+			fetch('/AIMAE/CompletCodeService?authCode=' + encodedAuthCode, {
+		        method: 'GET'
+		    })
+		    .then(response => response.text()) // 서버 응답을 텍스트로 받기
+		    .then(text => {
+		        // 4. 서버로부터 받은 응답 처리
+		        if (text.trim() === 'verified') {
+		            alert('인증이 완료되었습니다.');
+		            isVerified = true;
+		             
+		        } else if (text.trim() === 'mismatch') {
+		            alert('인증번호가 일치하지 않습니다.');
+		            isVerified = false;
+		        } else if (text.trim() === 'expired') {
+		            alert('인증 시간이 만료되었습니다. 다시 요청해주세요.');
+		            isVerified = false;
+		        } else {
+		            alert('알 수 없는 오류가 발생했습니다.');
+		            isVerified = false;
+		        }
+		    })
+		    .catch(error => {
+		        console.error('오류:', error);
+		        alert('서버 통신 중 오류가 발생했습니다.');
+		        
+		    });
+			
+		}
+	
+		function joincomplet(){
+			
+			if (!isVerified) {
+		        alert('먼저 인증번호 확인을 완료해주세요.');
+		        return;
+		    }
+			
+			
+		}
+	</script>
+	
 
     <!-- 패스워드 확인 -->
     <script>
@@ -219,85 +299,30 @@
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.querySelector("form"); // 폼 요소
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-        form.addEventListener("submit", function(event) {
-            let isValid = true;
-            let firstErrorField = null; // 첫 번째 오류 필드를 추적
+    const userId = document.getElementById('userId');
+    const userPw = document.getElementById('userPw');
+    const userPw2 = document.getElementById('userPw2');
+    const email = document.getElementById('email');
+    const username = document.getElementById('username');
+    const tel1 = document.getElementById('tel1');
+    const tel2 = document.getElementById('tel2');
+    const tel3 = document.getElementById('tel3');
+    const address = document.getElementById('address');
 
-            // 입력값 가져오기
-            const userId = document.getElementById('userId').value.trim();
-            const userPw = document.getElementById('userPw').value.trim();
-            const userPw2 = document.getElementById('userPw2').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const username = document.getElementById('username').value.trim();
-            const phone1 = document.getElementById('tel1').value.trim();
-            const phone2 = document.getElementById('tel2').value.trim();
-            const phone3 = document.getElementById('tel3').value.trim();
-            const phone = phone1 + phone2 + phone3;
-            const address = document.getElementById('address').value.trim();
+    if (userId.value.trim() === '') { alert('아이디를 입력해주세요.'); userId.focus(); return; }
+    if (userPw.value.trim() === '') { alert('비밀번호를 입력해주세요.'); userPw.focus(); return; }
+    if (userPw2.value.trim() === '') { alert('비밀번호 재확인을 입력해주세요.'); userPw2.focus(); return; }
+    if (userPw.value !== userPw2.value) { alert('비밀번호가 일치하지 않습니다.'); userPw2.focus(); return; }
+    if (email.value.trim() === '') { alert('이메일을 입력해주세요.'); email.focus(); return; }
+    if (username.value.trim() === '') { alert('이름을 입력해주세요.'); username.focus(); return; }
+    if (tel1.value.trim() === '' || tel2.value.trim() === '' || tel3.value.trim() === '') { alert('전화번호를 입력해주세요.'); tel1.focus(); return; }
+    if (address.value.trim() === '') { alert('주소를 입력해주세요.'); address.focus(); return; }
 
-            // 유효성 체크: 필수 입력 필드가 비어 있으면
-            if (!userId) {
-                if (!firstErrorField) firstErrorField = document.getElementById('userId');
-            }
-            if (!userPw) {
-                if (!firstErrorField) firstErrorField = document.getElementById('userPw');
-            }
-            if (!userPw2) {
-                if (!firstErrorField) firstErrorField = document.getElementById('userPw2');
-            }
-            if (userPw !== userPw2) {
-                if (!firstErrorField) firstErrorField = document.getElementById('userPw2');
-            }
-            if (!email) {
-                if (!firstErrorField) firstErrorField = document.getElementById('email');
-            }
-            if (!username) {
-                if (!firstErrorField) firstErrorField = document.getElementById('username');
-            }
-            if (!phone1 || !phone2 || !phone3) {
-                if (!firstErrorField) firstErrorField = document.getElementById('tel1');
-            }
-            if (!address) {
-                if (!firstErrorField) firstErrorField = document.getElementById('address');
-            }
-
-            // 유효성 검사 실패 시 경고 메시지 띄우기
-            if (!firstErrorField) {
-                return; // 모든 입력이 올바르면, 폼 제출을 계속 진행
-            }
-
-            // 첫 번째 오류가 있는 필드로 포커스 이동
-            firstErrorField.focus();
-
-            // 해당 필드에 경고 메시지 띄우기
-            let errorMessage = '';
-
-            if (firstErrorField === document.getElementById('userId')) {
-                errorMessage = '아이디를 입력해주세요.';
-            } else if (firstErrorField === document.getElementById('userPw')) {
-                errorMessage = '비밀번호를 입력해주세요.';
-            } else if (firstErrorField === document.getElementById('userPw2')) {
-                errorMessage = '비밀번호를 재입력해주세요.';
-            } else if (firstErrorField === document.getElementById('email')) {
-                errorMessage = '이메일을 입력해주세요.';
-            } else if (firstErrorField === document.getElementById('username')) {
-                errorMessage = '이름을 입력해주세요.';
-            } else if (firstErrorField === document.getElementById('tel1')) {
-                errorMessage = '전화번호를 입력해주세요.';
-            } else if (firstErrorField === document.getElementById('address')) {
-                errorMessage = '주소를 입력해주세요.';
-            }
-
-            // 경고 메시지 표시
-            alert(errorMessage);
-
-            // 폼 제출 막기
-            event.preventDefault();
-        });
-    });
+    form.requestSubmit();
+});
 </script>
 
 

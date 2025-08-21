@@ -56,6 +56,39 @@ public class UserDAO {
 		return sUser;
 		
 	}
+	public int unregister(String userId) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		int cnt = sqlsession.delete("unregister", userId);
+		
+		return cnt;
+	}
+	
+	public String findId(String email) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		String findId = sqlsession.selectOne("findId", email);
+		
+		sqlsession.close();
+		
+		return findId;
+	}
+	
+public String findPw(String userPw) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		String findPw = sqlsession.selectOne("findPw", userPw);
+		
+		sqlsession.close();
+		
+		return findPw;
+	}
 	
 	public int update(UserInfo updateUser) {
 		

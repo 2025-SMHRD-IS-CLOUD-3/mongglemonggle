@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +21,7 @@
     <link rel="stylesheet" href="../css/myPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
 </head>
 
 <body>
@@ -60,7 +63,7 @@
                     <li><a href="#">배송지 관리</a></li>
                     <li><a href="#" id="showEdit">정보 수정</a></li>
                     <li><a href="/AIMAE/LogoutService">로그아웃</a></li>
-                    <li><a href="#">회원탈퇴</a></li>
+                    <li><a href="/AIMAE/UnregisterService">회원탈퇴</a></li>
                 </ul>
             </div>
 
@@ -85,7 +88,14 @@
                             </div>
                             <div class="info-item">
                                 <div class="phone-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                                <div><strong>휴대폰</strong><p>${sUser.PHONE }</p></div>
+                                <c:choose>
+									  <c:when test="${fn:length(sUser.PHONE) == 11}">
+									    <div><strong>휴대폰</strong><p>${fn:substring(sUser.PHONE,0,3)}-${fn:substring(sUser.PHONE,3,7)}-${fn:substring(sUser.PHONE,7,11)}</p></div>
+									  </c:when>
+									  <c:otherwise>
+									    <div><strong>휴대폰</strong><p>${sUser.PHONE}</p></div>
+									  </c:otherwise>
+								</c:choose>
                             </div>
                             <div class="info-item">
                                 <div class="address-icon"><i class="fa-solid fa-house"></i></div>
@@ -93,7 +103,8 @@
                             </div>
                             <div class="info-item">
                                 <div class="calendar-icon"><i class="fa-solid fa-calendar-day"></i></div>
-                                <div><strong>가입일</strong><p>${sUser.BIRTH_DATE }</p></div>
+                                <fmt:parseDate value="${sUser.BIRTH_DATE}" pattern="yyyy-MM-dd" var="birthDate" />
+                                <div><strong>가입일</strong><p><fmt:formatDate value="${birthDate }" pattern="yyyy년 MM월 dd일"/></p></div>
                             </div>
                         </div>
 
@@ -292,15 +303,19 @@
     
     <!-- 로그아웃 메시지 -->
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        
+        // 회원 탈퇴 성공 시 알림창 띄우기
+        if (params.get('status') === 'unregister_success') {
+            alert('회원 탈퇴 되었습니다.');
+        }
 
-		document.addEventListener('DOMContentLoaded', () => {
-		    const params = new URLSearchParams(window.location.search);
-		    if (params.get('logout') === 'success') {
-		        alert('로그아웃 되었습니다.');
-		    }
-		});
-
-	</script>
+        if (params.get('logout') === 'success') {
+            alert('로그아웃 되었습니다.');
+        }
+    });
+</script>
 
 </body>
 </html>
