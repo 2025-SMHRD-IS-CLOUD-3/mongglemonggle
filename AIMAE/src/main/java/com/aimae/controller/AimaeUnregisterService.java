@@ -46,7 +46,7 @@ public class AimaeUnregisterService extends HttpServlet {
 			session.invalidate();
 			System.out.println("탈퇴완료.");
 			
-			response.sendRedirect("/AIMAE/index.jsp");
+			response.sendRedirect("index.jsp?status=unregister_success");
 		}else {
 			System.out.println("탈퇴실패");
 		}

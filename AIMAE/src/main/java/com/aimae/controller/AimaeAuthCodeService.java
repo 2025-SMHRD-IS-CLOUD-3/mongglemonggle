@@ -36,7 +36,7 @@ public class AimaeAuthCodeService extends HttpServlet {
 	        }
 			
 			AuthCodeGenerator authCodeGenerator = new AuthCodeGenerator();
-			String authCode = authCodeGenerator.RandomCode(8); // 생성된 인증번호를 문자열로 저장
+			String authCode = authCodeGenerator.RandomCode(5); // 생성된 인증번호를 문자열로 저장
 			
 		
 		 	String title = "AIMAE_인증";

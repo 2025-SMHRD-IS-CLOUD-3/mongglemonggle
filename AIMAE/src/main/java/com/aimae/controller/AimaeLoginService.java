@@ -53,7 +53,7 @@ public class AimaeLoginService extends HttpServlet {
 			
 		}else {
 			//sMember== null-> 실패 -> redirect방식으로 main이동
-			response.sendRedirect(request.getContextPath() + "/index.jsp");
+			response.sendRedirect(request.getContextPath() + "/jsp/login.jsp?login=err");
 //			return "redirect:/main.jsp";
 			System.out.println("실패");
 		}

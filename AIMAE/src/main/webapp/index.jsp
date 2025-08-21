@@ -299,6 +299,23 @@
         });
     </script>
     
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+
+        // 회원 탈퇴 성공 시
+        if (params.get('status') === 'unregister_success') {
+            alert('회원 탈퇴 되었습니다.');
+        }
+        
+     	// 로그인 실패 시
+        if (params.get('login') === 'err') {
+            alert('다시 확인해주세요.');
+        }
+        
+    });
+	</script>
+    
     
 <c:if test="${not empty joinSuccess}">
         <script>
