@@ -60,7 +60,7 @@
                     <li><a href="#">배송지 관리</a></li>
                     <li><a href="#" id="showEdit">정보 수정</a></li>
                     <li><a href="/AIMAE/LogoutService">로그아웃</a></li>
-                    <li><a href="#">회원탈퇴</a></li>
+                    <li><a href="/AIMAE/UnregisterService">회원탈퇴</a></li>
                 </ul>
             </div>
 

@@ -69,4 +69,44 @@
     <servlet-name>AimaeSelectAllService</servlet-name>
     <url-pattern>/AimaeSelectAllService</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeAuthCodeService</display-name>
+    <servlet-name>AimaeAuthCodeService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeAuthCodeService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeAuthCodeService</servlet-name>
+    <url-pattern>/AimaeAuthCodeService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeCompletCodeService</display-name>
+    <servlet-name>AimaeCompletCodeService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeCompletCodeService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeCompletCodeService</servlet-name>
+    <url-pattern>/AimaeCompletCodeService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeUnregisterService</display-name>
+    <servlet-name>AimaeUnregisterService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeUnregisterService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeUnregisterService</servlet-name>
+    <url-pattern>/AimaeUnregisterService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeFindIdService</display-name>
+    <servlet-name>AimaeFindIdService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeFindIdService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeFindIdService</servlet-name>
+    <url-pattern>/AimaeFindIdService</url-pattern>
+  </servlet-mapping>
 </web-app>
