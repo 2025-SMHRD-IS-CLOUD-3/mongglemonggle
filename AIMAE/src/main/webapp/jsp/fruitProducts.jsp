@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.aimae.model.Product" %>
+<%@ page import="com.aimae.model.ProductDAO" %>
+
+<%
+    // 과일 카테고리 상품 조회
+    ProductDAO dao = new ProductDAO();
+    List<Product> fruitProducts = dao.searchFruitProducts();
+    request.setAttribute("products", fruitProducts);
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,103 +76,26 @@
             <button class="sort-btn">가격 낮은순</button>
             <button class="sort-btn">많이 팔린 상품순</button>
         </div>
-        <div class="product-grid">
-
-            <!-- 상품 1 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일1" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">신선한 사과1</h4>
-                        <p>신선해~</p>
-                        <p class="product-price">₩3,000</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 상품 2 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일2" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">달콤한 바나나</h4>
-                        <p>달콤해~</p>
-                        <p class="product-price">₩2,500</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 상품 3 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일3" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">상큼한 오렌지</h4>
-                        <p>상큼해~</p>
-                        <p class="product-price">₩4,000</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 상품 4 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일4" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">맛있는 포도</h4>
-                        <p>맛있어~</p>
-                        <p class="product-price">₩5,500</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 상품 5 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일5" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">탱글탱글 딸기</h4>
-                        <p>탱글탱글해~</p>
-                        <p class="product-price">₩6,000</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 상품 6 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일6" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">새콤한 자몽</h4>
-                        <p>새콤해~</p>
-                        <p class="product-price">₩4,500</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 상품 7 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일7" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">싱싱한 파인애플</h4>
-                        <p>싱싱해~</p>
-                        <p class="product-price">₩7,000</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 상품 8 -->
-            <a href="productDetail.jsp" class="product-link">
-                <div class="product-item">
-                    <img src="../images/favicon.ico" alt="과일8" class="product-img">
-                    <div class="product-info">
-                        <h4 class="product-name">달콤한 망고</h4>
-                        <p>달콤해~</p>
-                        <p class="product-price">₩8,000</p>
-                    </div>
-                </div>
-            </a>
+        <div class="product-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+            <c:if test="${not empty products}">
+                <c:forEach var="p" items="${products}">
+                    <a href="../ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="width: calc(20% - 19.2px); display: block; text-decoration: none; color: inherit;">
+                        <div class="product-item" style="background-color: #fff; border-radius: 12px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); text-align: center; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+                            <img src="../images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #eee;">
+                            <div class="product-info" style="padding: 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                <h4 class="product-name" style="font-size: 1.05rem; font-weight: 600; color: #222; margin-bottom: 10px;">${p.PRODUCT_NAME}</h4>
+                                <p style="margin-bottom: 10px;">${p.PRD_INFO}</p>
+                                <p class="product-price" style="font-size: 1.1rem; font-weight: 500; margin-bottom: 14px;">₩${p.PRICE}</p>
+                            </div>
+                        </div>
+                    </a>
+                </c:forEach>
+            </c:if>
+            <c:if test="${empty products}">
+                <p style="text-align: center; grid-column: 1 / -1; padding: 2rem; color: #666;">
+                    현재 등록된 과일 상품이 없습니다.
+                </p>
+            </c:if>
         </div>
     </div>
 

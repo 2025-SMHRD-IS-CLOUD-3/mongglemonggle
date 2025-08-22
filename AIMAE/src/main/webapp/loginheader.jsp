@@ -14,7 +14,7 @@
             </c:if>
             
             <!-- 공통 메뉴: 로그아웃, 고객센터 -->
-            <li><a href="/AIMAE/LogoutService" class="link">로그아웃</a></li>
+            <li><a href="AimaeLogoutService" class="link">로그아웃</a></li>
             <li><a href="#" class="link">고객센터</a></li>
             
             <!-- 일반 사용자일 때: 장바구니 표시 -->

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:if test="${empty products}">
+    <c:redirect url="/ProductList"/>
+</c:if>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
+
+
 </head>
+
+	
 
 <body>
 
@@ -82,61 +91,21 @@
 <div class="content-product">
     <h2 class="section-header">🛍️ 신상품</h2>
     <div class="product-slider">
-
+    <c:if test="${not empty products}">
+    <c:forEach var="p" items="${products}" end="4">
         <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="화이트닝 치약" class="product-img">
+         <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
+  	     <img src="images/favicon.ico" alt="" class="product-img">
             <div class="product-info">
-                <h3 class="product-name">화이트닝 치약</h3>
-                <p class="product-price">₩5,000</p>
+                <h3 class="product-name">${p.PRODUCT_NAME}</h3>
+				<p class="product-price">₩<c:out value="${p.PRICE}" /></p>
                 <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
             </div>
             </a>
         </div>
+		</c:forEach>
+		</c:if>
 
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="프리미엄 사과" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">프리미엄 사과</h3>
-                <p class="product-price">₩12,000</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
-
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="유기농 채소 세트" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">유기농 채소 세트</h3>
-                <p class="product-price">₩8,500</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
-
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="무선 이어폰" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">무선 이어폰</h3>
-                <p class="product-price">₩89,000</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
-
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="고급 커피 원두" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">고급 커피 원두</h3>
-                <p class="product-price">₩15,000</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
 
     </div>
 </div>
@@ -145,63 +114,23 @@
 <div class="content-product">
     <h2 class="section-header">🔥 최근 구매순</h2>
     <div class="product-slider">
-
+    <c:if test="${not empty stockProducts}">
+    <c:forEach var="p" items="${stockProducts}" end="4">
         <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="천연샴푸" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">천연샴푸</h3>
-                <p class="product-price">₩9,900</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
+            <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
+                <img src="images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-name">${p.PRODUCT_NAME}</h3>
+                    <p class="product-price">₩<c:out value="${p.PRICE}"/></p>
+                    <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
+                </div>
             </a>
         </div>
-
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="프리미엄 키보드" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">프리미엄 키보드</h3>
-                <p class="product-price">₩59,000</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
-
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="블루베리" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">블루베리</h3>
-                <p class="product-price">₩6,500</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
-
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="에코백" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">에코백</h3>
-                <p class="product-price">₩7,000</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
-
-        <div class="product-card">
-        	<a href="jsp/productDetail.jsp" class="product-link" style="text-decoration: none">
-            <img src="images/favicon.ico" alt="비타민C" class="product-img">
-            <div class="product-info">
-                <h3 class="product-name">비타민C</h3>
-                <p class="product-price">₩11,000</p>
-                <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
-            </div>
-            </a>
-        </div>
+    </c:forEach>
+    </c:if>
     </div>
 </div>
+
 
 
 
@@ -298,6 +227,23 @@
             });
         });
     </script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+
+        // 회원 탈퇴 성공 시
+        if (params.get('status') === 'unregister_success') {
+            alert('회원 탈퇴 되었습니다.');
+        }
+        
+     	// 로그인 실패 시
+        if (params.get('login') === 'err') {
+            alert('다시 확인해주세요.');
+        }
+        
+    });
+	</script>
     
     
 <c:if test="${not empty joinSuccess}">

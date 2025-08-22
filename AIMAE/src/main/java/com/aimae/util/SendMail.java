@@ -18,7 +18,7 @@ public class SendMail {
 	final String SENDER_EMAIL = "dydtjr1564@naver.com"; // 발신 이메일
 	final String SENDER_ALIAS = "AIMAE_관리자"; // 발신자명
 
-	public Session setting(String user_name, String password) {
+	public Session setting(final String user_name, final String password) {
 
 		Session session = null;
 		Properties props = new Properties();

@@ -10,13 +10,13 @@
     <title>AIMAE</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="../images/favicon.ico" sizes="52x52" type="image/png">
+    <link rel="icon" href="${imagePath}/favicon.ico" sizes="52x52" type="image/png">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/productDetail.css">
+    <link rel="stylesheet" href="${cssPath}/index.css">
+    <link rel="stylesheet" href="${cssPath}/footer.css">
+    <link rel="stylesheet" href="${cssPath}/header.css">
+    <link rel="stylesheet" href="${cssPath}/productDetail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
@@ -57,22 +57,22 @@
     <!-- 상품 이미지 -->
     <div class="product-detail-image">
     <!-- 메인 이미지 -->
-    <img id="mainImage" src="../images/favicon.ico" alt="제품 이미지">
+    <img id="mainImage" src="${imagePath}/favicon.ico" alt="제품 이미지">
 
         <!-- 썸네일 리스트 -->
         <div class="thumbnail-list">
-            <img src="../images/favicon.ico" alt="썸네일 1" class="thumbnail active">
-            <img src="../images/kakao.png" alt="썸네일 2" class="thumbnail">
-            <img src="../images/favicon.ico" alt="썸네일 3" class="thumbnail">
-            <img src="../images/favicon.ico" alt="썸네일 4" class="thumbnail">
+            <img src="${imagePath}/favicon.ico" alt="썸네일 1" class="thumbnail active">
+            <img src="${imagePath}/kakao.png" alt="썸네일 2" class="thumbnail">
+            <img src="${imagePath}/favicon.ico" alt="썸네일 3" class="thumbnail">
+            <img src="${imagePath}/favicon.ico" alt="썸네일 4" class="thumbnail">
         </div>
     </div>
 
 
     <!-- 상품 정보 -->
     <div class="product-detail-info">
-        <h1 class="product-title">싱싱한 파인애플</h1>
-        <p class="product-price">₩7,000</p>
+        <h1 class="product-title">${product.PRODUCT_NAME}</h1>
+        <p class="product-price">₩${product.PRICE}</p>
 
         <!-- 추가 정보 -->
         <ul class="product-highlights">
@@ -86,16 +86,20 @@
     <!-- 추가 설명 -->
     <div class="product-detail-extra">
         <h3>상품 설명</h3>
-        <p>
-            달콤하고 상큼한 파인애플을 언제 어디서나 간편하게 즐겨보세요.  
-            손질이 필요 없는 깔끔한 포장으로 바쁜 일상에도 건강한 과일을 챙기세요.
-            </p>
+        <p>${product.PRD_INFO}</p>
             
             <h3>보관 방법</h3>
             <p>
                 수령 후 냉장 보관해주세요.  
                 신선도를 위해 수령 후 3일 이내 섭취 권장드립니다.
             </p>
+            
+            <h3>배송 정보</h3>
+    		<p>배송 옵션: ${productDetail.DELY_OPT}</p>
+    		<p>배송 지역: ${productDetail.DELY_AREA}</p>
+    		<p>영수증: ${productDetail.RECEIPT}</p>
+    		<p>A/S: ${productDetail.AFTER_SERVICE}</p>
+</div>
         </div>
             <!-- 버튼 영역 -->
             <div class="product-actions">
@@ -110,11 +114,7 @@
         <h2 class="detail-title">제품 상세 설명</h2>
 
         <div class="detail-paragraph">
-            <p>
-            열대의 신선함을 담은 파인애플! <br />
-            AIMAE에서 엄선한 싱싱한 파인애플은 풍부한 과즙과 달콤한 향으로 입맛을 사로잡습니다.
-            간식, 요리, 주스 어디에나 어울리며 면역력 강화와 피로 회복에 도움을 줍니다.
-            </p>
+            <p>${product.PRD_DETAIL}</p>
         </div>
 
         <ul class="detail-specs">
@@ -126,7 +126,7 @@
         </ul>
 
         <div class="detail-image-wrapper">
-            <img src="https://wisnet612.cafe24.com/11st_2P/grass_bule/01.png" alt="상세 이미지 1">
+            <img src="" alt="">
         </div>
     </div>
     
@@ -193,7 +193,7 @@
                     <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div>
-                    <img src="../images/favicon.ico" alt="" style="width: 5rem;">
+                    <img src="${imagePath}/favicon.ico" alt="" style="width: 5rem;">
                 </div>
             </div>
         </div>
@@ -206,7 +206,7 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="${jsPath}/index.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
