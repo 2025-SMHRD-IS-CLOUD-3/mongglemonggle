@@ -74,11 +74,10 @@
 				session.setAttribute("state", state);
 				%>
 
-				<a class="social-btn naver" aria-label="네이버 로그인"
-					href="<%=apiURL%>">
+				<a class="social-btn naver" aria-label="네이버 로그인" href="<%=apiURL%>">
 					<img
-						src="https://blog.kakaocdn.net/dna/bU1uVm/btqGsLHK8Ha/AAAAAAAAAAAAAAAAAAAAAGoZUlR2gBNJysd7x3kViluaRJ-de7a9HNJ7XOCX4W-Z/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1756652399&amp;allow_ip=&amp;allow_referer=&amp;signature=q0DeRdE%2BKPMovqMItwp%2Fuk5%2BoHY%3D"
-						alt="네이버 로그인" />
+					src="https://blog.kakaocdn.net/dna/bU1uVm/btqGsLHK8Ha/AAAAAAAAAAAAAAAAAAAAAGoZUlR2gBNJysd7x3kViluaRJ-de7a9HNJ7XOCX4W-Z/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1756652399&amp;allow_ip=&amp;allow_referer=&amp;signature=q0DeRdE%2BKPMovqMItwp%2Fuk5%2BoHY%3D"
+					alt="네이버 로그인" />
 				</a>
 			</div>
 
@@ -178,6 +177,27 @@
 	        }
         
     	});
+	</script>
+	
+	<script>
+	function oauthLogin(provider) {
+        const routes = {
+            // 카카오 로그인 API URL
+            kakao: "https://kauth.kakao.com/oauth/authorize?client_id=09d398830455de57746f120a7bceca3d&redirect_uri=http://localhost:8081/AIMAE/KakaoLoginService&response_type=code",
+            
+            // 구글 로그인 API URL (구현에 따라 URL 변경)
+            google: "https://accounts.google.com/o/oauth2/v2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=http://localhost:8081/AIMAE/GoogleLoginService&response_type=code&scope=email profile"
+        };
+
+        const url = routes[provider];
+
+        if (url) {
+            window.location.href = url;
+        } else {
+            alert('지원하지 않는 소셜 로그인 제공자입니다.');
+        }
+    }
+
 	</script>
 
 </body>

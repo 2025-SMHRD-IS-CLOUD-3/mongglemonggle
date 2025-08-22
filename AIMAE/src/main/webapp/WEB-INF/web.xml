@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <description></description>
     <display-name>MainController</display-name>
@@ -20,7 +19,6 @@
     <servlet-name>MainController</servlet-name>
     <url-pattern>/main</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeJoinService</display-name>
@@ -31,7 +29,6 @@
     <servlet-name>AimaeJoinService</servlet-name>
     <url-pattern>/AimaeJoinService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeLoginService</display-name>
@@ -42,7 +39,6 @@
     <servlet-name>AimaeLoginService</servlet-name>
     <url-pattern>/LoginService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeLogoutService</display-name>
@@ -53,7 +49,6 @@
     <servlet-name>AimaeLogoutService</servlet-name>
     <url-pattern>/AimaeLogoutService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeUpdateService</display-name>
@@ -64,7 +59,6 @@
     <servlet-name>AimaeUpdateService</servlet-name>
     <url-pattern>/AimaeUpdateService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeSelectAllService</display-name>
@@ -75,7 +69,6 @@
     <servlet-name>AimaeSelectAllService</servlet-name>
     <url-pattern>/AimaeSelectAllService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ProductListService</display-name>
@@ -86,7 +79,6 @@
     <servlet-name>ProductListService</servlet-name>
     <url-pattern>/ProductList</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ProductDeleteService</display-name>
@@ -97,7 +89,6 @@
     <servlet-name>ProductDeleteService</servlet-name>
     <url-pattern>/ProductDelete</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ProductUpdateService</display-name>
@@ -108,7 +99,6 @@
     <servlet-name>ProductUpdateService</servlet-name>
     <url-pattern>/ProductUpdateService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ProductRegistService</display-name>
@@ -119,7 +109,6 @@
     <servlet-name>ProductRegistService</servlet-name>
     <url-pattern>/ProductRegist</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ProductDetailService</display-name>
@@ -130,7 +119,6 @@
     <servlet-name>ProductDetailService</servlet-name>
     <url-pattern>/ProductDetail</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>FruitProductListService</display-name>
@@ -141,7 +129,6 @@
     <servlet-name>FruitProductListService</servlet-name>
     <url-pattern>/FruitProductList</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>VegetableProductListService</display-name>
@@ -152,7 +139,6 @@
     <servlet-name>VegetableProductListService</servlet-name>
     <url-pattern>/VegetableProductList</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>ElectronicProductListService</display-name>
@@ -163,7 +149,6 @@
     <servlet-name>ElectronicProductListService</servlet-name>
     <url-pattern>/ElectronicProductList</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeAuthCodeService</display-name>
@@ -174,7 +159,6 @@
     <servlet-name>AimaeAuthCodeService</servlet-name>
     <url-pattern>/AimaeAuthCodeService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeCompletCodeService</display-name>
@@ -185,7 +169,6 @@
     <servlet-name>AimaeCompletCodeService</servlet-name>
     <url-pattern>/AimaeCompletCodeService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeUnregisterService</display-name>
@@ -196,7 +179,6 @@
     <servlet-name>AimaeUnregisterService</servlet-name>
     <url-pattern>/AimaeUnregisterService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeFindIdService</display-name>
@@ -207,7 +189,6 @@
     <servlet-name>AimaeFindIdService</servlet-name>
     <url-pattern>/AimaeFindIdService</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>AimaeFindPwService</display-name>
@@ -218,7 +199,7 @@
     <servlet-name>AimaeFindPwService</servlet-name>
     <url-pattern>/AimaeFindPwService</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>AimaeNaverLoginService</display-name>
     <servlet-name>AimaeNaverLoginService</servlet-name>
@@ -227,5 +208,15 @@
   <servlet-mapping>
     <servlet-name>AimaeNaverLoginService</servlet-name>
     <url-pattern>/AimaeNaverLoginService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeKakaoLoginService</display-name>
+    <servlet-name>AimaeKakaoLoginService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeKakaoLoginService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeKakaoLoginService</servlet-name>
+    <url-pattern>/AimaeKakaoLoginService</url-pattern>
   </servlet-mapping>
 </web-app>
