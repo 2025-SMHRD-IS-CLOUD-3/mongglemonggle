@@ -138,4 +138,17 @@ public class UserDAO {
 		
 	}
 	
+	public String findGrade(String Grade) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		String findGrade = sqlsession.selectOne("checkUserGrade", Grade);
+		
+		sqlsession.close();
+		
+		return findGrade;
+		
+	}
+	
 }

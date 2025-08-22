@@ -10,8 +10,8 @@
 		SELECT * FROM USERS WHERE USER_ID = #{userId}
 	</select>
 	
-	<select id="checkUserEmail"  parameterType="com.aimae.model.UserInfo" resultType="string"> 
-		SELECT * FROM USERS WHERE EMAIL = #{EMAIL}
+	<select id="checkUserGrade"  parameterType="com.aimae.model.UserInfo" resultType="string"> 
+		SELECT GRADE FROM USERS WHERE USER_ID = #{USER_ID}
 	</select>
 	
 	<select id="login" resultType="com.aimae.model.UserInfo" parameterType="com.aimae.model.UserInfo">
