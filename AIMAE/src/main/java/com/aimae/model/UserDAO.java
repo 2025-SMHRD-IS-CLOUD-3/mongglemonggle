@@ -124,5 +124,31 @@ public class UserDAO {
 		
 		
 	}
+
+	public UserInfo findByNaverId(String naverId) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		UserInfo findByNaverId = sqlsession.selectOne("checkUserId", naverId);
+		
+		sqlsession.close();
+		
+		return findByNaverId;
+		
+	}
+	
+	public String findGrade(String Grade) {
+		
+		SqlSession sqlsession
+		= sqlSessionFactory.openSession(true);
+		
+		String findGrade = sqlsession.selectOne("checkUserGrade", Grade);
+		
+		sqlsession.close();
+		
+		return findGrade;
+		
+	}
 	
 }
