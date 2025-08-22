@@ -1,6 +1,8 @@
 package com.aimae.model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -78,12 +80,18 @@ public class UserDAO {
 		return findId;
 	}
 	
-public String findPw(String userPw) {
+	public UserInfo findPw(String userId, String email) {
+		
+	    UserInfo findPw = null;
 		
 		SqlSession sqlsession
 		= sqlSessionFactory.openSession(true);
 		
-		String findPw = sqlsession.selectOne("findPw", userPw);
+		Map<String, String> params = new HashMap<>();
+        params.put("userId", userId);
+        params.put("email", email);
+		
+        findPw = sqlsession.selectOne("findPw", params);
 		
 		sqlsession.close();
 		

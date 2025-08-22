@@ -49,7 +49,7 @@
     </div>
 
         <!-- 로그인 / 로그아웃 헤더 변경 -->
-		<%@ include file="../loginheader2.jsp" %>
+		<%@ include file="../loginheader.jsp" %>
 
     </div>
 
@@ -57,14 +57,14 @@
     <!-- 상품 이미지 -->
     <div class="product-detail-image">
     <!-- 메인 이미지 -->
-    <img id="mainImage" src="${imagePath}/favicon.ico" alt="제품 이미지">
+    <img id="mainImage" src="../productDetailImage/${product.PRODUCT_ID}.jpg" alt="제품 이미지">
 
         <!-- 썸네일 리스트 -->
         <div class="thumbnail-list">
-            <img src="${imagePath}/favicon.ico" alt="썸네일 1" class="thumbnail active">
-            <img src="${imagePath}/kakao.png" alt="썸네일 2" class="thumbnail">
-            <img src="${imagePath}/favicon.ico" alt="썸네일 3" class="thumbnail">
-            <img src="${imagePath}/favicon.ico" alt="썸네일 4" class="thumbnail">
+            <img src="../productDetailImage/${product.PRODUCT_ID}.jpg" alt="썸네일 1" class="thumbnail active">
+            <img src="../productDetailImage/${product.PRODUCT_ID}_2.jpg" alt="썸네일 2" class="thumbnail">
+            <img src="../productDetailImage/${product.PRODUCT_ID}_3.jpg" alt="썸네일 3" class="thumbnail">
+            <img src="../productDetailImage/${product.PRODUCT_ID}_4.jpg" alt="썸네일 4" class="thumbnail">
         </div>
     </div>
 
@@ -126,7 +126,7 @@
         </ul>
 
         <div class="detail-image-wrapper">
-            <img src="" alt="">
+            <img src="${product.PRD_DETAIL}" alt="상품 상세 이미지" style="width: 100%; max-width: 800px; height: auto;">
         </div>
     </div>
     
@@ -223,6 +223,59 @@
                 thumbnail.classList.add('active');
             });
             });
+
+            // 장바구니 버튼 이벤트 추가 (메인화면과 완전히 동일)
+            const addCartBtn = document.querySelector('.add-cart');
+            if (addCartBtn) {
+                addCartBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); // 링크 이동 방지
+                    e.stopPropagation(); // 이벤트 버블링 방지
+                    
+                    const productId = '${product.PRODUCT_ID}';
+                    const productName = '${product.PRODUCT_NAME}';
+                    
+                    // CartService로 장바구니 추가 요청
+                    const params = new URLSearchParams();
+                    params.append('action', 'add');
+                    params.append('productId', productId);
+                    params.append('delyAddress', '결제 시 입력'); // 기본값 설정
+                    
+                    fetch('CartService', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: params
+                    })
+                    .then(response => {
+                        console.log('Response status:', response.status);
+                        
+                        // JSON 응답 처리
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Response data:', data);
+                        if (data.success) {
+                            alert(data.message);
+                            // 장바구니 개수 업데이트
+                            if (typeof loadCartCount === 'function') {
+                                loadCartCount();
+                            }
+                        } else {
+                            alert(data.message);
+                            // 로그인이 필요한 경우 로그인 페이지로 이동
+                            if (data.needLogin) {
+                                console.log('로그인 필요 - 로그인 페이지로 이동');
+                                window.location.href = 'jsp/login.jsp';
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('장바구니 추가 중 오류가 발생했습니다.');
+                    });
+                });
+            }
         });
     </script>
 

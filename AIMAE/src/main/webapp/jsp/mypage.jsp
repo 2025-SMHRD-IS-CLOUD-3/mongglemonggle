@@ -44,7 +44,7 @@
         </div>
 
         <!-- 로그인 / 로그아웃 헤더 변경 -->
-		<%@ include file="../loginheader2.jsp" %>
+		<%@ include file="../loginheader.jsp" %>
 		
     </div>
 
@@ -180,21 +180,21 @@
 
   <div style="border-bottom: 1px solid #8c52ff; margin-bottom: 2rem;"></div>
   
-  <form class="edit-form">
+  <form class="edit-form" action="/AIMAE/UpdateService" method="post">
     <label><i class="fa-solid fa-user"></i> <a style="margin-left: 0.5rem;"> 이름 </a></label>
-    <input type="text" name="USER_NAME" value="한찬희" />
+    <input type="text" name="USER_NAME" value="${sUser.USER_NAME }" />
     
     <label><i class="fa-solid fa-envelope"></i> <a style="margin-left: 0.5rem;"> 이메일 </a></label>
-    <input type="email" name="EMAIL" value="support@aimae.com" />
+    <input type="email" name="EMAIL" value="${sUser.EMAIL }" />
 
     <label><i class="fa-solid fa-key"></i> <a style="margin-left: 0.5rem;"> 비밀번호 </a></label>
-    <input type="pw" name="PASSWORD" value="12345" />
+    <input type="pw" name="PASSWORD" value="" />
     
     <label><i class="fa-solid fa-phone"></i> <a style="margin-left: 0.5rem;"> 휴대폰 </a></label>
-    <input type="tel" name="PHONE" value="010-1234-5678" />
+    <input type="tel" name="PHONE" value="${sUser.PHONE }" />
     
     <label><i class="fa-solid fa-location-dot"></i> <a style="margin-left: 0.5rem;"> 주소 </a></label>
-    <input type="text" name="USER_ADRRESS" value="서울 강남구 테헤란로 107" />
+    <input type="text" name="USER_ADRRESS" value="${sUser.USER_ADRRESS }" />
     
     <div class="form-buttons">
       <button type="submit" class="save-btn"><i class="fa-solid fa-floppy-disk"></i> 저장</button>

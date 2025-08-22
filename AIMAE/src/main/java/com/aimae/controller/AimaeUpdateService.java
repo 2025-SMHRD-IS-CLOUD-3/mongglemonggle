@@ -42,7 +42,7 @@ public class AimaeUpdateService extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("upUser", updateUser);
-			response.sendRedirect("/AIMAE/myPage.jsp");
+			response.sendRedirect("/AIMAE/jsp/myPage.jsp");
 			System.out.println("성공");
 			
 		}

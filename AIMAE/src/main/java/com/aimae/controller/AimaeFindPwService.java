@@ -11,29 +11,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aimae.model.UserDAO;
+import com.aimae.model.UserInfo;
 import com.aimae.util.SendMail;
 
 @WebServlet("/FindPwService")
 public class AimaeFindPwService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public void Service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String recipientuserId = request.getParameter("userId");
+		String userId = request.getParameter("userId");
+		String email = request.getParameter("email");
 		PrintWriter out = response.getWriter();
 		
-		if (recipientuserId == null || recipientuserId.trim().isEmpty()) {
-            response.setContentType("text/plain;charset=UTF-8");
-            out.write("error:empty_email");
-            return; // 메서드 실행 중단
-        }
+		if (userId == null || userId.trim().isEmpty() || email == null || email.trim().isEmpty()) {
+			out.write("error:invalid_input");
+			return;
+		}
 		
 		UserDAO dao = new UserDAO();
-		String userPw = dao.findPw(recipientuserId);
+		UserInfo user = dao.findPw(userId, email);
 		
+		
+		String userPassword = user.getPASSWORD();
+			
 	
 	 	String title = "AIMAE_찾은 비밀번호";
-	 	String content = "찾은 PW = "+ userPw +" 입니다.";
+	 	String content = "찾은 PW = "+ userPassword +" 입니다. 로그인 후 꼭 비밀번호를 바꿔주세요!";
 	 	String user_name = "dydtjr1564@naver.com";
 	 	String password = "LSJVD1EXG8MM";
 	 	
@@ -42,12 +46,11 @@ public class AimaeFindPwService extends HttpServlet {
         
         
         
-        if (userPw != null) {
-            mailSender.goMail(session, recipientuserId, title, content);
+        if (user != null) {
+            mailSender.goMail(session, email, title, content);
             
             out.write("success"); 
             
-            response.getWriter().write(userPw);
             
         } else {
             // 세션 설정 실패 처리

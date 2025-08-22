@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <c:if test="${empty products}">
     <c:redirect url="/ProductList"/>
 </c:if>
@@ -241,6 +242,61 @@
         if (params.get('login') === 'err') {
             alert('다시 확인해주세요.');
         }
+
+        // 장바구니 버튼 이벤트 추가
+        const addCartBtns = document.querySelectorAll('.add-cart-btn');
+        addCartBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // 링크 이동 방지
+                e.stopPropagation(); // 이벤트 버블링 방지
+                
+                const productCard = btn.closest('.product-card');
+                const productLink = productCard.querySelector('.product-link');
+                const productId = productLink.href.split('productId=')[1];
+                const productName = productCard.querySelector('.product-name').textContent;
+                
+                // CartService로 장바구니 추가 요청
+                const params = new URLSearchParams();
+                params.append('action', 'add');
+                params.append('productId', productId);
+                params.append('delyAddress', '결제 시 입력'); // 기본값 설정
+                
+                fetch('CartService', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: params
+                })
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    
+                    // JSON 응답 처리
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Response data:', data);
+                    if (data.success) {
+                        alert(data.message);
+                        // 장바구니 개수 업데이트
+                        if (typeof loadCartCount === 'function') {
+                            loadCartCount();
+                        }
+                    } else {
+                        alert(data.message);
+                        // 로그인이 필요한 경우 로그인 페이지로 이동
+                        if (data.needLogin) {
+                            console.log('로그인 필요 - 로그인 페이지로 이동');
+                            window.location.href = 'jsp/login.jsp';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('장바구니 추가 중 오류가 발생했습니다.');
+                });
+            });
+        });
         
     });
 	</script>
