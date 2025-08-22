@@ -103,8 +103,8 @@
                             </div>
                             <div class="info-item">
                                 <div class="calendar-icon"><i class="fa-solid fa-calendar-day"></i></div>
-                                <fmt:parseDate value="${sUser.BIRTH_DATE}" pattern="yyyy-MM-dd" var="birthDate" />
-                                <div><strong>가입일</strong><p><fmt:formatDate value="${birthDate }" pattern="yyyy년 MM월 dd일"/></p></div>
+                                 <fmt:formatDate value="${sUser.BIRTH_DATE}" pattern="yyyy-MM-dd" var="birthDate" /> 
+                                <div><strong>가입일</strong><p><fmt:formatDate value="${sUser.BIRTH_DATE}" pattern="yyyy년 MM월 dd일"/></p></div>
                             </div>
                         </div>
 

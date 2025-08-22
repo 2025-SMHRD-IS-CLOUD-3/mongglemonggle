@@ -1,6 +1,8 @@
 package com.aimae.model;
 
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +20,7 @@ public class UserInfo {
 	private String USER_NAME;
 	private String PHONE;
 	private String USER_ADRRESS;
-	private String BIRTH_DATE;
+	private Date BIRTH_DATE;
 	private String RULE;
 	private String GRADE;
 	

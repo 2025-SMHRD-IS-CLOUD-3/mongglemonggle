@@ -13,6 +13,8 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -69,6 +71,8 @@ public class AimaeKakaoLoginService extends HttpServlet {
             if (user == null) {
                  // 신규 회원인 경우
                  UserInfo nUser = new UserInfo();
+                 Date date = new Date();
+                 
                  System.out.println("신규 카카오 회원 가입!");
                  
                  nUser.setUSER_ID("KAKAO_" + kakaoId);
@@ -78,6 +82,7 @@ public class AimaeKakaoLoginService extends HttpServlet {
                  nUser.setPHONE(" ");
                  nUser.setUSER_ADRRESS(" ");
                  nUser.setGRADE(Grade);
+                 nUser.setBIRTH_DATE(date);
                  
                  dao.join(nUser);
                  
