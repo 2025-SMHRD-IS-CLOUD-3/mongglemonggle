@@ -119,4 +119,14 @@
     <servlet-name>AimaeFindPwService</servlet-name>
     <url-pattern>/AimaeFindPwService</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AimaeNaverLoginService</display-name>
+    <servlet-name>AimaeNaverLoginService</servlet-name>
+    <servlet-class>com.aimae.controller.AimaeNaverLoginService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AimaeNaverLoginService</servlet-name>
+    <url-pattern>/AimaeNaverLoginService</url-pattern>
+  </servlet-mapping>
 </web-app>

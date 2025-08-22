@@ -140,13 +140,14 @@
     <script>
 		function sendAuthCode() {
 		    const email = document.getElementById('email').value;
+		    const userId = document.getElementById('userId').value;
 		
-		    if (email.trim() === '') {
-		        alert('이메일을 입력해주세요.');
+		    if (userId.trim() === '' || email.trim() === '') {
+		        alert('아이디와 이메일을 입력해주세요.');
 		        return;
 		    }
 		
-		    fetch('/AIMAE/AuthCodeService?email=' + email, {
+		    fetch('/AIMAE/AuthCodeService?email=' + encodeURIComponent(email) + '&userId=' + encodeURIComponent(userId), {
 		        method: 'GET'
 		    })
 		    .then(response => response.text())
@@ -169,18 +170,19 @@
 		let isVerified = false;
 		
 		function completCode() {
+			const userId = document.getElementById('userId').value;
 			const authCode = document.getElementById('authCode').value;
 			
-			if (authCode.trim() ===''){
-				alert('인증번호를 입력해주세요.');
-				return;
-			}
+			if (userId.trim() === '' || authCode.trim() === ''){
+		        alert('아이디와 인증번호를 모두 입력해주세요.');
+		        return;
+		    }
 			
 			const encodedAuthCode = encodeURIComponent(authCode);
 			
-			fetch('/AIMAE/CompletCodeService?authCode=' + encodedAuthCode, {
-		        method: 'GET'
-		    })
+			fetch('/AIMAE/CompletCodeService?userId=' + encodeURIComponent(userId) + '&authCode=' + encodedAuthCode, {
+	            method: 'GET'
+	        })
 		    .then(response => response.text()) // 서버 응답을 텍스트로 받기
 		    .then(text => {
 		        // 4. 서버로부터 받은 응답 처리
@@ -208,18 +210,19 @@
 	
 		function findPw() {
 			const userId = document.getElementById('userId').value;
+			const email = document.getElementById('email').value;
 			
 			if (!isVerified) {
 		        alert('먼저 인증번호 확인을 완료해주세요.');
 		        return;
 		    }
 			
-			if (email.trim() === '') {
-		        alert('이메일을 입력해주세요.');
+			if (userId.trim() === '' || email.trim() === '') {
+		        alert('아이디와 이메일을 입력해주세요.');
 		        return;
 		    }
 			
-			fetch('/AIMAE/FindPwService?userId=' + encodeURIComponent(userId))
+			fetch('/AIMAE/FindPwService?userId=' + encodeURIComponent(userId) + '&email=' + encodeURIComponent(email))
 		    .then(response => response.text())
 		    .then(text => {
 		        if (text.trim() === 'error:not_found') {

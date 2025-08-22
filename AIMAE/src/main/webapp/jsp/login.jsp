@@ -135,12 +135,20 @@
     <script>
         function oauthLogin(provider) {
             const routes = {
-                kakao:  "/oauth2/authorization/kakao",
-                google: "/oauth2/authorization/google",
+               /*  kakao:  "/oauth2/authorization/kakao",
+                google: "/oauth2/authorization/google", */
                 naver:  "/oauth2/authorization/naver"
             };
-            const url = routes[provider] || "#";
-            window.location.href = url;
+            const url = routes[provider] || "/NaverLoginService";
+            
+            if (url !== "/NaverLoginService") {
+                // 지정된 URL로 이동하여 소셜 로그인을 시작합니다.
+                window.location.href = url;
+            } else {
+                // 지원하지 않는 제공자일 경우 알림
+                alert('지원하지 않는 소셜 로그인 제공자입니다.');
+            }
+            
         }
     </script>
 
