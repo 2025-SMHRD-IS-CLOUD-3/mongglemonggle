@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.aimae.model.Product" %>
 <%@ page import="com.aimae.model.ProductDAO" %>
+
+<%@ page import="java.time.LocalDate, java.time.format.TextStyle, java.util.Locale" %>
+
+<%
+    LocalDate tomorrow = LocalDate.now().plusDays(1);
+    String dayOfWeek = tomorrow.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.KOREAN);
+%>
 
 <%
     // 가전제품 카테고리 상품 조회
@@ -44,9 +52,9 @@
                 </button>
 
                 <div class="dropdown-content">
-                    <a href="fruitProducts.jsp">과일</a>
-                    <a href="vegetableProducts.jsp">채소</a>
-                    <a href="electronicProducts.jsp">전자제품</a>
+                    <a href="jsp/fruitProducts.jsp">과일</a>
+                    <a href="jsp/vegetableProducts.jsp">채소</a>
+                    <a href="jsp/electronicProducts.jsp">전자제품</a>
                 </div>
 
             </div>
@@ -83,8 +91,11 @@
                             <img src="../images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #eee;">
                             <div class="product-info" style="padding: 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                 <h4 class="product-name" style="font-size: 1.05rem; font-weight: 600; color: #222; margin-bottom: 10px;">${p.PRODUCT_NAME}</h4>
-                                <p style="margin-bottom: 10px;">${p.PRD_INFO}</p>
-                                <p class="product-price" style="font-size: 1.1rem; font-weight: 500; margin-bottom: 14px;">₩${p.PRICE}</p>
+                                <p style="margin-bottom: 10px; color: #00c300;">내일(<%= dayOfWeek %>) 새벽 도착 보장</p>
+                                <p class="product-price" style="font-size: 1.1rem; font-weight: 500; margin-bottom: 14px;">₩ <fmt:formatNumber value="${p.PRICE}" type="number" groupingUsed="true"/>원</p>
+                            	<div class="product-span">
+                                	<span class="product-tag">무료배송</span><span class="product-tag">안전포장</span>
+                                </div>
                             </div>
                         </div>
                     </a>

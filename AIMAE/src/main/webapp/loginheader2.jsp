@@ -8,13 +8,25 @@
         <ul class="nav-ul">
             <!-- 관리자일 때, 관리자 페이지로 이동하는 링크 표시 -->
             <c:if test="${sessionScope.sUser.RULE == 1}">
-                <li><a href="admin.jsp" class="link">관리자페이지</a></li>
+                <li><a href="/AIMAE/jsp/admin.jsp" class="link">관리자페이지</a></li>
             </c:if>
             
+<<<<<<< HEAD
             <!-- 공통 메뉴: 로그아웃, 고객센터, 장바구니 -->
+=======
+            <!-- 공통 메뉴: 로그아웃, 고객센터 -->
+>>>>>>> branch 'main' of https://github.com/2025-SMHRD-IS-CLOUD-3/mongglemonggle.git
             <li><a href="/AIMAE/LogoutService" class="link">로그아웃</a></li>
             <li><a href="#" class="link">고객센터</a></li>
+<<<<<<< HEAD
             <li><a href="jsp/cart.jsp" class="link">장바구니 <span id="cart-count" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; margin-left: 5px;">0</span></a></li>
+=======
+            
+            <!-- 일반 사용자일 때: 장바구니 표시 -->
+            <c:if test="${sessionScope.sUser.RULE != 1}">
+                <li><a href="/AIMAE/jsp/cart.jsp" class="link">장바구니</a></li>
+            </c:if>
+>>>>>>> branch 'main' of https://github.com/2025-SMHRD-IS-CLOUD-3/mongglemonggle.git
         </ul>
         
         <!-- 사용자 이름 출력 -->

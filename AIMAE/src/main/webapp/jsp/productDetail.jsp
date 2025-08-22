@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,14 +36,14 @@
                 </button>
 
                 <div class="dropdown-content">
-                    <a href="fruitProducts.jsp">과일</a>
-                    <a href="vegetableProducts.jsp">채소</a>
-                    <a href="electronicProducts.jsp">전자제품</a>
+                    <a href="jsp/fruitProducts.jsp">과일</a>
+                    <a href="jsp/vegetableProducts.jsp">채소</a>
+                    <a href="jsp/electronicProducts.jsp">전자제품</a>
                 </div>
 
             </div>
 
-            <a href="../index.jsp" class="logo">
+            <a href="./index.jsp" class="logo">
                 <span style="margin-left: 10px;">AIMAE</span>
             </a>
             
@@ -72,7 +73,7 @@
     <!-- 상품 정보 -->
     <div class="product-detail-info">
         <h1 class="product-title">${product.PRODUCT_NAME}</h1>
-        <p class="product-price">₩${product.PRICE}</p>
+        <p class="product-price">₩ <fmt:formatNumber value="${product.PRICE}" type="number" groupingUsed="true"/>원</p>
 
         <!-- 추가 정보 -->
         <ul class="product-highlights">
@@ -100,12 +101,12 @@
     		<p>영수증: ${productDetail.RECEIPT}</p>
     		<p>A/S: ${productDetail.AFTER_SERVICE}</p>
 </div>
-        </div>
             <!-- 버튼 영역 -->
             <div class="product-actions">
                 <button class="btn add-cart">장바구니에 담기</button>
                 <button class="btn buy-now">바로 구매</button>
             </div>
+        </div>
     </div>
     </div>
 
