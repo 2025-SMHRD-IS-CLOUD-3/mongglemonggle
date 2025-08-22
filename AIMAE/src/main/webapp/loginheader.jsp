@@ -16,15 +16,7 @@
             <!-- 공통 메뉴: 로그아웃, 고객센터, 장바구니 -->
             <li><a href="/AIMAE/LogoutService" class="link">로그아웃</a></li>
             <li><a href="#" class="link">고객센터</a></li>
-<<<<<<< HEAD
             <li><a href="javascript:void(0)" onclick="goToCart()" class="link">장바구니 <span id="cart-count" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; margin-left: 5px;">0</span></a></li>
-=======
-            
-            <!-- 일반 사용자일 때: 장바구니 표시 -->
-            <c:if test="${sessionScope.sUser.RULE != 1}">
-                <li><a href="/AIMAE/jsp/cart.jsp" class="link">장바구니</a></li>
-            </c:if>
->>>>>>> branch 'main' of https://github.com/2025-SMHRD-IS-CLOUD-3/mongglemonggle.git
         </ul>
         
         <!-- 사용자 이름 출력 -->
@@ -41,15 +33,9 @@
     <!-- 로그인 안된 경우 -->
     <div class="nav">
         <ul class="nav-ul">
-<<<<<<< HEAD
-            <li><a href="jsp/join.jsp" class="link">회원가입</a></li>
-            <li><a href="jsp/login.jsp" class="link">장바구니</a></li>
-            <li><a href="jsp/support.jsp" class="link">고객센터</a></li>
-=======
             <li><a href="/AIMAE/jsp/join.jsp" class="link">회원가입</a></li>
             <li><a href="/AIMAE/jsp/cart.jsp" class="link">장바구니</a></li>
             <li><a href="/AIMAE/jsp/support.jsp" class="link">고객센터</a></li>
->>>>>>> branch 'main' of https://github.com/2025-SMHRD-IS-CLOUD-3/mongglemonggle.git
         </ul>
         
         <button class="login-btn" onclick="location.href='/AIMAE/jsp/login.jsp'">로그인</button>
