@@ -211,12 +211,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>AimaeKakaoLoginService</display-name>
-    <servlet-name>AimaeKakaoLoginService</servlet-name>
-    <servlet-class>com.aimae.controller.AimaeKakaoLoginService</servlet-class>
+    <display-name>CartService</display-name>
+    <servlet-name>CartService</servlet-name>
+    <servlet-class>com.aimae.controller.CartService</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AimaeKakaoLoginService</servlet-name>
-    <url-pattern>/AimaeKakaoLoginService</url-pattern>
+    <servlet-name>CartService</servlet-name>
+    <url-pattern>/CartService</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,8 +1,6 @@
 package com.aimae.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,9 +21,6 @@ public class AimaeUpdateService extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
-		
-		
-		String userId = request.getParameter("USER_ID");
 		String userName = request.getParameter("USER_NAME");
 		String email = request.getParameter("EMAIL");
 		String userPw = request.getParameter("PASSWORD");
@@ -33,8 +28,6 @@ public class AimaeUpdateService extends HttpServlet {
 		String address = request.getParameter("USER_ADRRESS");
 		
 		UserInfo updateUser = new UserInfo();
-		
-		updateUser.setUSER_ID(userId);
 		updateUser.setUSER_NAME(userName);
 		updateUser.setEMAIL(email);
 		updateUser.setPASSWORD(userPw);
@@ -48,10 +41,8 @@ public class AimaeUpdateService extends HttpServlet {
 		if (cnt > 0) {
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("sUser", updateUser);
-			
-			response.sendRedirect("/AIMAE/jsp/mypage.jsp");
-			
+			session.setAttribute("upUser", updateUser);
+			response.sendRedirect("/AIMAE/jsp/myPage.jsp");
 			System.out.println("성공");
 			
 		}

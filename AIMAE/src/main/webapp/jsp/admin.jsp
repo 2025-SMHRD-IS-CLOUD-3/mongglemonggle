@@ -25,11 +25,11 @@
 <body>
     <!-- Header -->
     <div class="header">
-                 <div class="brand">
+        <div class="brand">
              <a href="../index.jsp" class="logo">
-                 <span style="margin-left: 10px;">AIMAE</span>
-             </a>
-         </div>
+                <span style="margin-left: 10px;">AIMAE</span>
+            </a>
+        </div>
         <div class="nav">
             <ul class="nav-ul">
                 <li><a href="admin-users.html" class="link">회원관리</a></li>
@@ -126,8 +126,8 @@
                 </div>
 
                 <!-- 상품 관리 -->
-                 <div id="productsSection" style="display:none;">
-                     <h3>상품 관리</h3>
+                <div id="productsSection" style="display:none;">
+                    <h3>상품 관리</h3>
                      
                  <!-- 업데이트 결과 메시지 -->
                     <%
@@ -302,7 +302,7 @@
                             %>
                         </tbody>
                     </table>
-                    
+
                     <!-- 페이지네이션 -->
                     <div class="pagination" style="text-align: center; margin-top: 20px; margin-bottom: 50px;">
                         <%
@@ -392,11 +392,11 @@
                   <div style="text-align: right;">
                       <button type="button" onclick="closeAddModal()" style="padding: 8px 16px; margin-right: 10px; background-color: #666; color: white; border: none; border-radius: 4px; cursor: pointer;">취소</button>
                       <button type="submit" style="padding: 8px 16px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">등록</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-      
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
       <!-- 상품 수정 모달 -->
       <div id="editProductModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
          <div class="modal-content" style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 50%; border-radius: 8px;">
@@ -433,15 +433,15 @@
                  <div style="margin-bottom: 20px;">
                      <label for="editPrice" style="display: block; margin-bottom: 5px; font-weight: bold;">가격:</label>
                      <input type="number" id="editPrice" name="price" required min="0" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
-                 </div>
+                </div>
                  
                  <div style="text-align: right;">
                      <button type="button" onclick="closeEditModal()" style="padding: 8px 16px; margin-right: 10px; background-color: #666; color: white; border: none; border-radius: 4px; cursor: pointer;">취소</button>
                      <button type="submit" style="padding: 8px 16px; background-color: #8c52ff; color: white; border: none; border-radius: 4px; cursor: pointer;">수정</button>
-                 </div>
+            </div>
              </form>
-         </div>
-     </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <div class="footer">
@@ -476,7 +476,7 @@
         <div class="footer-bottom"><p>&copy; 2025 AIMAE</p></div>
     </div>
 
-         <!-- JS -->
+    <!-- JS -->
      <!-- admin.js 제거 - 탭 전환 충돌 방지 -->
      
      <style>

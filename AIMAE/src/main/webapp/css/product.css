@@ -68,12 +68,6 @@
   -webkit-box-orient: vertical;
 }
 
-.product-price {
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 14px;
-}
-
 /* 카드 호버 효과 */
 .product-link:hover .product-item {
   transform: translateY(-6px);
@@ -232,4 +226,22 @@
 .add-cart-btn:hover {
   background: #6a35cc;
 }
+
+.product-span {
+	display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.product-tag {
+	color: #474747;
+	display: flex;
+    height: 25px;
+    width: 70px;
+    border-radius: 5px;
+    background: #e7e7e7;
+    align-items: center;
+    justify-content: space-around;
+}
+
 
