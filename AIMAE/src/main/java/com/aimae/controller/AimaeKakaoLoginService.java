@@ -71,7 +71,7 @@ public class AimaeKakaoLoginService extends HttpServlet {
             if (user == null) {
                  // 신규 회원인 경우
                  UserInfo nUser = new UserInfo();
-                 Date date = new Date();
+                 String date = new String();
                  
                  System.out.println("신규 카카오 회원 가입!");
                  

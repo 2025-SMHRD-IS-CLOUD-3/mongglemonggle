@@ -77,7 +77,7 @@ public class AimaeNaverLoginService extends HttpServlet {
              if (user == null) {
                  // 신규 회원인 경우, 회원가입 처리
             	 UserInfo nUser = new UserInfo();
-            	 Date date = new Date();
+            	 String date = new String();
                  System.out.println("신규 네이버 회원 가입!");
                  // 회원가입 시 소셜 로그인 계정임을 구분하기 위해 `NAVER_`와 같은 접두사 사용
                  

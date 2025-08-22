@@ -20,7 +20,7 @@ public class UserInfo {
 	private String USER_NAME;
 	private String PHONE;
 	private String USER_ADRRESS;
-	private Date BIRTH_DATE;
+	private String BIRTH_DATE;
 	private String RULE;
 	private String GRADE;
 	
