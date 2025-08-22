@@ -15,7 +15,7 @@
 	</select>
 	
 	<select id="update" parameterType="com.aimae.model.UserInfo">
-		UPDATE USERS SET USER_NAME=#{USER_NAME},EMAIL=#{EMAIL}, PASSWORD=#{PASSWORD}, PHONE=#{PHONE}, USER_ADRRESS=#{USER_ADRRESS}
+		UPDATE USERS SET USER_NAME=#{USER_NAME},EMAIL=#{EMAIL}, PASSWORD=#{PASSWORD}, PHONE=#{PHONE}, USER_ADRRESS=#{USER_ADRRESS} where USER_ID = #{USER_ID}
 	</select>
 	
 	<select id="select" resultType="com.aimae.model.UserInfo" parameterType="com.aimae.model.UserInfo">

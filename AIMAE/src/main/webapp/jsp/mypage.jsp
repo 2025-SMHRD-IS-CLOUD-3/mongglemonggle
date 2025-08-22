@@ -180,7 +180,10 @@
 
   <div style="border-bottom: 1px solid #8c52ff; margin-bottom: 2rem;"></div>
   
-  <form class="edit-form">
+  <form class="edit-form" action="/AIMAE/UpdateService" method="post">
+  
+  	<input type="hidden" name="USER_ID" value="${sUser.USER_ID }" />
+  
     <label><i class="fa-solid fa-user"></i> <a style="margin-left: 0.5rem;"> 이름 </a></label>
     <input type="text" name="USER_NAME" value="${sUser.USER_NAME }" />
     
@@ -188,7 +191,7 @@
     <input type="email" name="EMAIL" value="${sUser.EMAIL }" />
 
     <label><i class="fa-solid fa-key"></i> <a style="margin-left: 0.5rem;"> 비밀번호 </a></label>
-    <input type="pw" name="PASSWORD" value="" />
+    <input type="pw" name="PASSWORD" value="${sUser.PASSWORD }" />
     
     <label><i class="fa-solid fa-phone"></i> <a style="margin-left: 0.5rem;"> 휴대폰 </a></label>
     <input type="tel" name="PHONE" value="${sUser.PHONE }" />

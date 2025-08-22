@@ -139,9 +139,9 @@
                 google: "/oauth2/authorization/google", */
                 naver:  "/oauth2/authorization/naver"
             };
-            const url = routes[provider] || "/NaverLoginService";
+            const url = routes[provider] || "/AIMAE/NaverLoginService";
             
-            if (url !== "/NaverLoginService") {
+            if (url !== "/AIMAE/NaverLoginService") {
                 // 지정된 URL로 이동하여 소셜 로그인을 시작합니다.
                 window.location.href = url;
             } else {
