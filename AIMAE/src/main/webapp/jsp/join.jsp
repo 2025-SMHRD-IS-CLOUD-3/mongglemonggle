@@ -41,7 +41,7 @@
                     <form action="/AIMAE/JoinService" method="post">
                         <label for="userId">아이디</label>
                         <div class="form-input-join">
-                            <input id="userId" type="text" name="USER_ID" value="" placeholder="아이디를 입력해주세요." style="width: 17.04rem;" required>
+                            <input id="userId" type="text" name="USER_ID" value="" placeholder="아이디를 입력해주세요." style="width: 17.02rem;" required>
                             <button type="button" onclick="checkUserId()" class="btn-2">중복 확인</button>
                         </div>
 
@@ -57,12 +57,12 @@
 
                         <label for="email">이메일</label>
                         <div class="form-input-join" style="display: flex;">
-                            <input id="email" type="text" name="EMAIL" value="" placeholder="이메일을 입력해주세요." style="width: 15.2rem;" required>
+                            <input id="email" type="text" name="EMAIL" value="" placeholder="이메일을 입력해주세요." style="width: 15.1rem;" required>
                             <button type="button" onclick="sendAuthCode()" class="btn-2">인증번호 전송</button>
                         </div>
                         
                         <div class="form-input-join">
-                            <input type="text" name="auth_code" id="authCode" placeholder="인증번호를 입력해주세요." style="width: 15.2rem;" required>
+                            <input type="text" name="auth_code" id="authCode" placeholder="인증번호를 입력해주세요." style="width: 15.1rem;" required>
                             <button type="button" id="verifyCodeBtn" onclick="completCode()" class="btn-2">인증번호 확인</button>
                         </div>
 

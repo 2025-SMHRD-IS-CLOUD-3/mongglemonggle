@@ -94,6 +94,9 @@
                                 <h4 class="product-name" style="font-size: 1.05rem; font-weight: 600; color: #222; margin-bottom: 10px;">${p.PRODUCT_NAME}</h4>
                                 <p style="margin-bottom: 10px; color: #00c300;">내일(<%= dayOfWeek %>) 새벽 도착 보장</p>
                                 <p class="product-price" style="font-size: 1.1rem; font-weight: 500; margin-bottom: 14px;">₩ <fmt:formatNumber value="${p.PRICE}" type="number" groupingUsed="true"/>원</p>
+                            	<div class="product-span">
+                                	<span class="product-tag">무료배송</span><span class="product-tag">신선보장</span>
+                                </div>
                             </div>
                         </div>
                     </a>

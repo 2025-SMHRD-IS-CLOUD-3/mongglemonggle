@@ -52,9 +52,9 @@
                 </button>
 
                 <div class="dropdown-content">
-                    <a href="fruitProducts.jsp">과일</a>
-                    <a href="vegetableProducts.jsp">채소</a>
-                    <a href="electronicProducts.jsp">전자제품</a>
+                    <a href="jsp/fruitProducts.jsp">과일</a>
+                    <a href="jsp/vegetableProducts.jsp">채소</a>
+                    <a href="jsp/electronicProducts.jsp">전자제품</a>
                 </div>
 
             </div>
@@ -93,6 +93,9 @@
                                 <h4 class="product-name" style="font-size: 1.05rem; font-weight: 600; color: #222; margin-bottom: 10px;">${p.PRODUCT_NAME}</h4>
                                 <p style="margin-bottom: 10px; color: #00c300;">내일(<%= dayOfWeek %>) 새벽 도착 보장</p>
                                 <p class="product-price" style="font-size: 1.1rem; font-weight: 500; margin-bottom: 14px;">₩ <fmt:formatNumber value="${p.PRICE}" type="number" groupingUsed="true"/>원</p>
+                            	<div class="product-span">
+                                	<span class="product-tag">무료배송</span><span class="product-tag">안전포장</span>
+                                </div>
                             </div>
                         </div>
                     </a>
