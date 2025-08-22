@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <c:if test="${empty products}">
     <c:redirect url="/ProductList"/>
@@ -97,8 +99,17 @@
          <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
   	     <img src="images/favicon.ico" alt="" class="product-img">
             <div class="product-info">
-                <h3 class="product-name">${p.PRODUCT_NAME}</h3>
-				<p class="product-price">₩<c:out value="${p.PRICE}" /></p>
+                <h3 class="product-name">
+					<c:choose>
+				        <c:when test="${fn:contains(p.PRODUCT_NAME, ',')}">
+				            ${fn:substringBefore(p.PRODUCT_NAME, ',')}
+				        </c:when>
+				        <c:otherwise>
+				            ${p.PRODUCT_NAME}
+				        </c:otherwise>
+			    	</c:choose>
+				</h3>
+				<p class="product-price">₩ <fmt:formatNumber value="${p.PRICE}" type="number" groupingUsed="true"/>원</p>
                 <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
             </div>
             </a>
@@ -120,8 +131,19 @@
             <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
                 <img src="images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img">
                 <div class="product-info">
-                    <h3 class="product-name">${p.PRODUCT_NAME}</h3>
-                    <p class="product-price">₩<c:out value="${p.PRICE}"/></p>
+                    <h3 class="product-name">
+                    
+                    	<c:choose>
+					        <c:when test="${fn:contains(p.PRODUCT_NAME, ',')}">
+					            ${fn:substringBefore(p.PRODUCT_NAME, ',')}
+					        </c:when>
+					        <c:otherwise>
+					            ${p.PRODUCT_NAME}
+					        </c:otherwise>
+			    		</c:choose>
+                    
+                    </h3>
+                    <p class="product-price">₩ <fmt:formatNumber value="${p.PRICE}" type="number" groupingUsed="true"/>원</p>
                     <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
                 </div>
             </a>
@@ -240,6 +262,11 @@
      	// 로그인 실패 시
         if (params.get('login') === 'err') {
             alert('다시 확인해주세요.');
+        }
+     	
+     	// 로그인 실패 시
+        if (params.get('logout') === 'success') {
+            alert('로그아웃 되었습니다. ');
         }
         
     });
