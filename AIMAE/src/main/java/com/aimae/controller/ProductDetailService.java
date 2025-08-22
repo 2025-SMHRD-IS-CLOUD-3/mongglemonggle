@@ -53,6 +53,10 @@ public class ProductDetailService extends HttpServlet {
 	        System.out.println("request.setAttribute 시작");
 	        request.setAttribute("product", product);
 	        request.setAttribute("productDetail", productDetail);
+	        // CSS 경로 설정
+	        request.setAttribute("cssPath", request.getContextPath() + "/css");
+	        request.setAttribute("imagePath", request.getContextPath() + "/images");
+	        request.setAttribute("jsPath", request.getContextPath() + "/js");
 	        System.out.println("request.setAttribute 완료");
 	        
 	        System.out.println("forward 시작");

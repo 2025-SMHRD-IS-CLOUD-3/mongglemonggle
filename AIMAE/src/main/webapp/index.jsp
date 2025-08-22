@@ -42,9 +42,9 @@
                 </button>
 
                 <div class="dropdown-content">
-                    <a href="${pageContext.request.contextPath}/FruitProductList">과일</a>
-                    <a href="${pageContext.request.contextPath}/VegetableProductList">야채</a>
-                    <a href="${pageContext.request.contextPath}/ElectronicProductList">가전제품</a>
+                    <a href="jsp/fruitProducts.jsp">과일</a>
+                    <a href="jsp/vegetableProducts.jsp">채소</a>
+                    <a href="jsp/electronicProducts.jsp">전자제품</a>
                 </div>
 
             </div>
@@ -94,7 +94,7 @@
     <c:if test="${not empty products}">
     <c:forEach var="p" items="${products}" end="4">
         <div class="product-card">
-         <a href="${pageContext.request.contextPath}/ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
+         <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
   	     <img src="images/favicon.ico" alt="" class="product-img">
             <div class="product-info">
                 <h3 class="product-name">${p.PRODUCT_NAME}</h3>
@@ -117,7 +117,7 @@
     <c:if test="${not empty stockProducts}">
     <c:forEach var="p" items="${stockProducts}" end="4">
         <div class="product-card">
-            <a href="${pageContext.request.contextPath}/ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
+            <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
                 <img src="images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img">
                 <div class="product-info">
                     <h3 class="product-name">${p.PRODUCT_NAME}</h3>

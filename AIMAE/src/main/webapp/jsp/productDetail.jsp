@@ -10,13 +10,13 @@
     <title>AIMAE</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" sizes="52x52" type="image/png">
+    <link rel="icon" href="${imagePath}/favicon.ico" sizes="52x52" type="image/png">
 
     <!-- Style -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/productDetail.css">
+    <link rel="stylesheet" href="${cssPath}/index.css">
+    <link rel="stylesheet" href="${cssPath}/footer.css">
+    <link rel="stylesheet" href="${cssPath}/header.css">
+    <link rel="stylesheet" href="${cssPath}/productDetail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
@@ -42,7 +42,7 @@
 
             </div>
 
-            <a href="${pageContext.request.contextPath}/index.jsp" class="logo">
+            <a href="../index.jsp" class="logo">
                 <span style="margin-left: 10px;">AIMAE</span>
             </a>
             
@@ -57,14 +57,14 @@
     <!-- 상품 이미지 -->
     <div class="product-detail-image">
     <!-- 메인 이미지 -->
-    <img id="mainImage" src="${pageContext.request.contextPath}/images/favicon.ico" alt="제품 이미지">
+    <img id="mainImage" src="${imagePath}/favicon.ico" alt="제품 이미지">
 
         <!-- 썸네일 리스트 -->
         <div class="thumbnail-list">
-            <img src="${pageContext.request.contextPath}/images/favicon.ico" alt="썸네일 1" class="thumbnail active">
-            <img src="${pageContext.request.contextPath}/images/kakao.png" alt="썸네일 2" class="thumbnail">
-            <img src="${pageContext.request.contextPath}/images/favicon.ico" alt="썸네일 3" class="thumbnail">
-            <img src="${pageContext.request.contextPath}/images/favicon.ico" alt="썸네일 4" class="thumbnail">
+            <img src="${imagePath}/favicon.ico" alt="썸네일 1" class="thumbnail active">
+            <img src="${imagePath}/kakao.png" alt="썸네일 2" class="thumbnail">
+            <img src="${imagePath}/favicon.ico" alt="썸네일 3" class="thumbnail">
+            <img src="${imagePath}/favicon.ico" alt="썸네일 4" class="thumbnail">
         </div>
     </div>
 
@@ -193,7 +193,7 @@
                     <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div>
-                    <img src="${pageContext.request.contextPath}/images/favicon.ico" alt="" style="width: 5rem;">
+                    <img src="${imagePath}/favicon.ico" alt="" style="width: 5rem;">
                 </div>
             </div>
         </div>
@@ -206,7 +206,7 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/index.js"></script>
+    <script src="${jsPath}/index.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

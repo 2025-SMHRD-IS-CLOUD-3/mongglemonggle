@@ -353,7 +353,7 @@
                   <span class="close" onclick="closeAddModal()" style="color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
               </div>
               
-                             <form id="addProductForm" action="${pageContext.request.contextPath}/ProductRegist" method="post" enctype="multipart/form-data">
+                             <form id="addProductForm" action="../ProductRegist" method="post" enctype="multipart/form-data">
                   <div style="margin-bottom: 15px;">
                       <label for="addProductName" style="display: block; margin-bottom: 5px; font-weight: bold;">상품명:</label>
                       <input type="text" id="addProductName" name="productName" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
@@ -405,7 +405,7 @@
                  <span class="close" onclick="closeEditModal()" style="color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
              </div>
              
-                             <form id="editProductForm" action="${pageContext.request.contextPath}/ProductUpdateService" method="post">
+                             <form id="editProductForm" action="../ProductUpdateService" method="post">
                  <div style="margin-bottom: 15px;">
                      <label for="editProductId" style="display: block; margin-bottom: 5px; font-weight: bold;">상품 ID:</label>
                      <input type="text" id="editProductId" name="productId" readonly style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9;">
@@ -687,7 +687,7 @@
                  // 폼 생성하여 POST 요청
                  var form = document.createElement('form');
                  form.method = 'POST';
-                 form.action = '${pageContext.request.contextPath}/ProductDelete';
+                 form.action = '../ProductDelete';
                  
                  var productIdInput = document.createElement('input');
                  productIdInput.type = 'hidden';
