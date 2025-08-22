@@ -64,6 +64,7 @@ public class AimaeKakaoLoginService extends HttpServlet {
             // 4. DB 연동 및 로그인/회원가입 로직
             UserDAO dao = new UserDAO();
             UserInfo user = dao.findByNaverId("KAKAO_" + kakaoId);
+            String Grade = dao.findGrade("KAKAO_" + kakaoId);
             
             if (user == null) {
                  // 신규 회원인 경우
@@ -76,6 +77,7 @@ public class AimaeKakaoLoginService extends HttpServlet {
                  nUser.setPASSWORD(UUID.randomUUID().toString()); // 임의의 비밀번호
                  nUser.setPHONE(" ");
                  nUser.setUSER_ADRRESS(" ");
+                 nUser.setGRADE(Grade);
                  
                  dao.join(nUser);
                  

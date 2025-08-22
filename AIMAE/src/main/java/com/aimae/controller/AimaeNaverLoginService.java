@@ -66,11 +66,13 @@ public class AimaeNaverLoginService extends HttpServlet {
             String naverName = profile.get("name").getAsString();
             String naverphone = profile.get("mobile").getAsString();
             
+            
             // 여기에 DB 연동 로직을 추가하여 로그인 또는 회원가입을 처리합니다.
             // 예시:
             
              UserDAO dao = new UserDAO();
              UserInfo user = dao.findByNaverId("NAVER_" + naverId);
+             String Grade = dao.findGrade("NAVER_" + naverId);
              if (user == null) {
                  // 신규 회원인 경우, 회원가입 처리
             	 UserInfo nUser = new UserInfo();
@@ -83,6 +85,7 @@ public class AimaeNaverLoginService extends HttpServlet {
                  nUser.setPASSWORD(UUID.randomUUID().toString()); // 비밀번호는 임의의 값으로 설정
                  nUser.setPHONE(naverphone);
                  nUser.setUSER_ADRRESS(" ");
+                 nUser.setGRADE(Grade);
                  
                  dao.join(nUser);
                  
