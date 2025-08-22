@@ -3,11 +3,15 @@
 <mapper namespace="com.aimae.util.UserMapper">
 
 	<insert id="join" parameterType="com.aimae.model.UserInfo">
-		INSERT INTO USERS(USER_NUM,EMAIL,USER_ID,PASSWORD,USER_NAME,PHONE,BIRTH_DATE,USER_ADRRESS) VALUES('us_00' || USERS_SEQ.nextval, #{EMAIL}, #{USER_ID}, #{PASSWORD}, #{USER_NAME}, #{PHONE}, #{BIRTH_DATE}, #{USER_ADRRESS})
+		INSERT INTO USERS(USER_NUM,EMAIL,USER_ID,PASSWORD,USER_NAME,PHONE,BIRTH_DATE,USER_ADRRESS) VALUES('us_00' || USERS_SEQ.nextval, #{EMAIL}, #{USER_ID}, #{PASSWORD}, #{USER_NAME}, #{PHONE, jdbcType=VARCHAR}, #{BIRTH_DATE, jdbcType=VARCHAR}, #{USER_ADRRESS, jdbcType=VARCHAR})
 	</insert>
 	
-	<select id="checkUserId"  parameterType="com.aimae.model.UserInfo" resultType="string"> 
+	<select id="checkUserId"  parameterType="com.aimae.model.UserInfo" resultType="com.aimae.model.UserInfo"> 
 		SELECT * FROM USERS WHERE USER_ID = #{userId}
+	</select>
+	
+	<select id="checkUserEmail"  parameterType="com.aimae.model.UserInfo" resultType="string"> 
+		SELECT * FROM USERS WHERE EMAIL = #{EMAIL}
 	</select>
 	
 	<select id="login" resultType="com.aimae.model.UserInfo" parameterType="com.aimae.model.UserInfo">
