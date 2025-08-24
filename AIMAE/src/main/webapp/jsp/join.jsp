@@ -83,11 +83,6 @@
                             <input id="address" type="text" name="USER_ADRRESS" value="" placeholder="주소를 입력해주세요." style="width: 23.3rem;" required>
                         </div>
 
-                        <label for="birthday">생년월일</label>
-                        <div class="form-input-join">
-                            <input id="birthday" type="date" name="BIRTH_DATE" value="" style="width: 23.3rem;">
-                        </div>
-
                         <div class="join-button">
                             <button type="submit">회원가입</button>
                             <button type="reset" onclick="" class="join-btn-c">취소</button>

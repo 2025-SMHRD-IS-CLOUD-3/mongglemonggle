@@ -188,6 +188,11 @@
       <p>&copy; 2025 AIMAE</p>
     </div>
   </div>
+  
+  	<!-- 👩 아임포트 SDK -->
+	<script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	<!-- 👩 공통 결제 로직 -->
+	<script src="../js/payment.js"></script>
 
      <!-- 계산 JS -->
    <script>

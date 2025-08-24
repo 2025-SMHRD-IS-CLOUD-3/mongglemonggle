@@ -78,6 +78,8 @@
 }
 
 .product-list-box {
+	width: 12rem;
+	height: 22.5rem;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -102,10 +104,15 @@
 }
 
 .product-name {
-    font-size: 1rem;
-    margin: 5px 0;
-    color: #333;
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  height: 2.4em; /* 2줄 고정 높이 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
+
 
 .product-price {
     font-size: 1.1rem;
@@ -129,4 +136,3 @@
 .add-cart-btn i {
     margin-right: 5px;
 }
-

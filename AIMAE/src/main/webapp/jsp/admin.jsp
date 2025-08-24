@@ -82,7 +82,7 @@
                                 <td><%=result.get(i).getUSER_NUM() %></td>
                                 <td><%=result.get(i).getUSER_NAME() %></td>
                                 <td><%=result.get(i).getEMAIL() %></td>
-                                <td><%=result.get(i).getBIRTH_DATE() %></td>
+                                <td><%=result.get(i).getJOIN_DATE() %></td>
                                 <td><%=result.get(i).getGRADE() %></td>
                                 <td style="white-space: nowrap; text-align: center;">
                                     <button class="edit-btn" style="margin-right: 5px;" onclick="editUser('<%=result.get(i).getUSER_NUM()%>', '<%=result.get(i).getUSER_NAME()%>', '<%=result.get(i).getEMAIL()%>')"><i class="fa-solid fa-pen"></i></button>

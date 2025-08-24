@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.UUID;
 
@@ -77,7 +79,11 @@ public class AimaeNaverLoginService extends HttpServlet {
              if (user == null) {
                  // 신규 회원인 경우, 회원가입 처리
             	 UserInfo nUser = new UserInfo();
-            	 String date = new String();
+            	 
+            	 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            	 String joinDate = LocalDate.now().format(formatter);
+
+
                  System.out.println("신규 네이버 회원 가입!");
                  // 회원가입 시 소셜 로그인 계정임을 구분하기 위해 `NAVER_`와 같은 접두사 사용
                  
@@ -88,7 +94,7 @@ public class AimaeNaverLoginService extends HttpServlet {
                  nUser.setPHONE(naverphone);
                  nUser.setUSER_ADRRESS(" ");
                  nUser.setGRADE(Grade);
-                 nUser.setBIRTH_DATE(date);
+                 nUser.setJOIN_DATE(joinDate);
                  
                  dao.join(nUser);
                  

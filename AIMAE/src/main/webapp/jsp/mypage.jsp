@@ -103,8 +103,8 @@
                             </div>
                             <div class="info-item">
                                 <div class="calendar-icon"><i class="fa-solid fa-calendar-day"></i></div>
-                                 <fmt:formatDate value="${sUser.BIRTH_DATE}" pattern="yyyy-MM-dd" var="birthDate" /> 
-                                <div><strong>가입일</strong><p><fmt:formatDate value="${sUser.BIRTH_DATE}" pattern="yyyy년 MM월 dd일"/></p></div>
+                                 <fmt:parseDate value="${sUser.JOIN_DATE}" pattern="yyyy-MM-dd" var="joinDate" />
+                                <div><strong>가입일</strong><p><fmt:formatDate value="${joinDate }" pattern="yyyy년 MM월 dd일"/></p></div>
                             </div>
                         </div>
 
@@ -135,18 +135,11 @@
                                 </div>
                             </div>
 
-                            <div class="sns-login"><h3>SNS 연동</h3></div>
-                            <div class="social-login">
-                                <button class="social-btn kakao" aria-label="카카오 로그인" onclick="oauthLogin('kakao')">
-                                    <img src="../images/kakao.png" alt="카카오 로그인" />
-                                </button>
-                                <button class="social-btn google" aria-label="구글 로그인" onclick="oauthLogin('google')">
-                                    <img src="https://www.svgrepo.com/show/355037/google.svg" alt="구글 로그인" />
-                                </button>
-                                <button class="social-btn naver" aria-label="네이버 로그인" onclick="oauthLogin('naver')">
-                                    <img src="https://blog.kakaocdn.net/dna/bU1uVm/btqGsLHK8Ha/AAAAAAAAAAAAAAAAAAAAAGoZUlR2gBNJysd7x3kViluaRJ-de7a9HNJ7XOCX4W-Z/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1756652399&amp;allow_ip=&amp;allow_referer=&amp;signature=q0DeRdE%2BKPMovqMItwp%2Fuk5%2BoHY%3D" alt="네이버 로그인" />
-                                </button>
+                            <div class="logoList" style="display: flex; align-items: center; gap: 20px;">
+                                <img src="../images/favicon.ico" alt="" style="width: 6rem;">
+                                    <p style="font-weight: bold; font-size: 30px; color: #8c52ff">AIMAE</p>
                             </div>
+
                         </div>
                     </div>
 

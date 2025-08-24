@@ -1,6 +1,8 @@
 package com.aimae.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -37,7 +39,10 @@ public class AimaeJoinService extends HttpServlet {
 				String phone2 = request.getParameter("PHONE2");
 				String phone3 = request.getParameter("PHONE3");
 				String phone = phone1 + phone2 + phone3;
-				String birthday = request.getParameter("BIRTH_DATE");
+				
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				String joinDate = LocalDate.now().format(formatter);
+				
 				String address = request.getParameter("USER_ADRRESS");
 				
 				UserDAO dao= new UserDAO();
@@ -60,7 +65,7 @@ public class AimaeJoinService extends HttpServlet {
 				joinUser.setEMAIL(email);
 				joinUser.setUSER_NAME(username);
 				joinUser.setPHONE(phone);
-				joinUser.setBIRTH_DATE(birthday);
+				joinUser.setJOIN_DATE(joinDate);
 				joinUser.setUSER_ADRRESS(address);
 				joinUser.setPASSWORD(userPw);
 				

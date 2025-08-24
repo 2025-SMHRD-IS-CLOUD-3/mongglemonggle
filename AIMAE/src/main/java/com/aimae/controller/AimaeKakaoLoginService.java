@@ -14,6 +14,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.UUID;
 import javax.servlet.ServletException;
@@ -71,7 +73,9 @@ public class AimaeKakaoLoginService extends HttpServlet {
             if (user == null) {
                  // 신규 회원인 경우
                  UserInfo nUser = new UserInfo();
-                 String date = new String();
+                 
+                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                 String joinDate = LocalDate.now().format(formatter);
                  
                  System.out.println("신규 카카오 회원 가입!");
                  
@@ -82,7 +86,7 @@ public class AimaeKakaoLoginService extends HttpServlet {
                  nUser.setPHONE(" ");
                  nUser.setUSER_ADRRESS(" ");
                  nUser.setGRADE(Grade);
-                 nUser.setBIRTH_DATE(date);
+                 nUser.setJOIN_DATE(joinDate);
                  
                  dao.join(nUser);
                  

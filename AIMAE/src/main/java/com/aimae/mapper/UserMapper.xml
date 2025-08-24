@@ -3,7 +3,7 @@
 <mapper namespace="com.aimae.util.UserMapper">
 
 	<insert id="join" parameterType="com.aimae.model.UserInfo">
-		INSERT INTO USERS(USER_NUM,EMAIL,USER_ID,PASSWORD,USER_NAME,PHONE,BIRTH_DATE,USER_ADRRESS) VALUES('us_00' || USERS_SEQ.nextval, #{EMAIL}, #{USER_ID}, #{PASSWORD}, #{USER_NAME}, #{PHONE, jdbcType=VARCHAR}, #{BIRTH_DATE, jdbcType=VARCHAR}, #{USER_ADRRESS, jdbcType=VARCHAR})
+		INSERT INTO USERS(USER_NUM,EMAIL,USER_ID,PASSWORD,USER_NAME,PHONE,JOIN_DATE,USER_ADRRESS) VALUES('us_00' || USERS_SEQ.nextval, #{EMAIL}, #{USER_ID}, #{PASSWORD}, #{USER_NAME}, #{PHONE, jdbcType=VARCHAR}, #{JOIN_DATE, jdbcType=VARCHAR}, #{USER_ADRRESS, jdbcType=VARCHAR})
 	</insert>
 	
 	<select id="checkUserId"  parameterType="com.aimae.model.UserInfo" resultType="com.aimae.model.UserInfo"> 

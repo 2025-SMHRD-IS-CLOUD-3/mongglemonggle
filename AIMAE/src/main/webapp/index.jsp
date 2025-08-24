@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <c:if test="${empty products}">
-    <c:redirect url="/ProductList"/>
+    <jsp:forward page="/ProductList"/>
 </c:if>
 
 <!DOCTYPE html>
@@ -29,8 +31,8 @@
 </head>
 
 	
-
-<body>
+<!-- 👩 index.jsp에서 질문하면 recom.jsp로 넘어가도록 -->
+<body class="page-index">
 
     <!-- Header -->
     <div class="header">
@@ -73,6 +75,15 @@
             <p>AI가 당신의 취향과 필요를 분석하여 최적의 상품을 추천해줍니다.</p>
             <p>복잡한 쇼핑 과정에서 벗어나, 원하는 제품을 찾을 수 있습니다.</p>
         </div>
+        
+        <!-- 👩 미리보기 영역 -->
+		<div class="preview-area">
+		  <div class="preview-wrapper">
+		    <img id="preview" class="preview-img" src="" alt="이미지 미리보기"/>
+		    <button id="clear-preview" class="preview-clear">✕</button>
+		  </div>
+		  <span id="image-status" class="image-status"></span>
+		</div>
 
         <!-- Search bar -->
 
@@ -98,8 +109,15 @@
          <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
   	     <img src="images/favicon.ico" alt="" class="product-img">
             <div class="product-info">
-                <h3 class="product-name">${p.PRODUCT_NAME}</h3>
-				<p class="product-price">₩<c:out value="${p.PRICE}" /></p>
+                <c:choose>
+				    <c:when test="${fn:contains(p.PRODUCT_NAME, ',')}">
+				        <h3 class="product-name">${fn:substringBefore(p.PRODUCT_NAME, ',')}</h3>
+				    </c:when>
+				    <c:otherwise>
+				        <h3 class="product-name">${p.PRODUCT_NAME}</h3>
+				    </c:otherwise>
+				</c:choose>
+				<p class="product-price">₩ <fmt:formatNumber value="${p.PRICE}" type="number" groupingUsed="true"/>원</p>
                 <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
             </div>
             </a>
@@ -121,8 +139,15 @@
             <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
                 <img src="images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img">
                 <div class="product-info">
-                    <h3 class="product-name">${p.PRODUCT_NAME}</h3>
-                    <p class="product-price">₩<c:out value="${p.PRICE}"/></p>
+                    <c:choose>
+					    <c:when test="${fn:contains(p.PRODUCT_NAME, ',')}">
+					        <h3 class="product-name">${fn:substringBefore(p.PRODUCT_NAME, ',')}</h3>
+					    </c:when>
+					    <c:otherwise>
+					        <h3 class="product-name">${p.PRODUCT_NAME}</h3>
+					    </c:otherwise>
+					</c:choose>
+                    <p class="product-price">₩ <fmt:formatNumber value="${p.PRICE}" type="number" groupingUsed="true"/>원</p>
                     <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> 장바구니</button>
                 </div>
             </a>
@@ -179,6 +204,9 @@
             <p>&copy; 2025 AIMAE</p>
         </div>
     </div>
+    
+    <!-- 👩 index.jsp : 입력내용 → recom.jsp?q=... 로 이동 -->
+	<script>window.CONTEXT_PATH = "<%= request.getContextPath() %>";</script>
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

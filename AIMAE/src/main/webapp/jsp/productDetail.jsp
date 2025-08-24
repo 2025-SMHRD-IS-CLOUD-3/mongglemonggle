@@ -11,13 +11,13 @@
     <title>AIMAE</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="${imagePath}/favicon.ico" sizes="52x52" type="image/png">
+    <link rel="icon" href="<%= request.getContextPath() %>/images/favicon.ico" sizes="52x52" type="image/png">
 
     <!-- Style -->
-    <link rel="stylesheet" href="${cssPath}/index.css">
-    <link rel="stylesheet" href="${cssPath}/footer.css">
-    <link rel="stylesheet" href="${cssPath}/header.css">
-    <link rel="stylesheet" href="${cssPath}/productDetail.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/footer.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/header.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/productDetail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
@@ -207,7 +207,29 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="${jsPath}/index.js"></script>
+    <script src="../js/index.js"></script>
+    
+    <!-- 👩 아임포트 SDK -->
+	<script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	<!-- 👩 공통 결제 로직 -->
+	<script src="${jsPath}/payment.js"></script>
+
+
+	<%-- 👩 로그인 여부 계산: cart.jsp와 동일한 세션 로직 재사용 --%>
+	<%
+	  String userNum = (String) session.getAttribute("userNum");
+	  if (userNum == null) {
+	    com.aimae.model.UserInfo sUser = (com.aimae.model.UserInfo) session.getAttribute("sUser");
+	    if (sUser != null) userNum = sUser.getUSER_NUM();
+	  }
+	  boolean isLoggedIn = (userNum != null);
+	%>
+	
+	<script>
+	  // 전역 플래그 & 로그인 URL (컨텍스트패스 안전)
+	  window.IS_LOGGED_IN = <%= isLoggedIn ? "true" : "false" %>;
+	  window.LOGIN_URL = "<%= request.getContextPath() %>/jsp/login.jsp";
+	</script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

@@ -52,9 +52,9 @@
                 </button>
 
                 <div class="dropdown-content">
-                    <a href="jsp/fruitProducts.jsp">과일</a>
-                    <a href="jsp/vegetableProducts.jsp">채소</a>
-                    <a href="jsp/electronicProducts.jsp">전자제품</a>
+                    <a href="fruitProducts.jsp">과일</a>
+                    <a href="vegetableProducts.jsp">채소</a>
+                    <a href="electronicProducts.jsp">전자제품</a>
                 </div>
 
             </div>

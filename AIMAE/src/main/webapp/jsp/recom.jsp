@@ -22,7 +22,8 @@
 
 </head>
 
-<body>
+<!-- 👩 index.jsp에서 질문하면 recom.jsp로 넘어오도록 -->
+<body class="page-recom">
 
     <!-- Header -->
     <div class="header">
@@ -65,6 +66,15 @@
             <p>AI가 당신의 취향과 필요를 분석하여 최적의 상품을 추천해줍니다.</p>
             <p>복잡한 쇼핑 과정에서 벗어나, 원하는 제품을 찾을 수 있습니다.</p>
         </div>
+        
+        <!-- 👩 미리보기 영역 -->
+		<div class="preview-area">
+		  <div class="preview-wrapper">
+		    <img id="preview" class="preview-img" src="" alt="이미지 미리보기"/>
+		    <button id="clear-preview" class="preview-clear">✕</button>
+		  </div>
+		  <span id="image-status" class="image-status"></span>
+		</div>
 
         <!-- Search bar -->
 
@@ -139,26 +149,7 @@
                         <th>설명</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>치약1</td>
-                        <td>₩5,000</td>
-                        <td>불소, 허브추출물</td>
-                        <td>충치 예방에 효과적</td>
-                    </tr>
-                    <tr>
-                        <td>치약2</td>
-                        <td>₩6,500</td>
-                        <td>탄산칼슘, 민트</td>
-                        <td>상쾌한 향과 미백 효과</td>
-                    </tr>
-                    <tr>
-                        <td>치약3</td>
-                        <td>₩7,200</td>
-                        <td>자일리톨, 알로에</td>
-                        <td>잇몸 건강 강화</td>
-                    </tr>
-                </tbody>
+                <tbody id="recommend-tbody"></tbody>
             </table>
         </div>
     </div>

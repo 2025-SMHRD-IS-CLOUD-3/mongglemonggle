@@ -662,6 +662,54 @@ body {
   }
 }
 
+/* 미리보기 css */
+.preview-area {
+	margin-bottom: 2rem;
+	  margin-top: 12px;
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+}
 
+.preview-wrapper {
+	  position: relative;
+	  display: inline-block;
+}
 
+.preview-img {
+	  max-width: 140px;
+	  border: 2px solid #e0e0e0;
+	  border-radius: 10px;
+	  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	  display: none; /* 기본 숨김 */
+}
+
+.preview-clear {
+	  position: absolute;
+	  top: -8px;
+	  right: -8px;
+	  background: #ff5c5c;
+	  border: none;
+	  border-radius: 50%;
+	  width: 22px;
+	  height: 22px;
+	  color: #fff;
+	  font-size: 14px;
+	  font-weight: bold;
+	  cursor: pointer;
+	  display: none; /* 기본 숨김 */
+	  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	  transition: background 0.2s;
+	  line-height: 20px;
+	  text-align: center;
+}
+
+.preview-clear:hover {
+  	background: #ff3030;
+}
+
+.image-status {
+	  font-size: 0.9em;
+	  color: #555;
+}
 
