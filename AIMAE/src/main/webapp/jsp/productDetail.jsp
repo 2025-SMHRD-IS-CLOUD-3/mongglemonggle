@@ -104,7 +104,8 @@
             <!-- 버튼 영역 -->
             <div class="product-actions">
                 <button class="btn add-cart">장바구니에 담기</button>
-                <button class="btn buy-now">바로 구매</button>
+                <!--<button class="btn buy-now">바로 구매</button>   -->
+                <button class="now-btn" onclick="location.href='jsp/orderAction.jsp?productId=${product.PRODUCT_ID}'">바로 구매</button>
             </div>
         </div>
     </div>
@@ -127,7 +128,7 @@
         </ul>
 
         <div class="detail-image-wrapper">
-            <img src="${product.PRD_DETAIL}" alt="상품 상세 이미지" style="width: 100%; max-width: 800px; height: auto;">
+            <img src="${pageContext.request.contextPath}/${product.PRD_DETAIL}" alt="상품 상세 이미지" style="width: 100%; max-width: 800px; height: auto;">
         </div>
     </div>
     
@@ -213,7 +214,6 @@
 	<script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	<!-- 👩 공통 결제 로직 -->
 	<script src="${jsPath}/payment.js"></script>
-
 
 	<%-- 👩 로그인 여부 계산: cart.jsp와 동일한 세션 로직 재사용 --%>
 	<%

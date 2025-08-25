@@ -56,11 +56,6 @@
 					onclick="oauthLogin('kakao')">
 					<img src="../images/kakao.png" alt="카카오 로그인" />
 				</button>
-				<button class="social-btn google" aria-label="구글 로그인"
-					onclick="oauthLogin('google')">
-					<img src="https://www.svgrepo.com/show/355037/google.svg"
-						alt="구글 로그인" />
-				</button>
 
 				<%
 				String clientId = "zNtk7Js2ruJpU5n22VvO";//애플리케이션 클라이언트 아이디값";

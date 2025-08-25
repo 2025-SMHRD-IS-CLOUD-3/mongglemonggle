@@ -50,6 +50,10 @@ public class ProductDetailService extends HttpServlet {
 	        // Product_Detail 조회
 	        Product_Detail productDetail = dao.searchProductDetail(productId);
 	        
+	        // 세션에 상품 정보 저장 (다른 페이지에서도 사용 가능)
+            request.getSession().setAttribute("product", product);
+            request.getSession().setAttribute("productDetail", productDetail);
+	        
 	        System.out.println("request.setAttribute 시작");
 	        request.setAttribute("product", product);
 	        request.setAttribute("productDetail", productDetail);
