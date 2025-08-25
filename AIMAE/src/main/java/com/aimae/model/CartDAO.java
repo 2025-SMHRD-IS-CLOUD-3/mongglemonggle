@@ -49,6 +49,47 @@ public class CartDAO {
         sqlSession.close();
         return count;
     }
+    
+    // 장바구니 상태 변경
+    public int statusUpadete(String userNum) {
+    	SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int count = sqlSession.update("com.aimae.mapper.CartMapper.status", userNum);
+        sqlSession.close();
+        return count;
+	}
+    
+ // 장바구니 STATUS 업데이트 (결제완료)
+    public int updateCartStatus(Cart cart) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = sqlSession.update("com.aimae.mapper.CartMapper.updateCartStatus", cart);
+        sqlSession.close();
+        return result;
+    }
+    
+    // 결제완료된 장바구니 항목 조회 (마이페이지용)
+    public List<Cart> selectPurchasedCart(String userNum) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        List<Cart> purchasedList = sqlSession.selectList("com.aimae.mapper.CartMapper.selectPurchasedCart", userNum);
+        sqlSession.close();
+        return purchasedList;
+    }
+    
+    //결제완료 처리
+    public int updateAllCartStatus(String userNum) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = sqlSession.update("com.aimae.mapper.CartMapper.updateAllCartStatus", userNum);
+        sqlSession.close();
+        return result;
+    }
+    
+    //선택한 상품만 결제완료로 변경
+    public int updateCartStatusById(String cartId) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = sqlSession.update("com.aimae.mapper.CartMapper.updateCartStatusById", cartId);
+        sqlSession.close();
+        return result;
+    }
+
 	    	
 
 }

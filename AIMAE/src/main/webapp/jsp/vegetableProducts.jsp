@@ -89,7 +89,7 @@
                 <c:forEach var="p" items="${products}">
                     <a href="../ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="width: calc(20% - 19.2px); display: block; text-decoration: none; color: inherit;">
                         <div class="product-item" style="background-color: #fff; border-radius: 12px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); text-align: center; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-                            <img src="../images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #eee;">
+                            <img src="${pageContext.request.contextPath}${p.PHOTO_PATH}" alt="${p.PRODUCT_NAME}" class="product-img" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #eee;">
                             <div class="product-info" style="padding: 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                 <h4 class="product-name" style="font-size: 1.05rem; font-weight: 600; color: #222; margin-bottom: 10px;">${p.PRODUCT_NAME}</h4>
                                 <p style="margin-bottom: 10px; color: #00c300;">내일(<%= dayOfWeek %>) 새벽 도착 보장</p>

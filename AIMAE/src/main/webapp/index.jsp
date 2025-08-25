@@ -107,7 +107,7 @@
     <c:forEach var="p" items="${products}" end="4">
         <div class="product-card">
          <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
-  	     <img src="images/favicon.ico" alt="" class="product-img">
+  	     <img src="${pageContext.request.contextPath}${p.PHOTO_PATH}" alt="" class="product-img">
             <div class="product-info">
                 <c:choose>
 				    <c:when test="${fn:contains(p.PRODUCT_NAME, ',')}">
@@ -137,7 +137,7 @@
     <c:forEach var="p" items="${stockProducts}" end="4">
         <div class="product-card">
             <a href="ProductDetail?productId=${p.PRODUCT_ID}" class="product-link" style="text-decoration: none">
-                <img src="images/favicon.ico" alt="${p.PRODUCT_NAME}" class="product-img">
+                <img src="${pageContext.request.contextPath}/${p.PHOTO_PATH}" alt="${p.PRODUCT_NAME}" class="product-img">
                 <div class="product-info">
                     <c:choose>
 					    <c:when test="${fn:contains(p.PRODUCT_NAME, ',')}">

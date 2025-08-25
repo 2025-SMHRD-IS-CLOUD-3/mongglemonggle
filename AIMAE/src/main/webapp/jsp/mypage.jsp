@@ -4,6 +4,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+<%
+// 간단한 결제완료 주문 내역 조회
+String userNum = (String) session.getAttribute("userNum");
+System.out.println("=== mypage.jsp 디버깅 ===");
+System.out.println("userNum: " + userNum);
+
+if (userNum != null) {
+    com.aimae.model.CartDAO cartDAO = new com.aimae.model.CartDAO();
+    java.util.List<com.aimae.model.Cart> purchasedCart = cartDAO.selectPurchasedCart(userNum);
+    System.out.println("purchasedCart 크기: " + (purchasedCart != null ? purchasedCart.size() : "null"));
+    if (purchasedCart != null && !purchasedCart.isEmpty()) {
+        System.out.println("첫 번째 상품: " + purchasedCart.get(0).getPRODUCT_NAME());
+    }
+    request.setAttribute("purchasedCart", purchasedCart);
+} else {
+    System.out.println("userNum이 null입니다!");
+}
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,11 +175,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>#20250810</td><td>AI 스마트 스피커</td><td>2025-08-10</td><td>배송중</td></tr>
-                                <tr><td>#20250805</td><td>AI 이어폰</td><td>2025-08-05</td><td>배송완료</td></tr>
+                                <!-- 주문 내역이 있으면 보여주기 -->
+                                <c:if test="${not empty purchasedCart}">
+                                    <c:forEach var="order" items="${purchasedCart}" varStatus="status">
+                                        <!-- 최대 10개까지만 보여주기 -->
+                                        <c:if test="${status.index < 10}">
+                                            <tr>
+                                                <td>${order.CART_ID}</td>
+                                                <td>${order.PRODUCT_NAME}</td>
+                                                <td>
+                                                    <fmt:parseDate value="${order.ORDER_DATE}" pattern="yyyy-MM-dd HH:mm:ss" var="orderDate" />
+                                                    <fmt:formatDate value="${orderDate}" pattern="yyyy-MM-dd"/>
+                                                </td>
+                                                <td>결제완료</td>
+                                            </tr>
+                                        </c:if>
+                                    </c:forEach>
+                                </c:if>
+                                
+                                <!-- 주문 내역이 없으면 보여주기 -->
+                                <c:if test="${empty purchasedCart}">
+                                    <tr>
+                                        <td colspan="4" style="text-align: center; color: #666;">주문 내역이 없습니다.</td>
+                                    </tr>
+                                </c:if>
                             </tbody>
                         </table>
-                        <a href="#" class="more-link">전체 주문 보기 &gt;</a>
                     </div>
                 </div>
 

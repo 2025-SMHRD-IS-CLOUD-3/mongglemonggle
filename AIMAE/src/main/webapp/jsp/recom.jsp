@@ -145,7 +145,6 @@
                     <tr>
                         <th>상품명</th>
                         <th>가격</th>
-                        <th>성분</th>
                         <th>설명</th>
                     </tr>
                 </thead>

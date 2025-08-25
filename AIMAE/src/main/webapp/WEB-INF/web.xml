@@ -219,4 +219,14 @@
     <servlet-name>CartService</servlet-name>
     <url-pattern>/CartService</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CartStatusUpdateServlet</display-name>
+    <servlet-name>CartStatusUpdateServlet</servlet-name>
+    <servlet-class>com.aimae.controller.CartStatusUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartStatusUpdateServlet</servlet-name>
+    <url-pattern>/updateCartStatus</url-pattern>
+  </servlet-mapping>
 </web-app>

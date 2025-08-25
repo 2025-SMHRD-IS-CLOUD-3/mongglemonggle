@@ -31,7 +31,7 @@
 	</delete>
 	
 	<select id="findId" resultType="String" parameterType="String">
-		SELECT USER_ID FROM USERS WHERE EMAIL = #{email}
+		SELECT USER_ID FROM USERS WHERE EMAIL = #{email} AND USER_ID NOT LIKE 'NAVER_%' AND USER_ID NOT LIKE 'KAKAO_%'
 	</select>
 	
 	<select id="findPw" resultType="com.aimae.model.UserInfo" parameterType="com.aimae.model.UserInfo">

@@ -132,56 +132,45 @@ public class CartService extends HttpServlet {
         }
     }
     
-    // 2. 장바구니 목록 조회
     private void cartList(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        
+
         try {
-            System.out.println("=== cartList 메서드 시작 ===");
             HttpSession session = request.getSession();
             String userNum = (String) session.getAttribute("userNum");
-            System.out.println("cartList에서 세션 userNum: " + userNum);
-            
-            // userNum이 null이면 sUser에서 가져오기
+
             if (userNum == null) {
-                System.out.println("cartList에서 userNum이 null입니다. sUser에서 가져오기 시도...");
                 UserInfo sUser = (UserInfo) session.getAttribute("sUser");
-                System.out.println("cartList에서 세션에서 가져온 sUser: " + sUser);
                 if (sUser != null) {
                     userNum = sUser.getUSER_NUM();
-                    System.out.println("cartList에서 sUser에서 가져온 userNum: " + userNum);
-                    // 세션에 userNum도 저장
                     session.setAttribute("userNum", userNum);
-                } else {
-                    System.out.println("cartList에서 세션에 sUser가 없습니다!");
                 }
             }
-            
+
             if (userNum == null) {
-                System.out.println("cartList에서 로그인되지 않음 - 로그인 페이지로 리다이렉트");
                 response.sendRedirect("jsp/login.jsp");
                 return;
             }
-            
+
             CartDAO dao = new CartDAO();
-            System.out.println("CartDAO 생성 완료");
             List<Cart> cartList = dao.cartList(userNum);
-            System.out.println("cartList 조회 결과 개수: " + (cartList != null ? cartList.size() : "null"));
-            if (cartList != null) {
-                for (Cart cart : cartList) {
-                    System.out.println("Cart 항목: " + cart);
-                }
-            }
-            
+
             request.setAttribute("cartList", cartList);
-            request.getRequestDispatcher("jsp/cart.jsp").forward(request, response);
-            
+
+            // ====== 분기 처리 ======
+            String target = request.getParameter("target");
+            if ("mypage".equals(target)) {
+                request.getRequestDispatcher("jsp/mypage.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("jsp/cart.jsp").forward(request, response);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("cartList 예외 발생: " + e.getMessage());
             response.sendRedirect("jsp/cart.jsp?error=list_fail");
         }
     }
+
     
     // 3. 장바구니에서 상품 삭제
     private void deleteCart(HttpServletRequest request, HttpServletResponse response) 

@@ -101,8 +101,8 @@ function renderResult(res) {
 
             var card = `
                 <div class="product-list-box">
-                    <a href="/AIMAE/jsp/ProductDetail?productId=${p.PRODUCT_ID}" class="list-pbox">
-                        <img src="${p.IMAGE_URL || '../images/favicon.ico'}" alt="상품 이미지" class="product-img">
+                    <a href="/AIMAE/ProductDetail?productId=${p.PRODUCT_ID}" class="list-pbox">
+                        <img src="${p.IMAGE_URL ? '../' + p.IMAGE_URL : '../images/favicon.ico'}" alt="상품 이미지" class="product-img" onerror="this.onerror=null; this.src='../images/favicon.ico';">
                         <div class="product-info">
                             <h3 class="product-name" title="${p.PRODUCT_NAME || ''}">
                                 ${displayName}
@@ -145,7 +145,6 @@ function renderResult(res) {
 	                </td>
 	                <td>${displayPrice}</td>
 	                <td>${wrapText(p.PRD_INFO, 70)}</td>
-	                <td>${p.PRD_INFO ? p.PRD_INFO.slice(0, 30) + '…' : '정보 없음'}</td>
 	            </tr>`;
 	        tbody.append(row);
 	    });

@@ -58,12 +58,12 @@
     <!-- 상품 이미지 -->
     <div class="product-detail-image">
     <!-- 메인 이미지 -->
-    <img id="mainImage" src="../productDetailImage/${product.PRODUCT_ID}.jpg" alt="제품 이미지">
+    <img id="mainImage" src="${pageContext.request.contextPath}/${product.PHOTO_PATH}" alt="제품 이미지">
 
         <!-- 썸네일 리스트 -->
         <div class="thumbnail-list">
-            <img src="../productDetailImage/${product.PRODUCT_ID}.jpg" alt="썸네일 1" class="thumbnail active">
-            <img src="../productDetailImage/${product.PRODUCT_ID}_2.jpg" alt="썸네일 2" class="thumbnail">
+            <img src="${pageContext.request.contextPath}/${product.PHOTO_PATH}" alt="썸네일 1" class="thumbnail active">
+            <img src="../productDetailImage/${product.PRODUCT_ID}_3.jpg" alt="썸네일 2" class="thumbnail">
             <img src="../productDetailImage/${product.PRODUCT_ID}_3.jpg" alt="썸네일 3" class="thumbnail">
             <img src="../productDetailImage/${product.PRODUCT_ID}_4.jpg" alt="썸네일 4" class="thumbnail">
         </div>
@@ -114,18 +114,6 @@
     <!-- 상품 상세 설명 -->
     <div class="product-description-section">
         <h2 class="detail-title">제품 상세 설명</h2>
-
-        <div class="detail-paragraph">
-            <p>${product.PRD_DETAIL}</p>
-        </div>
-
-        <ul class="detail-specs">
-            <li><strong>원산지:</strong> 필리핀</li>
-            <li><strong>중량:</strong> 약 1.5kg</li>
-            <li><strong>보관 방법:</strong> 서늘한 곳 또는 냉장 보관</li>
-            <li><strong>배송 안내:</strong> 당일 발송 / 1~2일 내 도착</li>
-            <li><strong>유통기한:</strong> 수령 후 가급적 3일 이내 섭취 권장</li>
-        </ul>
 
         <div class="detail-image-wrapper">
             <img src="${pageContext.request.contextPath}/${product.PRD_DETAIL}" alt="상품 상세 이미지" style="width: 100%; max-width: 800px; height: auto;">

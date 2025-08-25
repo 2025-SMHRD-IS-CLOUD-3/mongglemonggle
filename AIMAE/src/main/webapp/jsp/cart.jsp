@@ -147,7 +147,7 @@
              <div class="total-price" id="total-price">
               총 결제 금액: ₩0
             </div>
-            <button class="checkout-btn">결제하기</button>
+            <button class="checkout-btn" onclick="location.href='orderAction3.jsp?productId=${product.PRODUCT_ID}'">결제하기</button>
           </div>
   </div>
 
