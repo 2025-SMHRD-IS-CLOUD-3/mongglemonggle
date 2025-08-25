@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.aimae.model.UserDAO;
 import com.aimae.model.UserInfo;
 
@@ -56,18 +58,21 @@ public class AimaeJoinService extends HttpServlet {
 					return;
 				}
 				
+				// 비밀번호 해싱
+				String hashedPw = BCrypt.hashpw(userPw, BCrypt.gensalt());
+				
 				
 				// 4. 받아온 데이터를 DB에 저장하는 작업
 				
 				UserInfo joinUser = new UserInfo();
 				joinUser.setUSER_ID(userId);
-				joinUser.setPASSWORD(userPw);
+				joinUser.setPASSWORD(hashedPw);
 				joinUser.setEMAIL(email);
 				joinUser.setUSER_NAME(username);
 				joinUser.setPHONE(phone);
 				joinUser.setJOIN_DATE(joinDate);
 				joinUser.setUSER_ADRRESS(address);
-				joinUser.setPASSWORD(userPw);
+				joinUser.setPASSWORD(hashedPw);
 				
 				
 				// 5. DB연결할 수 있도록 UserDAO의 join메서드 호출

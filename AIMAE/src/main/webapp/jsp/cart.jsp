@@ -147,7 +147,8 @@
              <div class="total-price" id="total-price">
               총 결제 금액: ₩0
             </div>
-            <button class="checkout-btn" onclick="location.href='orderAction3.jsp?productId=${product.PRODUCT_ID}'">결제하기</button>
+            <!-- 선택된 상품 결제 버튼 추가 -->
+            <button class="checkout-btn" onclick="processOrder()">결제하기</button>
           </div>
   </div>
 
@@ -191,8 +192,6 @@
   
   	<!-- 👩 아임포트 SDK -->
 	<script src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-	<!-- 👩 공통 결제 로직 -->
-	<script src="../js/payment.js"></script>
 
      <!-- 계산 JS -->
    <script>
@@ -316,6 +315,60 @@
           totalPriceElement.innerText = '총 결제 금액: ' + formatPrice(total);
         }
 
+      }
+
+      // 선택된 상품 결제 처리 함수 (payment.js와 연동)
+      function processOrder() {
+        // 선택된 상품이 있는지 확인
+        var selectedCheckboxes = document.querySelectorAll('.item-checkbox:checked');
+        if (selectedCheckboxes.length === 0) {
+          alert('결제할 상품을 선택해주세요.');
+          return;
+        }
+
+        // 총 결제 금액 계산
+        var totalAmount = 0;
+        var selectedCartIds = [];
+        
+        selectedCheckboxes.forEach(function(checkbox) {
+          var row = checkbox.closest('tr');
+          var price = parseInt(row.dataset.price);
+          var qty = parseInt(row.querySelector('.qty-input').value);
+          totalAmount += price * qty;
+          selectedCartIds.push(row.dataset.cartId);
+        });
+
+                 // 결제 확인
+         if (confirm('선택된 상품을 결제하시겠습니까?\n총 결제 금액: ₩' + totalAmount.toLocaleString())) {
+           console.log('결제 확인됨 - 정식 Iamport 결제창 호출');
+           
+           // 정식 Iamport 결제창 호출
+           IMP.init('imp07671867'); // 가맹점 식별코드
+           
+           IMP.request_pay({
+             pg: 'nice', // 결제 PG
+             pay_method: 'card', // 결제수단
+             merchant_uid: 'order_' + new Date().getTime(), // 주문번호
+             amount: totalAmount, // 결제금액
+             name: 'AIMAE 상품 구매', // 주문명
+             buyer_email: 'test@test.com', // 구매자 이메일
+             buyer_name: '구매자', // 구매자 이름
+             buyer_tel: '010-1234-5678', // 구매자 전화번호
+           }, function(rsp) {
+             if (rsp.success) {
+               // 결제 성공 시
+               console.log('결제 성공:', rsp);
+               
+               // 선택된 상품들의 CART_ID를 URL 파라미터로 전달
+               var selectedItemsParam = selectedCartIds.join(',');
+               window.location.href = '/AIMAE/PaymentComplete?selectedItems=' + selectedItemsParam;
+             } else {
+               // 결제 실패 시
+               console.log('결제 실패:', rsp.error_msg);
+               alert('결제에 실패했습니다: ' + rsp.error_msg);
+             }
+           });
+         }
       }
 
       document.addEventListener('DOMContentLoaded', () => {

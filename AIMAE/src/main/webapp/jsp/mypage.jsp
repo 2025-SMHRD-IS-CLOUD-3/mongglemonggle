@@ -5,18 +5,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%
-// 간단한 결제완료 주문 내역 조회
+// 결제완료 주문 내역 조회 (강제 새로고침)
 String userNum = (String) session.getAttribute("userNum");
 System.out.println("=== mypage.jsp 디버깅 ===");
 System.out.println("userNum: " + userNum);
 
 if (userNum != null) {
     com.aimae.model.CartDAO cartDAO = new com.aimae.model.CartDAO();
+    
+    // MyBatis 캐시 클리어
+    cartDAO.getSqlSession().clearCache();
+    
+    // STATUS=1인 상품들 조회
     java.util.List<com.aimae.model.Cart> purchasedCart = cartDAO.selectPurchasedCart(userNum);
     System.out.println("purchasedCart 크기: " + (purchasedCart != null ? purchasedCart.size() : "null"));
+    
     if (purchasedCart != null && !purchasedCart.isEmpty()) {
-        System.out.println("첫 번째 상품: " + purchasedCart.get(0).getPRODUCT_NAME());
+        System.out.println("주문 내역 발견:");
+        for (com.aimae.model.Cart item : purchasedCart) {
+            System.out.println("- " + item.getCART_ID() + ": " + item.getPRODUCT_NAME() + " (STATUS: " + item.getSTATUS() + ")");
+        }
+    } else {
+        System.out.println("주문 내역이 없습니다.");
     }
+    
     request.setAttribute("purchasedCart", purchasedCart);
 } else {
     System.out.println("userNum이 null입니다!");

@@ -138,15 +138,20 @@ function renderResult(res) {
 	                return text.replace(new RegExp(`(.{${maxLength}})`, 'g'), '$1<br>');
 	            }
 
-	        var row = `
-	            <tr>
-	                <td title="${p.PRODUCT_NAME || ''}">
-	                    ${displayName}
-	                </td>
-	                <td>${displayPrice}</td>
-	                <td>${wrapText(p.PRD_INFO, 70)}</td>
-	            </tr>`;
-	        tbody.append(row);
+	            // ✅ REASON 있으면 우선, 없으면 PRD_INFO 사용
+	            var explain = p.REASON && p.REASON.trim() !== ""
+	                ? p.REASON
+	                : p.PRD_INFO;
+
+	            var row = `
+	                <tr>
+	                    <td title="${p.PRODUCT_NAME || ''}">
+	                        ${displayName}
+	                    </td>
+	                    <td>${displayPrice}</td>
+	                    <td>${wrapText(explain, 70)}</td>
+	                </tr>`;
+	            tbody.append(row);  // ✅ 여기까지 수정
 	    });
 	} else {
 		tbody.append(`

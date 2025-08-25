@@ -9,12 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.aimae.model.CartDAO;
 
-/**
- * 장바구니 결제 완료 처리 서블릿
- * - 선택한 상품만 결제완료(STATUS=1)로 변경
- * - 또는 모든 상품을 결제완료로 변경
- * - 결제 완료 후 payment.jsp로 이동
- */
 @WebServlet("/PaymentComplete")
 public class PaymentCompleteService extends HttpServlet {
     
@@ -31,28 +25,27 @@ public class PaymentCompleteService extends HttpServlet {
             return;
         }
         
-        // 3. 결제 방식 확인 (선택한 상품 vs 전체 상품)
-        String paymentType = request.getParameter("paymentType");
-        
-        // 4. 장바구니 DAO 생성
+        // 3. 장바구니 DAO 생성
         CartDAO cartDAO = new CartDAO();
         
         try {
-            if ("all".equals(paymentType)) {
-                // 5-1. 모든 상품을 결제완료로 변경
-                cartDAO.updateAllCartStatus(userNum);
-            } else {
-                // 5-2. 선택한 상품만 결제완료로 변경
-                String[] selectedCartIds = request.getParameterValues("selectedItems");
-                if (selectedCartIds != null) {
-                    for (String cartId : selectedCartIds) {
-                        cartDAO.updateCartStatusById(cartId);
-                    }
+            // 4. 선택된 상품들 처리
+            String selectedItemsParam = request.getParameter("selectedItems");
+            
+            if (selectedItemsParam != null && !selectedItemsParam.isEmpty()) {
+                // 선택된 상품들만 결제완료로 변경
+                String[] selectedCartIds = selectedItemsParam.split(",");
+                
+                for (String cartId : selectedCartIds) {
+                    cartDAO.updateCartStatusById(cartId);
                 }
             }
             
+            // 5. 장바구니 관련 캐시만 클리어
+            session.removeAttribute("latestCartData");
+            
             // 6. 결제 완료 페이지로 이동
-            response.sendRedirect("jsp/payment.jsp");
+            response.sendRedirect("/AIMAE/jsp/payment.jsp");
             
         } catch (Exception e) {
             e.printStackTrace();

@@ -71,13 +71,50 @@ body {
 }
 
 .add-cart {
-    background-color: #FF6347;
-    color: white;
+  background-color: #FF6347;     /* 기본 주황색 */
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;     /* hover 애니메이션 */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* 기본 그림자 */
 }
 
-.buy-now {
-    background-color: #333;
-    color: white;
+.add-cart:hover {
+  background-color: #ff7b5a;     /* hover 시 더 밝은 주황 */
+  transform: translateY(-2px);   /* 살짝 떠오름 */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.add-cart:active {
+  transform: translateY(0);      /* 클릭 시 원위치 */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.now-btn {
+  background-color: #000;        /* 검은색 배경 */
+  color: #fff;                   /* 흰색 글자 */
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;            /* 버튼 여백 */
+  border: none;
+  border-radius: 8px;            /* 모서리 둥글게 */
+  cursor: pointer;
+  transition: all 0.3s ease;     /* hover 애니메이션 */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* 살짝 그림자 */
+}
+
+.now-btn:hover {
+  background-color: #222;        /* hover 시 살짝 밝은 검은색 */
+  transform: translateY(-2px);   /* 살짝 떠오르는 효과 */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.now-btn:active {
+  transform: translateY(0);      /* 클릭 시 원위치 */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
 /* ✅ 반응형 중앙 정렬 */

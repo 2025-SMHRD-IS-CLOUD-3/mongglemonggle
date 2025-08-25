@@ -46,18 +46,26 @@ public class UserDAO {
 	}
 	
 	
-	public UserInfo login(UserInfo loginUser) {
-		
-		SqlSession sqlsession
-		= sqlSessionFactory.openSession(true);
-		
-		UserInfo sUser = sqlsession.selectOne("login", loginUser);
-		
-		sqlsession.close();
-		
-		return sUser;
-		
+//	public UserInfo login(UserInfo loginUser) {
+//		
+//		SqlSession sqlsession
+//		= sqlSessionFactory.openSession(true);
+//		
+//		UserInfo sUser = sqlsession.selectOne("login", loginUser);
+//		
+//		sqlsession.close();
+//		
+//		return sUser;
+//		
+//	}
+	
+	public UserInfo login(String userId) {
+	    SqlSession sqlsession = sqlSessionFactory.openSession(true);
+	    UserInfo sUser = sqlsession.selectOne("com.aimae.util.UserMapper.login", userId);
+	    sqlsession.close();
+	    return sUser;
 	}
+	
 	public int unregister(String userId) {
 		
 		SqlSession sqlsession
@@ -150,5 +158,14 @@ public class UserDAO {
 		return findGrade;
 		
 	}
+	
+	public int updatePassword(UserInfo user) {
+	    SqlSession sqlsession = sqlSessionFactory.openSession(true);
+	    int result = sqlsession.update("com.aimae.util.UserMapper.updatePassword", user);
+	    System.out.println("USER_ID: " + user.getUSER_ID());
+	    sqlsession.close();
+	    return result;
+	}
+
 	
 }

@@ -63,7 +63,7 @@
         <!-- 썸네일 리스트 -->
         <div class="thumbnail-list">
             <img src="${pageContext.request.contextPath}/${product.PHOTO_PATH}" alt="썸네일 1" class="thumbnail active">
-            <img src="../productDetailImage/${product.PRODUCT_ID}_3.jpg" alt="썸네일 2" class="thumbnail">
+            <img src="../productDetailImage/${product.PRODUCT_ID}_2.jpg" alt="썸네일 2" class="thumbnail">
             <img src="../productDetailImage/${product.PRODUCT_ID}_3.jpg" alt="썸네일 3" class="thumbnail">
             <img src="../productDetailImage/${product.PRODUCT_ID}_4.jpg" alt="썸네일 4" class="thumbnail">
         </div>
@@ -105,7 +105,7 @@
             <div class="product-actions">
                 <button class="btn add-cart">장바구니에 담기</button>
                 <!--<button class="btn buy-now">바로 구매</button>   -->
-                <button class="now-btn" onclick="location.href='jsp/orderAction.jsp?productId=${product.PRODUCT_ID}'">바로 구매</button>
+                <button class="now-btn" id="buyNowBtn">바로 구매</button>
             </div>
         </div>
     </div>
@@ -212,6 +212,26 @@
 	  }
 	  boolean isLoggedIn = (userNum != null);
 	%>
+	
+	<script>
+
+	document.addEventListener('DOMContentLoaded', () => {
+		  const buyNowBtn = document.getElementById('buyNowBtn');
+		  if (buyNowBtn) {
+		    buyNowBtn.addEventListener('click', () => {
+		      if (window.IS_LOGGED_IN) {
+		        // 로그인 되어 있으면 결제창 이동
+		        location.href = 'jsp/orderAction.jsp?productId=${product.PRODUCT_ID}';
+		      } else {
+		        // 로그인 안 되어 있으면 로그인 페이지로 이동
+		        alert("로그인이 필요합니다.");
+		        location.href = window.LOGIN_URL;
+		      }
+		    });
+		  }
+		});
+	
+	</script>
 	
 	<script>
 	  // 전역 플래그 & 로그인 URL (컨텍스트패스 안전)
