@@ -92,14 +92,13 @@ pip install -r requirements.txt
 - 📁 **상품 이미지**  
   `productImage` → `webapp/` 폴더에 넣기
 
----
-
 ## ✅ 서버 실행
 ```bash
 python app.py
 ```
 서버가 정상적으로 실행되면 웹 브라우저에서 확인할 수 있습니다 🎉
 
+---
 
 ## ⏳ 프로젝트 기간
 
@@ -259,6 +258,7 @@ AI 분석 (Google Vit Model + GPT4-o)
 
 ```
 ```
+
 
 
 
